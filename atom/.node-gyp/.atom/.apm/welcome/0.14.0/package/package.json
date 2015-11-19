@@ -1,0 +1,13 @@
+{
+  "name": "welcome",
+  "main": "./lib/welcome",
+  "version": "0.14.0",
+  "private": true,
+  "description": "Welcome editor when Atom is opened for the first time",
+  "repository": "https://github.com/atom/welcome",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}
