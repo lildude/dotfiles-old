@@ -1,0 +1,83 @@
+(function() {
+  var FRONT_MATTER_REGEX, FrontMatter, os, yaml;
+
+  os = require("os");
+
+  yaml = require("js-yaml");
+
+  FRONT_MATTER_REGEX = /^(?:---\s*)?([^:]+:[\s\S]*?)---\s*$/m;
+
+  module.exports = FrontMatter = (function() {
+    function FrontMatter(editor) {
+      this.editor = editor;
+      this.content = {};
+      this.leadingFence = true;
+      this.isEmpty = true;
+      this._findFrontMatter((function(_this) {
+        return function(match) {
+          _this.content = yaml.safeLoad(match.match[1].trim());
+          _this.leadingFence = match.matchText.startsWith("---");
+          return _this.isEmpty = false;
+        };
+      })(this));
+    }
+
+    FrontMatter.prototype._findFrontMatter = function(onMatch) {
+      return this.editor.buffer.scan(FRONT_MATTER_REGEX, onMatch);
+    };
+
+    FrontMatter.prototype.normalizeField = function(field) {
+      if (!this.content[field]) {
+        return this.content[field] = [];
+      } else if (typeof this.content[field] === "string") {
+        return this.content[field] = [this.content[field]];
+      } else {
+        return this.content[field];
+      }
+    };
+
+    FrontMatter.prototype.has = function(field) {
+      return this.content[field] != null;
+    };
+
+    FrontMatter.prototype.get = function(field) {
+      return this.content[field];
+    };
+
+    FrontMatter.prototype.set = function(field, content) {
+      return this.content[field] = content;
+    };
+
+    FrontMatter.prototype.setIfExists = function(field, content) {
+      if (this.has(field)) {
+        return this.content[field] = content;
+      }
+    };
+
+    FrontMatter.prototype.getContentText = function() {
+      var text;
+      text = yaml.safeDump(this.content);
+      if (this.leadingFence) {
+        return ["---", "" + text + "---", ""].join(os.EOL);
+      } else {
+        return ["" + text + "---", ""].join(os.EOL);
+      }
+    };
+
+    FrontMatter.prototype.save = function() {
+      return this._findFrontMatter((function(_this) {
+        return function(match) {
+          return match.replace(_this.getContentText());
+        };
+      })(this));
+    };
+
+    return FrontMatter;
+
+  })();
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL1VzZXJzL2xpbGR1ZGUvLmF0b20vcGFja2FnZXMvbWFya2Rvd24td3JpdGVyL2xpYi9mcm9udC1tYXR0ZXIuY29mZmVlIgogIF0sCiAgIm5hbWVzIjogW10sCiAgIm1hcHBpbmdzIjogIkFBQUE7QUFBQSxNQUFBLHlDQUFBOztBQUFBLEVBQUEsRUFBQSxHQUFLLE9BQUEsQ0FBUSxJQUFSLENBQUwsQ0FBQTs7QUFBQSxFQUNBLElBQUEsR0FBTyxPQUFBLENBQVEsU0FBUixDQURQLENBQUE7O0FBQUEsRUFHQSxrQkFBQSxHQUFxQixzQ0FIckIsQ0FBQTs7QUFBQSxFQVlBLE1BQU0sQ0FBQyxPQUFQLEdBQ007QUFDUyxJQUFBLHFCQUFDLE1BQUQsR0FBQTtBQUNYLE1BQUEsSUFBQyxDQUFBLE1BQUQsR0FBVSxNQUFWLENBQUE7QUFBQSxNQUNBLElBQUMsQ0FBQSxPQUFELEdBQVcsRUFEWCxDQUFBO0FBQUEsTUFFQSxJQUFDLENBQUEsWUFBRCxHQUFnQixJQUZoQixDQUFBO0FBQUEsTUFHQSxJQUFDLENBQUEsT0FBRCxHQUFXLElBSFgsQ0FBQTtBQUFBLE1BTUEsSUFBQyxDQUFBLGdCQUFELENBQWtCLENBQUEsU0FBQSxLQUFBLEdBQUE7ZUFBQSxTQUFDLEtBQUQsR0FBQTtBQUNoQixVQUFBLEtBQUMsQ0FBQSxPQUFELEdBQVcsSUFBSSxDQUFDLFFBQUwsQ0FBYyxLQUFLLENBQUMsS0FBTSxDQUFBLENBQUEsQ0FBRSxDQUFDLElBQWYsQ0FBQSxDQUFkLENBQVgsQ0FBQTtBQUFBLFVBQ0EsS0FBQyxDQUFBLFlBQUQsR0FBZ0IsS0FBSyxDQUFDLFNBQVMsQ0FBQyxVQUFoQixDQUEyQixLQUEzQixDQURoQixDQUFBO2lCQUVBLEtBQUMsQ0FBQSxPQUFELEdBQVcsTUFISztRQUFBLEVBQUE7TUFBQSxDQUFBLENBQUEsQ0FBQSxJQUFBLENBQWxCLENBTkEsQ0FEVztJQUFBLENBQWI7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
+
+//# sourceURL=/Users/lildude/.atom/packages/markdown-writer/lib/front-matter.coffee

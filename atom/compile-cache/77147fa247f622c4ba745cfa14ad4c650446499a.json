@@ -1,0 +1,1 @@
+{"context-menu":{"atom-text-editor":[{"label":"Toggle Symbols-Tree-View","command":"symbols-tree-view:toggle"}]},"menu":[{"label":"View","submenu":[{"label":"Toggle Symbols-Tree-View","command":"symbols-tree-view:toggle"}]}]}

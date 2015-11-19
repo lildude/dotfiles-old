@@ -1,0 +1,16 @@
+{
+  "name": "metrics",
+  "main": "./lib/metrics",
+  "version": "0.30.0",
+  "description": "Reports usage information to Google Analytics",
+  "repository": "https://github.com/atom/metrics",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "guid": "0.0.11",
+    "getmac": "~1.0.0",
+    "underscore-plus": "1.x"
+  }
+}

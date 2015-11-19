@@ -1,0 +1,100 @@
+(function() {
+  var $, FrontMatter, PublishDraft, config, fs, path, utils;
+
+  $ = require("atom-space-pen-views").$;
+
+  FrontMatter = require("./front-matter");
+
+  config = require("./config");
+
+  utils = require("./utils");
+
+  fs = require("fs-plus");
+
+  path = require("path");
+
+  module.exports = PublishDraft = (function() {
+    function PublishDraft() {
+      this.editor = atom.workspace.getActiveTextEditor();
+      this.frontMatter = new FrontMatter(this.editor);
+    }
+
+    PublishDraft.prototype.display = function() {
+      this.updateFrontMatter();
+      this.editor.save();
+      this.draftPath = this.editor.getPath();
+      this.postPath = this.getPostPath();
+      if (this.draftPath !== this.postPath) {
+        return this.moveDraft();
+      }
+    };
+
+    PublishDraft.prototype.updateFrontMatter = function() {
+      if (this.frontMatter.isEmpty) {
+        return;
+      }
+      this.frontMatter.setIfExists("published", true);
+      this.frontMatter.setIfExists("date", "" + (utils.getDateStr()) + " " + (utils.getTimeStr()));
+      return this.frontMatter.save();
+    };
+
+    PublishDraft.prototype.moveDraft = function() {
+      var error;
+      try {
+        this.editor.destroy();
+        fs.moveSync(this.draftPath, this.postPath);
+        return atom.workspace.open(this.postPath);
+      } catch (_error) {
+        error = _error;
+        return alert("Error:\n" + error.message);
+      }
+    };
+
+    PublishDraft.prototype.getPostPath = function() {
+      return path.join(this.getPostDir(), this.getPostName());
+    };
+
+    PublishDraft.prototype.getPostDir = function() {
+      var localDir, postsDir;
+      localDir = config.get("siteLocalDir");
+      postsDir = config.get("sitePostsDir");
+      postsDir = utils.dirTemplate(postsDir);
+      return path.join(localDir, postsDir);
+    };
+
+    PublishDraft.prototype.getPostName = function() {
+      var date, info, template;
+      template = config.get("newPostFileName");
+      date = utils.getDate();
+      info = {
+        title: this.getPostTitle(),
+        extension: this.getPostExtension()
+      };
+      return utils.template(template, $.extend(info, date));
+    };
+
+    PublishDraft.prototype.getPostTitle = function() {
+      if (config.get("publishRenameBasedOnTitle")) {
+        return utils.dasherize(this.frontMatter.title);
+      } else {
+        return utils.getTitleSlug(this.draftPath);
+      }
+    };
+
+    PublishDraft.prototype.getPostExtension = function() {
+      var extname;
+      if (config.get("publishKeepFileExtname")) {
+        extname = path.extname(this.draftPath);
+      }
+      return extname || config.get("fileExtension");
+    };
+
+    return PublishDraft;
+
+  })();
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL1VzZXJzL2xpbGR1ZGUvLmF0b20vcGFja2FnZXMvbWFya2Rvd24td3JpdGVyL2xpYi9wdWJsaXNoLWRyYWZ0LmNvZmZlZSIKICBdLAogICJuYW1lcyI6IFtdLAogICJtYXBwaW5ncyI6ICJBQUFBO0FBQUEsTUFBQSxxREFBQTs7QUFBQSxFQUFDLElBQUssT0FBQSxDQUFRLHNCQUFSLEVBQUwsQ0FBRCxDQUFBOztBQUFBLEVBQ0EsV0FBQSxHQUFjLE9BQUEsQ0FBUSxnQkFBUixDQURkLENBQUE7O0FBQUEsRUFFQSxNQUFBLEdBQVMsT0FBQSxDQUFRLFVBQVIsQ0FGVCxDQUFBOztBQUFBLEVBR0EsS0FBQSxHQUFRLE9BQUEsQ0FBUSxTQUFSLENBSFIsQ0FBQTs7QUFBQSxFQUlBLEVBQUEsR0FBSyxPQUFBLENBQVEsU0FBUixDQUpMLENBQUE7O0FBQUEsRUFLQSxJQUFBLEdBQU8sT0FBQSxDQUFRLE1BQVIsQ0FMUCxDQUFBOztBQUFBLEVBT0EsTUFBTSxDQUFDLE9BQVAsR0FDTTtBQUNTLElBQUEsc0JBQUEsR0FBQTtBQUNYLE1BQUEsSUFBQyxDQUFBLE1BQUQsR0FBVSxJQUFJLENBQUMsU0FBUyxDQUFDLG1CQUFmLENBQUEsQ0FBVixDQUFBO0FBQUEsTUFDQSxJQUFDLENBQUEsV0FBRCxHQUFtQixJQUFBLFdBQUEsQ0FBWSxJQUFDLENBQUEsTUFBYixDQURuQixDQURXO0lBQUEsQ0FBYjs7QUFBQSwyQkFJQSxPQUFBLEdBQVMsU0FBQSxHQUFBO0FBQ1AsTUFBQSxJQUFDLENBQUEsaUJBQUQsQ0FBQSxDQUFBLENBQUE7QUFBQSxNQUNBLElBQUMsQ0FBQSxNQUFNLENBQUMsSUFBUixDQUFBLENBREEsQ0FBQTtBQUFBLE1BR0EsSUFBQyxDQUFBLFNBQUQsR0FBYSxJQUFDLENBQUEsTUFBTSxDQUFDLE9BQVIsQ0FBQSxDQUhiLENBQUE7QUFBQSxNQUlBLElBQUMsQ0FBQSxRQUFE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
+
+//# sourceURL=/Users/lildude/.atom/packages/markdown-writer/lib/publish-draft.coffee
