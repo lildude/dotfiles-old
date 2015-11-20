@@ -28,8 +28,8 @@ Temporary Items
 
 ###### Application/directory-specific files to ignore
 # Atom
-.atom/storage/*
-.atom/.node-gyp
-.atom/.apm
-.atom/.npm
-.atom/compile-cache
+atom/storage/*
+atom/.node-gyp
+atom/.apm
+atom/.npm
+atom/compile-cache
