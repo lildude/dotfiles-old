@@ -1,6 +1,0 @@
-language: objective-c
-
-notifications:
-  email: false
-
-script: ./script/cibuild
