@@ -1,0 +1,57 @@
+# There are four different ways to match
+#
+# is:  Match the filename exactly
+#
+# ext: Match the extension of the filename exactly
+#
+# match: Match the filename against a Perl regular expression
+#
+# firstlinematch: Match the first 250 characters of the first line
+#   of text against a Perl regular expression.  This is only for
+#   the --type-add option.
+
+
+### Directories to ignore
+
+# Git
+# http://git-scm.com/
+--ignore-directory=is:.git
+
+# Node modules created by npm
+--ignore-directory=is:node_modules
+
+# Ruby vendored gems
+--ignore-directory=is:vendor
+
+### Files to ignore
+
+# Backup files
+--ignore-file=ext:bak
+--ignore-file=match:/~$/
+
+# Emacs swap files
+--ignore-file=match:/^#.+#$/
+
+# vi/vim swap files http://vim.org/
+--ignore-file=match:/[._].*\.swp$/
+
+# core dumps
+--ignore-file=match:/core\.\d+$/
+
+# minified Javascript
+--ignore-file=match:/[.-]min[.]js$/
+--ignore-file=match:/[.]js[.]min$/
+
+# minified CSS
+--ignore-file=match:/[.]min[.]css$/
+--ignore-file=match:/[.]css[.]min$/
+
+# JS and CSS source maps
+--ignore-file=match:/[.]js[.]map$/
+--ignore-file=match:/[.]css[.]map$/
+
+# PDFs, because they pass Perl's -T detection
+--ignore-file=ext:pdf
+
+# Common graphics, just as an optimization
+--ignore-file=ext:gif,jpg,jpeg,png
