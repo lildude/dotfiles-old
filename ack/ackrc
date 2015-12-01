@@ -10,6 +10,10 @@
 #   of text against a Perl regular expression.  This is only for
 #   the --type-add option.
 
+### General options to override or enforce defaults
+--color
+--pager=less
+
 
 ### Directories to ignore
 
