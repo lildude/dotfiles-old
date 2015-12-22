@@ -4,6 +4,7 @@
     showIndentGuide: true
     invisibles: {}
     softWrap: true
+    tabType: "soft"
   core:
     ignoredNames: [
       ".git"
@@ -15,7 +16,6 @@
       "linter-rubocop"
       "white-cursor"
       "notational-velocity"
-      "language-hyperlink"
     ]
     themes: [
       "atom-dark-ui"
@@ -42,4 +42,8 @@
     hideVcsIgnoredFiles: true
   "terminal-plus":
     core: {}
-    style: {}
+    style:
+      theme: "inverse"
+    toggles:
+      autoClose: true
+      cursorBlink: false
