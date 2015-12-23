@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# This script uses SleepWatcher to run commands when my laptop wakes up.
+# The corresponding ${HOME}/.sleep script executes commands when the laptop goes to sleep.
+#
+# Requires: `brew install sleepwatcher && ln -sfv /usr/local/Cellar/sleepwatcher/2.2/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist`
