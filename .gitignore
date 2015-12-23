@@ -34,3 +34,4 @@ atom/.node-gyp
 atom/.apm
 atom/.npm
 atom/compile-cache
+atom/blob-store
