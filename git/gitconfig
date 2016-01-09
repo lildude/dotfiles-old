@@ -40,10 +40,6 @@
   clean = git media clean %f
   smudge = git media smudge %f
 
-[hub]
-  host = ghe332.vm
-  protocol = https
-
 [diff]
   renames = copies  # Detect copies as well as renames
 
