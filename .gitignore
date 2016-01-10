@@ -28,10 +28,10 @@ Temporary Items
 
 ###### Application/directory-specific files to ignore
 # Atom
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/.node-gyp
-atom.symlink/.apm
-atom.symlink/.npm
-atom.symlink/compile-cache
-atom.symlink/blob-store
+atom/packages
+atom/storage
+atom/.node-gyp
+atom/.apm
+atom/.npm
+atom/compile-cache
+atom/blob-store
