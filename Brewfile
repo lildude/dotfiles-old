@@ -39,8 +39,6 @@ cask 'google-drive'
 cask 'item2'
 cask 'magicprefs'
 cask 'moneydance'
-# cask 'onenote' # Doesn't exist
-# cask 'pixelmator' # Doesn't exist
 cask 'skype'
 cask 'skitch'
 cask 'sketch'
@@ -58,4 +56,8 @@ cask 'virtualbox-extension-pack'
 cask 'viscosity'
 cask 'vmware-fusion'
 cask 'wireshark'
+
+# AppStore Apps that need manual install for the mo.
+# cask 'onenote' # Doesn't exist
+# cask 'pixelmator' # Doesn't exist
 # cask 'wunderlist' # Doesn't exist
