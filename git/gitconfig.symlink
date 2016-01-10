@@ -9,7 +9,7 @@
 
 [user]
   name = Colin Seymour
-  email = colin@github.com
+  email = "(None)"    # Deliberately set to None to force me to do per-repo identification.
 
 [color]
   ui = true   # Cos everyone loves colours
