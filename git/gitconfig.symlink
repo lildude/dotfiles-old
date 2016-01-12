@@ -9,7 +9,7 @@
 
 [user]
   name = Colin Seymour
-  email = "(None)"    # Deliberately set to None to force me to do per-repo identification.
+  email = "colin@github.com"  # TODO: Find a way of automatically setting this just for my ~/github/* repos.
 
 [color]
   ui = true   # Cos everyone loves colours
