@@ -13,12 +13,10 @@ These are my dotfiles.  I've borrowed many ideas from many different locations t
 # Instructions
 
 ```
-git clone git@github.com:lildude/dotfiles.git
-cd dotfiles
+git clone --recusive git@github.com:lildude/dotfiles.git .dotfiles
+cd .dotfiles
 script/bootstrap
-script/install
 ```
-
 
 ## Atom
 ### Prerequisites
