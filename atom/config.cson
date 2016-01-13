@@ -16,7 +16,6 @@
       "linter-rubocop"
       "white-cursor"
       "notational-velocity"
-      "linter-shellcheck"
     ]
     themes: [
       "atom-dark-ui"
@@ -48,6 +47,3 @@
     toggles:
       autoClose: true
       cursorBlink: false
-  "linter-shellcheck":
-    enableNotice: true
-    shellcheckExecutablePath: "/usr/local/bin/shellcheck"
