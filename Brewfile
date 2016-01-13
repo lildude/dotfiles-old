@@ -4,7 +4,7 @@ tap 'homebrew/bundle'
 brew 'ack'
 brew 'awscli'
 brew 'base64'
-
+brew 'bfg'
 brew 'checkbashisms'
 brew 'dos2unix'
 brew 'git'
