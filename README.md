@@ -1,6 +1,6 @@
 # lildude's dotfiles
 
-These are my dotfiles.  They're probably of no interest to anyone else but me, but bunging them into a repo makes life so much easier.
+These are my dotfiles.  I've borrowed many ideas from many different locations to create my ideal setup.
 
 ## Contents
 
@@ -12,6 +12,11 @@ These are my dotfiles.  They're probably of no interest to anyone else but me, b
 
 # Instructions
 
+```
+git clone --recusive git@github.com:lildude/dotfiles.git .dotfiles
+cd .dotfiles
+script/bootstrap
+```
 
 ## Atom
 ### Prerequisites

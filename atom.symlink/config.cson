@@ -16,6 +16,7 @@
       "linter-rubocop"
       "white-cursor"
       "notational-velocity"
+      "linter-shellcheck"
       "language-hyperlink"
     ]
     themes: [

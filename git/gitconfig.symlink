@@ -1,0 +1,58 @@
+[credential]
+  helper = osxkeychain
+
+[core]
+  editor = vim          # Change to 'atom --wait' if feeling bold.
+  trustctime = false    # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+  excludesfile = ~/.gitignore  # Exclude everything this file. Used for general exclusions.
+  attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
+
+[user]
+  name = Colin Seymour
+  email = "colin@github.com"  # TODO: Find a way of automatically setting this just for my ~/github/* repos.
+
+[github]
+  user = lildude
+
+[color]
+  ui = true   # Cos everyone loves colours
+
+[help]
+  autocorrect = 1   # Autocorrect mistyped commands.
+
+[alias]
+  st = status
+  rem = remote -v
+  co = checkout
+  lg = log --graph --pretty=oneline --abbrev-commit --decorate
+  cob = checkout -b
+  up = pull --rebase --prune
+  b = branch
+
+[gist]
+  browse = true  # Open GitHub Gist in browser after submission.
+
+[fetch]
+  prune = 1  # Always prune when fetching (and pulling).
+
+[push]
+  default = matching
+
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+
+[diff]
+  renames = copies  # Detect copies as well as renames
+
+[http]
+  sslVerify = true
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+
+[archive]
+  restrictRemote = false
