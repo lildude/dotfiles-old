@@ -1,5 +1,6 @@
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
+cask 'java'   # Needs to be first so dependents can be installed.
 
 brew 'ack'
 brew 'awscli'
