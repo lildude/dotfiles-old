@@ -137,8 +137,7 @@ install_dotfiles () {
   done
 }
 
-link_downloads_to_tmp() {
-
+create_my_std_dirs() {
   if [ ! -L ~/tmp ]; then
     info 'Linking ~/Downloads to ~/tmp'
     ln -s Downloads tmp
@@ -148,11 +147,16 @@ link_downloads_to_tmp() {
     info 'Creating ~/tmp/trash'
     mkdir ~/tmp/trash
   fi
+
+  if [ ! -d ~/Development ]; then
+    info 'Creating ~/Development'
+    mkdir ~/Development
+  fi
 }
 
 setup_gitconfig
 install_dotfiles
-link_downloads_to_tmp
+create_my_std_dirs
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
