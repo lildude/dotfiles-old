@@ -215,6 +215,7 @@ defaults write NSGlobalDomain AppleLanguages -array "en"
 defaults write NSGlobalDomain AppleLocale -string "en_GB"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
+defaulte write NSGlobalDomain AppleICUNumberSymbols -dict 1 ' ' 17 ' '
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 # CNS: Set to London
@@ -226,6 +227,9 @@ sudo systemsetup -settimezone "Europe/London" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+# CNS: Set keyboard to British
+defaults write com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID -string "com.apple.keylayout.British"
 
 ###############################################################################
 # Screen                                                                      #
