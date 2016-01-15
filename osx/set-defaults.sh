@@ -31,10 +31,10 @@ sudo pmset -a standbydelay 43200
 
 # Menu bar: hide the Time Machine, Volume, and User icons
 # CNS: Only hide the User icon.
+#"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+#"/System/Library/CoreServices/Menu Extras/Volume.menu" \
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
   defaults write "${domain}" dontAutoLoad -array \
-    #"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    #"/System/Library/CoreServices/Menu Extras/Volume.menu" \
     "/System/Library/CoreServices/Menu Extras/User.menu"
 done
 defaults write com.apple.systemuiserver menuExtras -array \
@@ -436,7 +436,7 @@ defaults write com.apple.dock showhidden -bool true
 #defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
 # CNS: Set dock magnification
-default write com.apple.doc magnification -float 1
+defaults write com.apple.doc magnification -float 1
 
 # Reset Launchpad, but keep the desktop wallpaper intact
 # CNS: Not sure what this does so commenting out
