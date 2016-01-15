@@ -19,6 +19,7 @@ brew 'p7zip'
 brew 's3cmd'
 brew 'sleepwatcher'
 brew 'tmux'
+brew 'xz'
 brew 'zsh'
 
 cask 'alfred'
