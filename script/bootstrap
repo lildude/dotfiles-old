@@ -140,7 +140,7 @@ install_dotfiles () {
 create_my_std_dirs() {
   if [ ! -L ~/tmp ]; then
     info 'Linking ~/Downloads to ~/tmp'
-    ln -s Downloads tmp
+    ln -s ~/Downloads ~/tmp
   fi
 
   if [ ! -d ~/tmp/trash ]; then
