@@ -9,7 +9,7 @@
 
 [user]
   name = Colin Seymour
-  email = "colin@github.com"  # TODO: Find a way of automatically setting this just for my ~/github/* repos.
+  email = "lildood@gmail.com"  # TODO: Create a script to set this based on repo.
 
 [github]
   user = lildude
