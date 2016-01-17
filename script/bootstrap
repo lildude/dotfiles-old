@@ -154,4 +154,4 @@ then
 fi
 
 echo ''
-echo '  All installed!'
+success '  All installed!'
