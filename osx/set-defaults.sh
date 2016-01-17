@@ -150,7 +150,7 @@ defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 # CNS: Show battery percent in menu bar
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-success
+
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -175,7 +175,7 @@ setting "SSD-specific tweaks"
 # Disable the sudden motion sensor as it’s not useful for SSDs
 sudo pmset -a sms 0
 
-success
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -242,7 +242,7 @@ sudo systemsetup -settimezone "Europe/London" > /dev/null
 
 # CNS: Set keyboard to British
 defaults write com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID -string "com.apple.keylayout.British"
-success
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -265,7 +265,7 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
-success
+
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
@@ -399,7 +399,7 @@ defaults write com.apple.finder SidebarTagsSctionDisclosedState -int 0
 
 # CNS: Enable Text Selection in Quick Look Windows
 defaults write com.apple.finder QLEnableTextSelection -bool true
-success
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
@@ -506,7 +506,7 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Start screen saver
 #defaults write com.apple.dock wvous-bl-corner -int 5
 #defaults write com.apple.dock wvous-bl-modifier -int 0
-success
+
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
@@ -561,7 +561,7 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 # CNS: Disable Java
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
-success
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
@@ -588,7 +588,7 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 # Disable automatic spell checking
 defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
 
-success
+
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
@@ -637,7 +637,7 @@ killall mds > /dev/null 2>&1
 sudo mdutil -i on / > /dev/null
 # Rebuild the index from scratch
 sudo mdutil -E / > /dev/null
-success
+
 ###############################################################################
 # Terminal                                                                    #
 ###############################################################################
@@ -697,7 +697,7 @@ defaults write com.apple.terminal StringEncodings -array 4
 # i.e. hover over a window and start typing in it without clicking first
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
-success
+
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
@@ -708,7 +708,7 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Disable local Time Machine backups
 # CNS: Keeping this as it's useful and I have 1TB of disk space the play with
 #hash tmutil &> /dev/null && sudo tmutil disablelocal
-success
+
 ###############################################################################
 # Activity Monitor                                                            #
 ###############################################################################
@@ -726,7 +726,7 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Sort Activity Monitor results by CPU usage
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
-success
+
 ###############################################################################
 # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
 ###############################################################################
@@ -749,7 +749,7 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # Enable the debug menu in Disk Utility
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
-success
+
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
@@ -759,7 +759,7 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
 # Enable Debug Menu in the Mac App Store
 defaults write com.apple.appstore ShowDebugMenu -bool true
-success
+
 ###############################################################################
 # Messages                                                                    #
 ###############################################################################
@@ -774,7 +774,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Disable continuous spell checking
 # CNS: I like good spelling. Commenting out
 #defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-success
+
 ###############################################################################
 # Google Chrome & Google Chrome Canary                                        #
 ###############################################################################
@@ -799,7 +799,7 @@ defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 # Expand the print dialog by default
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
-success
+
 ###############################################################################
 # Transmission.app                                                            #
 ###############################################################################
@@ -819,7 +819,7 @@ defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
-success
+
 ###############################################################################
 # Archive utility                                                             #
 ###############################################################################
@@ -828,7 +828,7 @@ setting "Archive utility"
 # Delete directly: "/dev/null"
 # Leave alone (default) "."
 defaults write com.apple.archiveutility dearchive-move-after -string "~/.Trash"
-success
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
