@@ -19,3 +19,7 @@ fail () {
   echo ''
   exit 1
 }
+
+setting() {
+  printf "  [ \033[00;32m⚙\033[0m ] %s\n" "$1"
+}
