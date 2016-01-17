@@ -145,7 +145,7 @@ create_my_std_dirs
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "Installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
+  if source bin/dot | tee /tmp/dotfiles-dot 2>&1
   then
     success "Dependencies installed"
   else
