@@ -215,7 +215,7 @@ defaults write NSGlobalDomain AppleLanguages -array "en"
 defaults write NSGlobalDomain AppleLocale -string "en_GB"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
-defaulte write NSGlobalDomain AppleICUNumberSymbols -dict 1 ' ' 17 ' '
+defaults write NSGlobalDomain AppleICUNumberSymbols -dict 1 ' ' 17 ' '
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 # CNS: Set to London
