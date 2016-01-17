@@ -17,7 +17,9 @@ fi
 info "Installing ZSH rc files"
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  if [ ! -L "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]; then
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  fi
 done
 
 info "Changing default shell to zsh"
