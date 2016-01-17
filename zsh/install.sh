@@ -9,7 +9,7 @@ info "Downloading prezto"
 git clone --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 else
   info "Updating .zpreto from fork on GitHub"
-  cd ${HOME}/.zpreto
+  cd ${HOME}/.zprezto
   git pull
   cd ${HOME}
 fi
