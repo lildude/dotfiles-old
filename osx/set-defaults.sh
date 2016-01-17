@@ -832,7 +832,7 @@ defaults read com.runningwithcrayons.Alfred-Preferences syncfolder
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-	"Safari" "SystemUIServer" "Terminal" "Transmission" "iCal" "Alfred 2"; do
+	"Safari" "SystemUIServer" "Transmission" "iCal" "Alfred 2"; do
 	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
