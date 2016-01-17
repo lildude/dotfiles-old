@@ -7,9 +7,10 @@
 export ZSH=$HOME/.dotfiles
 
 # Set OS X defaults
+echo "› Setting OSX default"
 $ZSH/osx/set-defaults.sh
 
-# Install homebrew
+# Install homebrew if not installed
 $ZSH/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
