@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 #
 # Download my .zprezto repo and set it up
 export ZSH=$HOME/.dotfiles
