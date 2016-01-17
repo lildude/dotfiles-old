@@ -815,12 +815,6 @@ defaults write org.m0k.transmission WarningDonate -bool false
 defaults write org.m0k.transmission WarningLegal -bool false
 
 ###############################################################################
-# Alfred 2                                                                    #
-###############################################################################
-# CNS: Set pref's sync folder
-defaults read com.runningwithcrayons.Alfred-Preferences syncfolder
-
-###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
