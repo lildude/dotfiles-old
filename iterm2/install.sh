@@ -8,5 +8,8 @@
 # CNS: This is my custom theme - I've change the highlight color to blue so I can see what I've highlighted
 open "${HOME}/.dotfiles/iterm2/Custom-Solarized-Dark.itermcolors"
 
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+# Load/save settings from/to Dropbox
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/lildude/Dropbox/App Prefs"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+# Don't hit tab bar
