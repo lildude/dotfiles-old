@@ -4,10 +4,12 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
+export ZSH=$HOME/.dotfiles
+source $ZSH/bin/lib.sh
 
 # Check for Homebrew
 if test ! $(which brew); then
-  echo "› Installing Homebrew for you."
+  info "Installing Homebrew for you."
 
   # Install the correct homebrew for each OS type
   if test "$(uname)" = "Darwin"
