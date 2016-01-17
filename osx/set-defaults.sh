@@ -838,4 +838,4 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Safari" "SystemUIServer" "Transmission" "iCal" "Alfred 2"; do
 	killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+success "Done. Note that some of these changes require a logout/restart to take effect."
