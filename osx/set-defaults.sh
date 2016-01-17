@@ -51,9 +51,8 @@ defaults write com.apple.systemuiserver menuExtras -array \
 # CNS: I like the default size so commenting out
 #defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-# Always show scrollbars
-# CNS: I like the default so commenting out
-#defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# Show scrollbars when scrolling
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Disable smooth scrolling
@@ -91,11 +90,10 @@ defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
-# CNS: Keep default behaviour
-#defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Disable the crash reporter
-#defaults write com.apple.CrashReporter DialogType -string "none"
+defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Set Help Viewer windows to non-floating mode
 # CNS: Keep default behaviour
@@ -140,6 +138,16 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 #rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
+
+# CNS: Set powerchime when connecting power cord ala iOS
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
+
+# CNS: Enable dark menu bar
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# CNS: Show battery percent in menu bar
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -193,11 +201,10 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
-# CNS: Keep defaults so commenting out
-#defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-#defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 # Follow the keyboard focus while zoomed in
-#defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Disable press-and-hold for keys in favor of key repeat
 # CNS: Keep defaults so commenting out
@@ -215,6 +222,7 @@ defaults write NSGlobalDomain AppleLanguages -array "en"
 defaults write NSGlobalDomain AppleLocale -string "en_GB"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
+# Sets a space thousands separator
 defaults write NSGlobalDomain AppleICUNumberSymbols -dict 1 ' ' 17 ' '
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
@@ -240,7 +248,6 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots
-# CNS: Save to ~/Downloads which is just a tmp dir for me
 defaults write com.apple.screencapture location -string "${HOME}/Downloads"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
@@ -250,12 +257,10 @@ defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
 
 # Enable subpixel font rendering on non-Apple LCDs
-# CNS: Keeping default so commenting out
-#defaults write NSGlobalDomain AppleFontSmoothing -int 2
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 # Enable HiDPI display modes (requires restart)
-# CNS: Keeping default so commenting out
-#sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
 ###############################################################################
 # Finder                                                                      #
@@ -275,11 +280,10 @@ defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Downloads/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
-# CNS: Disable those I don't want
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
 # Finder: show hidden files by default
 #defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -387,6 +391,12 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 #defaults write com.apple.sidebarlists systemitems -dict-add ShowServers -bool true
 #defaults write com.apple.sidebarlists systemitems -dict-add ShowHardDisks -bool true
 
+# CNS Hide tags in Finder sidebar
+defaults write com.apple.finder SidebarTagsSctionDisclosedState -int 0
+
+# CNS: Enable Text Selection in Quick Look Windows
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
@@ -416,6 +426,9 @@ defaults write com.apple.dock show-process-indicators -bool true
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
 #defaults write com.apple.dock persistent-apps -array
+
+# CNS: Only show running apps in dock
+#defaults write com.apple.dock static-only -bool TRUE; killall Dock
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
@@ -490,18 +503,6 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Start screen saver
 #defaults write com.apple.dock wvous-bl-corner -int 5
 #defaults write com.apple.dock wvous-bl-modifier -int 0
-
-# CNS: Set powerchime when connecting power cord ala iOS
-defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
-
-# CNS: Enable dark menu bar
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
-
-# CNS: Enable Text Selection in Quick Look Windows
-defaults write com.apple.finder QLEnableTextSelection -bool true
-
-# CNS: Show battery percent in menu bar
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -813,6 +814,15 @@ defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
+
+###############################################################################
+# Archive utility                                                             #
+###############################################################################
+
+# Move archive files to trash after expansion
+# Delete directly: "/dev/null"
+# Leave alone (default) "."
+defaults write com.apple.archiveutility dearchive-move-after -string "~/.Trash"
 
 ###############################################################################
 # Kill affected applications                                                  #
