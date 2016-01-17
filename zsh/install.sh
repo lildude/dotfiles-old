@@ -4,8 +4,15 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
+if [ ! -d ${HOME}/.zprezto ]; then
 info "Downloading prezto"
 git clone --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+else
+  info "Updating .zpreto from fork on GitHub"
+  cd ${HOME}/.zpreto
+  git pull
+  cd ${HOME}
+fi
 
 info "Installing ZSH rc files"
 setopt EXTENDED_GLOB
