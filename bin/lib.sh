@@ -23,3 +23,15 @@ fail () {
 setting() {
   printf "  [ \033[00;35m⚙\033[0m ] %s\n" "$1"
 }
+
+# paste following in your script
+declare -a Spinner
+
+spinner=(/ - \\ \| / - \\ \| )
+spinnerpos=0
+
+update_spinner()
+{
+    printf "\b"${spinner[$spinnerpos]}
+    (( Spinnerpos=(Spinnerpos +1)%8 ))
+}
