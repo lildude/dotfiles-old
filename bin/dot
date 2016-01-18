@@ -7,10 +7,6 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-# Set OS X defaults
-info "Setting OSX defaults"
-$ZSH/osx/set-defaults.sh
-
 # Install homebrew if not installed
 $ZSH/homebrew/install.sh 2>&1
 
@@ -21,3 +17,7 @@ brew update
 # Install software
 info "$ZSH/script/install"
 $ZSH/script/install
+
+# Set OS X defaults
+info "Setting OSX defaults"
+$ZSH/osx/set-defaults.sh
