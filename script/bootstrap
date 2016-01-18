@@ -121,22 +121,22 @@ install_dotfiles () {
 create_my_std_dirs() {
   cd ${HOME}
   if [ ! -L ~/tmp ]; then
-    info 'Linking ~/Downloads to ~/tmp'
-    ln -s Downloads tmp
+    msg='Linked ~/Downloads to ~/tmp'
+    ln -s Downloads tmp && success $msg || fail $msg
   else
     success "Skipped ~/tmp already a symlink"
   fi
 
   if [ ! -d ~/tmp/trash ]; then
-    info 'Creating ~/tmp/trash'
-    mkdir ~/tmp/trash
+    msg='Created ~/tmp/trash'
+    mkdir ~/tmp/trash && success $msg || fail $msg
   else
     success "Skipped ~/tmp/trash already exists"
   fi
 
   if [ ! -d ~/Development ]; then
-    info 'Creating ~/Development'
-    mkdir ~/Development
+    msg='Created ~/Development'
+    mkdir ~/Development && success $msg || fail $msg
   else
     success "Skipped ~/Development already exists"
   fi
