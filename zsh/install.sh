@@ -22,5 +22,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
   fi
 done
 
-info "Changing default shell to zsh"
-chsh -s /usr/local/bin/zsh
+if [ "$(dscl . -read /Users/$USER UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
+  info "Changing default shell to zsh"
+  chsh -s /usr/local/bin/zsh
+fi
