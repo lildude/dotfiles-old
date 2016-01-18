@@ -639,9 +639,9 @@ sudo mdutil -i on / > /dev/null
 sudo mdutil -E / > /dev/null
 
 ###############################################################################
-# Terminal                                                                    #
+# Terminal & iTerm2                                                           #
 ###############################################################################
-setting "Terminal"
+setting "Terminal & iTerm2"
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
@@ -697,6 +697,14 @@ defaults write com.apple.terminal StringEncodings -array 4
 # i.e. hover over a window and start typing in it without clicking first
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
+
+# Install the Solarized Dark theme for iTerm
+# CNS: This is my custom theme - I've change the highlight color to blue so I can see what I've highlighted
+open "${HOME}/.dotfiles/iterm2/Custom-Solarized-Dark.itermcolors"
+
+# Load/save settings from/to Dropbox
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/lildude/Dropbox/App Prefs"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 ###############################################################################
 # Time Machine                                                                #
