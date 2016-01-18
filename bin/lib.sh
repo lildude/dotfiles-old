@@ -23,18 +23,3 @@ fail () {
 setting() {
   printf "  [ \033[00;35m⚙\033[0m ] %s\n" "$1"
 }
-
-spinner()
-{
-    local pid=$1
-    local delay=0.75
-    local spinstr='|/-\'
-    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf "  [ \033[00;35m%c\033[0m ]  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b\b\b\b"
-    done
-    printf "    \b\b\b\b"
-}
