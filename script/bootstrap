@@ -121,19 +121,26 @@ install_dotfiles () {
 }
 
 create_my_std_dirs() {
+  cd ${HOME}
   if [ ! -L ~/tmp ]; then
     info 'Linking ~/Downloads to ~/tmp'
-    ln -s ~/Downloads ~/tmp
+    ln -s Downloads tmp
+  else
+    success "Skipped ~/tmp already a symlink"
   fi
 
   if [ ! -d ~/tmp/trash ]; then
     info 'Creating ~/tmp/trash'
     mkdir ~/tmp/trash
+  else
+    success "Skipped ~/tmp/trash already exists"
   fi
 
   if [ ! -d ~/Development ]; then
     info 'Creating ~/Development'
     mkdir ~/Development
+  else
+    success "Skipped ~/Development already exists"
   fi
 }
 
@@ -142,11 +149,9 @@ install_dotfiles
 create_my_std_dirs
 
 # If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
-then
+if [ "$(uname -s)" == "Darwin" ]; then
   info "Installing dependencies"
-  if source bin/dot | tee /tmp/dotfiles-dot 2>&1
-  then
+  if [ while $(source bin/dot > /tmp/dotfiles-dot 2>&1); do update_spinner; sleep 1; done ]; then
     success "Dependencies installed"
   else
     fail "Error installing dependencies"
