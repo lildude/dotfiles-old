@@ -150,8 +150,7 @@ create_my_std_dirs
 if [ "$(uname -s)" == "Darwin" ]; then
   info "Installing dependencies..."
   (source $DOTFILES_ROOT/bin/dot > /tmp/dotfiles-dot 2>&1) &
-  spinner $!
-  #  success "Dependencies installed"
+  spinner $! && success "Dependencies installed"
   #else
   #  fail "Error installing dependencies"
   #fi
