@@ -6,11 +6,11 @@ source $ZSH/bin/lib.sh
 
 if [ ! -d ${HOME}/.zprezto ]; then
 info "Downloading prezto"
-git clone --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+git clone -q --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 else
   info "Updating .zpreto from fork on GitHub"
   cd ${HOME}/.zprezto
-  git pull
+  git pull -q
   cd ${HOME}
 fi
 
