@@ -9,9 +9,9 @@ export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
 # Run Homebrew through the Brewfile
-info "› brew bundle"
+info "brew bundle"
 brew bundle
 
 # find the installers and run them iteratively
-info "› Running dotfiles installers"
+info "Running dotfiles installers"
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
