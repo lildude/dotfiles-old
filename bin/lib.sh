@@ -6,6 +6,10 @@ info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
+infon () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1 "
+}
+
 user () {
   printf "\r  [ \033[0;33m??\033[0m ] $1\n"
 }
@@ -33,5 +37,20 @@ spinnerpos=0
 update_spinner()
 {
     printf "\b"${spinner[$spinnerpos]}
-    (( Spinnerpos=(Spinnerpos +1)%8 ))
+    (( spinnerpos=(spinnerpos +1)%8 ))
+}
+
+spinner()
+{
+    local pid=$1
+    local delay=0.75
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
 }

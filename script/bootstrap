@@ -150,8 +150,9 @@ create_my_std_dirs
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]; then
-  info "Installing dependencies"
-  if [ while $(source bin/dot > /tmp/dotfiles-dot 2>&1); do update_spinner; sleep 1; done ]; then
+  infon "Installing dependencies..."
+  source bin/dot > /tmp/dotfiles-dot 2>&1;
+  if spinner $!; then
     success "Dependencies installed"
   else
     fail "Error installing dependencies"
