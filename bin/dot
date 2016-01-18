@@ -10,9 +10,18 @@ source $ZSH/bin/lib.sh
 # Install homebrew if not installed
 $ZSH/homebrew/install.sh 2>&1
 
-# Upgrade homebrew
-info "brew update"
-brew update
+# Update homebrew
+brew update && success "Brew formulae updated" || fail "Brew formulae updated"
+
+# Upgrade homebrew pkgs
+if [ $(brew outdate | wc -l) > 0 ]; then
+  brew upgrade && success "Upgraded brew packages" || fail "Upgrade brew packages"
+fi
+
+# Clean up
+if [ $(brew cleanup -n 2> /dev/null | wc -l) > 0 ]; then
+  brew cleanup && success "Brew cleaned up" || fail "Brew clean up"
+fi
 
 # Install software
 info "$ZSH/script/install"
