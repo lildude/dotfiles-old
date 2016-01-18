@@ -24,8 +24,8 @@ done
 
 if [ "$(dscl . -read /Users/$USER UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
   info "Changing default shell to zsh"
-  if ! chsh -s /usr/local/bin/zsh; then
-    sudo echo '/usr/local/bin/zsh' >> /etc/shells
-    chsh -s /usr/local/bin/zsh
+  if ! grep -q /usr/local/bin/zsh /etc/shells; then
+    echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
   fi
+  chsh -s /usr/local/bin/zsh
 fi
