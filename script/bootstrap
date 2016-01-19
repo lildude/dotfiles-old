@@ -149,7 +149,7 @@ create_my_std_dirs
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]; then
   info "Installing dependencies..."
-  if source $DOTFILES_ROOT/bin/dot > /tmp/dotfiles-dot 2>&1; then
+  if source $DOTFILES_ROOT/bin/dot | tee /tmp/dotfiles-dot 2>&1; then
     success "Dependencies installed"
   else
     fail "Error installing dependencies"
