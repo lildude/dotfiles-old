@@ -38,7 +38,7 @@ apm install --packages-file ~/.atom/package-list.txt
 If you add or update an Atom package, update the `package-list.txt` file:
 
 ```
-apm list --installed --bare | egrep -v "language-coffee-script|metrics" > ~/.atom/package-list.txt
+apm list --installed --bare | egrep -v "language-coffee-script|metrics|welcome" > ~/.atom/package-list.txt
 ```
 
-We deliberately exclude `language-coffee-script` and `metrics` as they're bundled with Atom.
+We deliberately exclude `language-coffee-script`, `metrics` and `welcome` as they're bundled with Atom.

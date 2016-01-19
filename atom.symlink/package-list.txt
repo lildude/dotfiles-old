@@ -14,4 +14,3 @@ symbols-tree-view@0.10.1
 terminal-plus@0.14.3
 toggle-quotes@1.0.0
 visual-bell@1.0.0
-welcome@0.33.0
