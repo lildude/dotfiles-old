@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
+tap 'caskroom/fonts'
 cask 'java'   # Needs to be first so dependents can be installed.
 
 brew 'ack'
