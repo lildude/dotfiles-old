@@ -270,6 +270,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 # Finder                                                                      #
 ###############################################################################
 setting "Finder"
+
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 # CNS: Keeping default so commenting out
 #defaults write com.apple.finder QuitMenuItem -bool true
@@ -333,6 +334,10 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # CNS: Hide tags in sidebar - not sure this works.
 defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool false
+
+# Open TextEdit.app briefly so the file diaglog is opened at least once. This
+# allows us to set the FK_StandardViewSettings without any errors.
+open /Applications/TextEdit.app && sleep 2 && killall TextEdit
 
 # Show item info near icons on the desktop and in other icon views
 # The FK_StandardViewSettings may report an "Does Not Exist" error until a file
