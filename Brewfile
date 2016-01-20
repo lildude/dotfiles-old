@@ -25,6 +25,7 @@ brew 'tmux'
 brew 'xz'
 brew 'zsh'
 
+cask '1password'
 cask 'alfred'
 cask 'apache-directory-studio'
 cask 'appcleaner'
