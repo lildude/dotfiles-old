@@ -38,3 +38,5 @@ atom.symlink/blob-store
 
 # All directories under rbenv
 rbenv.symlink/*/
+rbenv.symlink/version
+!rbenv.symlink/default-gems
