@@ -35,3 +35,6 @@ atom.symlink/.apm
 atom.symlink/.npm
 atom.symlink/compile-cache
 atom.symlink/blob-store
+
+# All directories under rbenv
+rbenv/*/
