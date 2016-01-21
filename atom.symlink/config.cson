@@ -1,16 +1,5 @@
 "*":
-  editor:
-    showInvisibles: true
-    showIndentGuide: true
-    invisibles: {}
-    softWrap: true
-    tabType: "soft"
   core:
-    ignoredNames: [
-      ".git"
-      ".svn"
-      ".DS_Store"
-    ]
     disabledPackages: [
       "file-type-icons"
       "linter-rubocop"
@@ -19,29 +8,36 @@
       "linter-shellcheck"
       "language-hyperlink"
     ]
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
+    ]
     themes: [
       "atom-dark-ui"
       "atom-dark-syntax"
     ]
-  welcome:
-    showOnStartup: false
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabType: "soft"
   "exception-reporting":
     userId: "5eb658cf-90a1-36a3-4ccb-234f0621f498"
+  linter: {}
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
+  "notational-velocity":
+    directory: "/Users/lildude/Dropbox/notebook"
+  "release-notes":
+    viewedVersion: "0.95.0"
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
-  "release-notes":
-    viewedVersion: "0.95.0"
-  linter: {}
-  "notational-velocity":
-    directory: "/Users/lildude/Dropbox/notebook"
-  "tree-view":
-    hideVcsIgnoredFiles: true
   "terminal-plus":
     core: {}
     style:
@@ -49,3 +45,7 @@
     toggles:
       autoClose: true
       cursorBlink: false
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
