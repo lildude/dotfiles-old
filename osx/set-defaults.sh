@@ -97,6 +97,9 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType -string "none"
 
+# Send crash reporter notifications to the notification center
+#defaults write com.apple.CrashReporter UseUNC 1
+
 # Set Help Viewer windows to non-floating mode
 # CNS: Keep default behaviour
 # defaults write com.apple.helpviewer DevMode -bool true
@@ -832,6 +835,12 @@ defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
+
+###############################################################################
+# Photos.app                                                                  #
+###############################################################################
+# Prevent Photos.app opening when connecting device
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 ###############################################################################
 # Archive utility                                                             #
