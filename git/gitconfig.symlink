@@ -9,7 +9,7 @@
 
 [user]
   name = Colin Seymour
-  email = "lildood@gmail.com"  # TODO: Create a script to set this based on repo.
+	email = colin@github.com
 
 [github]
   user = lildude

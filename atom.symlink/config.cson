@@ -1,4 +1,6 @@
 "*":
+  "base16-syntax":
+    scheme: "Tomorrow"
   core:
     disabledPackages: [
       "file-type-icons"
