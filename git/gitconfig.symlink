@@ -56,3 +56,6 @@
 
 [archive]
   restrictRemote = false
+
+[commit]
+  gpgSign = true
