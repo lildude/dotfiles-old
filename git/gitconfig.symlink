@@ -26,11 +26,11 @@
   co = checkout
   lg = log --graph --pretty=oneline --abbrev-commit --decorate
   cob = checkout -b
-  up = pull --rebase --prune
+  up = !git checkout master && git pull --rebase --prune
   b = branch
   # OSX's xargs doesn't support -r so install GNU xargs from `findutils` with homebrew
   # Remove all local branches that were tracking remote branches that have been deleted.
-  up2 = !git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | gxargs -r git branch -d
+  up2 = !git checkout master && git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | gxargs -r git branch -d
 
 
 [gist]
