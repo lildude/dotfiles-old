@@ -28,6 +28,10 @@
   cob = checkout -b
   up = pull --rebase --prune
   b = branch
+  # OSX's xargs doesn't support -r so install GNU xargs from `findutils` with homebrew
+  # Remove all local branches that were tracking remote branches that have been deleted.
+  up2 = !git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | gxargs -r git branch -d
+
 
 [gist]
   browse = true  # Open GitHub Gist in browser after submission.
