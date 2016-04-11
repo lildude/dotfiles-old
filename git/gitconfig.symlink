@@ -10,6 +10,7 @@
 [user]
   name = Colin Seymour
 	email = lildood@gmail.com
+  signingkey = lildood@gmail.com
 
 [github]
   user = lildude
