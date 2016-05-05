@@ -24,28 +24,28 @@
 
 Maid.rules do
   #
-	# Update all our Applications, brew, oh my zsh and such
-	#
-	rule 'Updating Brew' do
-		`brew update`
-	end
-	rule 'Updating Brews' do
-		`brew upgrade -all`
-	end
-	rule 'Cleaning Brew' do
-		`brew cleanup`
-	end
-	rule 'Cleaning Brew Cask' do
-		`brew cask cleanup`
-	end
-	rule 'Updating Cask Appliactions' do
-		`brew cask update`
-	end
-	rule 'Updating gems ' do
-		`gem update`
-	end
+  # Update all our Applications etc
+  #
+  rule 'Updating Brew' do
+    `brew update` unless @file_options[:noop]
+  end
+  rule 'Updating Brews' do
+    `brew upgrade -all` unless @file_options[:noop]
+  end
+  rule 'Cleaning Brew' do
+    `brew cleanup` unless @file_options[:noop]
+  end
+  rule 'Cleaning Brew Cask' do
+    `brew cask cleanup` unless @file_options[:noop]
+  end
+  rule 'Updating Cask Appliactions' do
+    `brew cask update` unless @file_options[:noop]
+  end
+  rule 'Updating gems ' do
+    `gem update` unless @file_options[:noop]
+  end
   rule 'Clean up gems' do
-    `gem cleanup`
+    `gem cleanup` unless @file_options[:noop]
   end
 
 
