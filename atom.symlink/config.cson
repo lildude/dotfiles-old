@@ -1,4 +1,6 @@
 "*":
+  "atom-beautify":
+    _analyticsUserId: "9bcec154-9a6f-4217-89eb-8b975e4da0d6"
   "base16-syntax":
     scheme: "Tomorrow"
   core:
@@ -8,7 +10,13 @@
       "white-cursor"
       "notational-velocity"
       "linter-shellcheck"
-      "language-hyperlink"
+      "atom-beautify"
+      "color-picker"
+      "language-puppet"
+      "markdown-writer"
+      "remote-edit"
+      "terminal-plus"
+      "symbols-tree-view"
     ]
     ignoredNames: [
       ".git"
@@ -27,6 +35,11 @@
     tabType: "soft"
   "exception-reporting":
     userId: "5eb658cf-90a1-36a3-4ccb-234f0621f498"
+  "file-icons":
+    coloured: false
+    onChanges: true
+  "git-plus":
+    splitPane: "Down"
   linter: {}
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
