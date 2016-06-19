@@ -1,6 +1,35 @@
 /* Disable coloured file-icons icons */
 @import "packages/file-icons/features/no-colours";
 
+/* Over-write styles with my own prefs.
+ * 7 Jun '16: I like the Atom One Dark Syntax theme, just not the background,
+ * gutter or line selection so I'm overriding these with the colours from the
+ * Atom Dark Syntax theme.
+ */
+@syntax-background-color: #1d1f21;
+@syntax-gutter-background-color: lighten(@syntax-background-color, 5%);
+@syntax-gutter-background-color-selected: rgba(255, 255, 255, 0.14);
+
+/* Apply these customisations _only_ to the Atom One Dark syntax theme */
+.theme-one-dark-syntax atom-text-editor, .theme-one-dark-syntax atom-text-editor::shadow {
+  background-color: @syntax-background-color;
+  .line.cursor-line {
+    background-color: @syntax-background-color;
+  }
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+  }
+  .gutter .line-number {
+    color: #c5c8c6;
+  }
+  .gutter .cursor-line {
+    background-color: @syntax-gutter-background-color-selected;
+  }
+  .line-number.cursor-line-no-selection {
+    background-color: @syntax-gutter-background-color-selected;
+  }
+}
+
 /* Style line length colour for commit messages */
 .editor .git-commit.line-too-long.deprecated {
   color: orange;
