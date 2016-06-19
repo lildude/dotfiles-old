@@ -17,6 +17,7 @@
       "remote-edit"
       "terminal-plus"
       "symbols-tree-view"
+      "activate-power-mode"
     ]
     ignoredNames: [
       ".git"
@@ -25,7 +26,7 @@
     ]
     themes: [
       "atom-dark-ui"
-      "atom-dark-syntax"
+      "one-dark-syntax"
     ]
   editor:
     invisibles: {}
@@ -43,7 +44,7 @@
   linter: {}
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
-  "notational-velocity":
+  nvatom:
     directory: "/Users/lildude/Dropbox/notebook"
   "release-notes":
     viewedVersion: "0.95.0"
