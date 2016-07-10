@@ -41,7 +41,7 @@
   prune = 1  # Always prune when fetching (and pulling).
 
 [push]
-  default = current
+  default = current # Default: simple
 
 [filter "media"]
   required = true
