@@ -74,6 +74,7 @@ cask 'vagrant-manager'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'viscosity'
+cask 'vlc'
 cask 'vmware-fusion'
 cask 'wireshark'
 
