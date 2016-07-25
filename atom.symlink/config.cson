@@ -1,6 +1,8 @@
 "*":
   "atom-beautify":
     _analyticsUserId: "9bcec154-9a6f-4217-89eb-8b975e4da0d6"
+  autosave:
+    enabled: true
   "base16-syntax":
     scheme: "Tomorrow"
   core:
@@ -9,8 +11,6 @@
       "linter-rubocop"
       "white-cursor"
       "notational-velocity"
-      "linter-shellcheck"
-      "atom-beautify"
       "color-picker"
       "language-puppet"
       "markdown-writer"
@@ -18,6 +18,17 @@
       "terminal-plus"
       "symbols-tree-view"
       "activate-power-mode"
+      "language-c"
+      "language-clojure"
+      "language-csharp"
+      "language-java"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-toml"
+      "welcome"
+      "split-diff"
+      "language-shellscript"
     ]
     ignoredNames: [
       ".git"
@@ -42,6 +53,9 @@
   "git-plus":
     splitPane: "Down"
   linter: {}
+  "linter-shellcheck":
+    enableNotice: true
+    userParameters: "-x -e SC2046"
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
   nvatom:
