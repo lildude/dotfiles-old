@@ -27,6 +27,9 @@ sudo pmset -a standbydelay 43200
 # CNS: Keep the sound so commenting out
 #sudo nvram SystemAudioVolume=" "
 
+# Disable the Screenshot and Empty Trash sound effects
+defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
+
 # Disable transparency in the menu bar and elsewhere on Yosemite
 # CNS: Keeps the transparency so commenting out.
 #defaults write com.apple.universalaccess reduceTransparency -bool true
