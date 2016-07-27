@@ -47,6 +47,12 @@ Maid.rules do
   rule 'Clean up gems' do
     `gem cleanup` unless @file_options[:noop]
   end
+  rule 'Updating Atom packages' do
+    `apm upgrade` unless @file_options[:noop]
+  end
+  rule 'Updating Atom packages list' do
+    `apm list --installed --bare | egrep -v "language-coffee-script|metrics|welcome" > ~/.atom/package-list.txt` unless @file_options[:noop]
+  end
 
 
   # Move trash files to trash after 2 weeks
