@@ -40,3 +40,6 @@ atom.symlink/blob-store
 rbenv.symlink/*/
 rbenv.symlink/version
 !rbenv.symlink/default-gems
+
+# Maid log file
+maid.symlink/maid.log
