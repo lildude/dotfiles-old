@@ -28,7 +28,6 @@
       "language-toml"
       "welcome"
       "split-diff"
-      "language-shellscript"
     ]
     ignoredNames: [
       ".git"
