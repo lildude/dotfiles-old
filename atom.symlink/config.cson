@@ -54,7 +54,7 @@
   linter: {}
   "linter-shellcheck":
     enableNotice: true
-    userParameters: "-x -e SC2046"
+    userParameters: "-x -e SC2046,SC1090"
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
   nvatom:
