@@ -28,6 +28,7 @@
       "language-toml"
       "welcome"
       "split-diff"
+      "linter-shellcheck"
     ]
     ignoredNames: [
       ".git"
