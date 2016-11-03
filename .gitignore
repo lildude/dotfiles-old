@@ -43,3 +43,6 @@ rbenv.symlink/version
 
 # Maid log file
 maid.symlink/maid.log
+
+# Heroku
+heroku.symlink/analytics.json
