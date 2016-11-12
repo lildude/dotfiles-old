@@ -8,8 +8,8 @@
   attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
 
 [user]
-  name = Colin Seymour
-	email = lildood@gmail.com
+	name = Colin Seymour
+	email = colin@github.com
   signingkey = lildood@gmail.com
 
 [github]
@@ -23,7 +23,7 @@
 
 [alias]
   branch-name = "!git rev-parse --abbrev-ref HEAD"  # Get branch. Used by other aliases.
-  st = status
+  st = "status --short --branch"
   rem = remote -v
   co = checkout
   #lg = log --graph --pretty=oneline --abbrev-commit --decorate
