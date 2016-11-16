@@ -17,6 +17,28 @@
 
 [color]
   ui = true   # Cos everyone loves colours
+  branch = auto
+	diff = auto
+  status = auto
+
+# Supported colors: normal, black, red, green, yellow, blue, magenta, cyan, or white
+# Supported effects: bold, dim, ul (underline), blink, and reverse (swap foreground and background)
+[color "branch"]
+  #current = green # Default: green
+  #local = yellow
+  #remote = green
+
+[color "diff"]
+  meta = yellow # Default: unset
+  frag = magenta bold # Default: unset - Appears as purple on my current customised Solarized iTerm2 theme.
+  old = red # Default: red
+  new = green # Default: green
+  whitespace = red reverse # Default: unset - Protects me from committin ws changes
+
+[color "status"]
+  added = green # Default: green
+  changed = red # Default: red
+  untracked = magenta bold  # Default: red - Appears as purple on my current customised Solarized iTerm2 theme.
 
 [help]
   autocorrect = 1   # Autocorrect mistyped commands.
