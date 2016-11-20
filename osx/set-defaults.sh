@@ -24,14 +24,12 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 sudo pmset -a standbydelay 43200
 
 # Disable the sound effects on boot
-# CNS: Keep the sound so commenting out
 #sudo nvram SystemAudioVolume=" "
 
 # Disable the Screenshot and Empty Trash sound effects
 defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
-# CNS: Keeps the transparency so commenting out.
 #defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Menu bar: hide the Time Machine, Volume, and User icons
@@ -49,11 +47,9 @@ defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Set highlight color to green
-# CNS: I like the default blue so commenting out
 #defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Set sidebar icon size to medium
-# CNS: I like the default size so commenting out
 #defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Show scrollbars when scrolling
@@ -104,7 +100,6 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 #defaults write com.apple.CrashReporter UseUNC 1
 
 # Set Help Viewer windows to non-floating mode
-# CNS: Keep default behaviour
 # defaults write com.apple.helpviewer DevMode -bool true
 
 # Fix for the ancient UTF-8 bug in QuickLook (https://mths.be/bbo)
@@ -132,7 +127,6 @@ sudo systemsetup -setcomputersleep 1 > /dev/null
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
-# CNS: Keep default so comment out
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 # Disable smart quotes as they’re annoying when typing code
@@ -163,14 +157,11 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 ###############################################################################
 setting "SSD-specific tweaks"
 # Disable local Time Machine snapshots
-# CNS: Keep default so commenting out
 #sudo tmutil disablelocal
 
 # Disable hibernation (speeds up entering sleep mode)
-# CNS: Keep default so commenting out
 #sudo pmset -a hibernatemode 0
 
-# CNS: Keep default so comment out all three
 # Remove the sleep image file to save disk space
 #sudo rm /private/var/vm/sleepimage
 # Create a zero-byte file instead…
@@ -187,13 +178,11 @@ sudo pmset -a sms 0
 ###############################################################################
 setting "Trackpad, mouse, keyboard, Bluetooth accessories, and input"
 # Trackpad: enable tap to click for this user and for the login screen
-# CNS: Keeps defaults so commenting out
 #defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 #defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 #defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-# CNS: Keeps defaults so commenting out
 #defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 #defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 #defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
@@ -217,11 +206,9 @@ defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Disable press-and-hold for keys in favor of key repeat
-# CNS: Keep defaults so commenting out
 #defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-# CNS: Keep defaults so commenting out
 #defaults write NSGlobalDomain KeyRepeat -int 0
 
 # Set language and text formats
@@ -236,11 +223,9 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 defaults write NSGlobalDomain AppleICUNumberSymbols -dict 1 ' ' 17 ' '
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-# CNS: Set to London
 sudo systemsetup -settimezone "Europe/London" > /dev/null
 
 # Disable auto-correct
-# CNS: Keeping default as I'm lazy
 #defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Stop iTunes from responding to the keyboard media keys
@@ -278,7 +263,6 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 setting "Finder"
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-# CNS: Keeping default so commenting out
 #defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
@@ -333,7 +317,6 @@ defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # Automatically open a new Finder window when a volume is mounted
-# CNS: Keeping defaults so commenting out
 #defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 #defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 #defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
@@ -388,7 +371,6 @@ sudo nvram boot-args="mbasd=1"
 chflags nohidden ~/Library
 
 # Remove Dropbox’s green checkmark icons in Finder
-# CNS: I like to know things are in sync. Keeping by commenting out.
 #file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 #[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 
@@ -423,14 +405,12 @@ defaults write com.apple.dock mouse-over-hilite-stack -bool true
 defaults write com.apple.dock tilesize -int 32
 
 # Change minimize/maximize window effect
-# CNS: Keeping defaults so commenting out
 #defaults write com.apple.dock mineffect -string "scale"
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool false
 
 # Enable spring loading for all Dock items
-# CNS: Keeping defaults so commenting out.
 #defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
 # Show indicator lights for open applications in the Dock
@@ -534,7 +514,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # Set Safari’s home page to `about:blank` for faster loading
-# CNS: Keeping defaults so commenting out.
 #defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
@@ -736,7 +715,6 @@ setting "Activity Monitor"
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
 # Visualize CPU usage in the Activity Monitor Dock icon
-# CNS: Keeping defaults to commenting out
 #defaults write com.apple.ActivityMonitor IconType -int 5
 
 # Show all processes in Activity Monitor
@@ -784,14 +762,12 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 ###############################################################################
 setting "Messages"
 # Disable automatic emoji substitution (i.e. use plain text smileys)
-# CNS: I like the default so commenting out
 #defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
 # Disable continuous spell checking
-# CNS: I like good spelling. Commenting out
 #defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
@@ -799,7 +775,6 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 setting "Google Chrome & Google Chrome Canary"
 # Allow installing user scripts via GitHub Gist or Userscripts.org
-# CNS: Don't use so commenting out
 #defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
 #defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
 
