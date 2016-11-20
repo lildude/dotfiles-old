@@ -2,21 +2,17 @@
 
 These are my dotfiles.  I've borrowed many ideas from many different locations to create my ideal setup.
 
-## Contents
-
-* script/bootstrap -
-* private - this is a submodule to my private dotfiles stored in a private repo
-* todo - config file for [todo.txt](http://todotxt.com/)
-* vim - vim config files
-* atom - [atom](http://atom.io) config files.
-
 # Instructions
 
 ```
-git clone --recusive git@github.com:lildude/dotfiles.git .dotfiles
+git clone --recursive git@github.com:lildude/dotfiles.git .dotfiles
 cd .dotfiles
 script/bootstrap
 ```
+
+---
+
+# ANO Notes
 
 ## Atom
 ### Prerequisites
@@ -38,7 +34,7 @@ apm install --packages-file ~/.atom/package-list.txt
 If you add or update an Atom package, update the `package-list.txt` file:
 
 ```
-apm list --installed --bare | egrep -v "language-coffee-script|metrics|welcome" > ~/.atom/package-list.txt
+apm list --installed --bare > ~/.atom/package-list.txt
 ```
 
-We deliberately exclude `language-coffee-script`, `metrics` and `welcome` as they're bundled with Atom.
+Running `.dotfiles/bin/dot` will also update this list.
