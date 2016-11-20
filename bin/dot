@@ -31,4 +31,8 @@ if [ "$(uname -s)" == "Darwin" ]; then
   # Set OS X defaults
   info "Setting OSX defaults"
   $ZSH/osx/set-defaults.sh
+
+  # Update list of Atom packages
+  info "Updating Atom package list"
+  apm list --installed --bare > ~/.atom/package-list.txt
 fi
