@@ -7,7 +7,7 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-if [ "$(uname -s)" == "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
   # Check for Homebrew
   if [ ! $(which brew) ]; then
     info "Installing Homebrew for you."
@@ -21,4 +21,5 @@ if [ "$(uname -s)" == "Darwin" ]; then
 
   fi
 fi
+
 exit 0

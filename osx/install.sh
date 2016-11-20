@@ -6,5 +6,7 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-info "sudo softwareupdate -i -a"
-sudo softwareupdate -i -a
+if [ "$(uname -s)" = "Darwin" ]; then
+  info "sudo softwareupdate -i -a"
+  sudo softwareupdate -i -a
+fi
