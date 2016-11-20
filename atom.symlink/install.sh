@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
