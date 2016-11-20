@@ -128,7 +128,7 @@ create_my_std_dirs() {
     else
       success "Skipped ~/$dir already exists"
     fi
-  fi
+  done
 }
 
 setup_gitconfig
