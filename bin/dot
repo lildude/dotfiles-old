@@ -7,26 +7,28 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-# Install homebrew if not installed
-$ZSH/homebrew/install.sh 2>&1
+if [ "$(uname -s)" == "Darwin" ]; then
+  # Install homebrew if not installed
+  $ZSH/homebrew/install.sh 2>&1
 
-# Update homebrew
-brew update && success "Brew formulae updated" || fail "Brew formulae updated"
+  # Update homebrew
+  brew update && success "Brew formulae updated" || fail "Brew formulae updated"
 
-# Upgrade homebrew pkgs
-if [ $(brew outdated | wc -l) -gt 0 ]; then
-  brew upgrade && success "Upgraded brew packages" || fail "Upgrade brew packages"
+  # Upgrade homebrew pkgs
+  if [ $(brew outdated | wc -l) -gt 0 ]; then
+    brew upgrade && success "Upgraded brew packages" || fail "Upgrade brew packages"
+  fi
+
+  # Clean up
+  if [ $(brew cleanup -n 2> /dev/null | wc -l) -gt 0 ]; then
+    brew cleanup && success "Brew cleaned up" || fail "Brew clean up"
+  fi
+
+  # Install software
+  info "$ZSH/script/install"
+  $ZSH/script/install
+
+  # Set OS X defaults
+  info "Setting OSX defaults"
+  $ZSH/osx/set-defaults.sh
 fi
-
-# Clean up
-if [ $(brew cleanup -n 2> /dev/null | wc -l) -gt 0 ]; then
-  brew cleanup && success "Brew cleaned up" || fail "Brew clean up"
-fi
-
-# Install software
-info "$ZSH/script/install"
-$ZSH/script/install
-
-# Set OS X defaults
-info "Setting OSX defaults"
-$ZSH/osx/set-defaults.sh
