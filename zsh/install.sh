@@ -5,8 +5,8 @@ export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
 if [ ! -d ${HOME}/.zprezto ]; then
-info "Downloading prezto"
-git clone -q --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  info "Downloading prezto"
+  git clone -q --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 else
   info "Updating .zpreto from fork on GitHub"
   cd ${HOME}/.zprezto
@@ -22,10 +22,14 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
   fi
 done
 
-if [ "$(dscl . -read /Users/$USER UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
-  info "Changing default shell to zsh"
-  if ! grep -q /usr/local/bin/zsh /etc/shells; then
-    echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
+if [ "$(uname -s)" == "Darwin" ]; then
+  if [ "$(dscl . -read /Users/$USER UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
+    info "Changing default shell to zsh"
+    if ! grep -q /usr/local/bin/zsh /etc/shells; then
+      echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
+    fi
+    chsh -s /usr/local/bin/zsh
   fi
-  chsh -s /usr/local/bin/zsh
+else
+  chsh -s /bin/zsh
 fi
