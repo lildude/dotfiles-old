@@ -7,7 +7,7 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-if [ "$(uname -s)" == "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
   # Install homebrew if not installed
   $ZSH/homebrew/install.sh 2>&1
 
@@ -23,16 +23,20 @@ if [ "$(uname -s)" == "Darwin" ]; then
   if [ $(brew cleanup -n 2> /dev/null | wc -l) -gt 0 ]; then
     brew cleanup && success "Brew cleaned up" || fail "Brew clean up"
   fi
+fi
 
-  # Install software
-  info "$ZSH/script/install"
-  $ZSH/script/install
+# Install software
+info "$ZSH/script/install"
+$ZSH/script/install
 
+if [ "$(uname -s)" = "Darwin" ]; then
   # Set OS X defaults
   info "Setting OSX defaults"
   $ZSH/osx/set-defaults.sh
+fi
 
-  # Update list of Atom packages
+# Update list of Atom packages
+if [ $(which apm) ]; then
   info "Updating Atom package list"
   apm list --installed --bare > ~/.atom/package-list.txt
 fi

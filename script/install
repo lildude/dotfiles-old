@@ -8,9 +8,11 @@ cd "$(dirname $0)"/..
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-# Run Homebrew through the Brewfile
-info "brew bundle"
-brew bundle
+if [ "$(uname -s)" = "Darwin" ]; then
+  # Run Homebrew through the Brewfile
+  info "brew bundle"
+  brew bundle
+fi
 
 # find the installers and run them iteratively
 info "Running dotfiles installers"

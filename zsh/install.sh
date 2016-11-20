@@ -22,7 +22,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
   fi
 done
 
-if [ "$(uname -s)" == "Darwin" ]; then
+if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(dscl . -read /Users/$USER UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
     info "Changing default shell to zsh"
     if ! grep -q /usr/local/bin/zsh /etc/shells; then
@@ -31,5 +31,5 @@ if [ "$(uname -s)" == "Darwin" ]; then
     chsh -s /usr/local/bin/zsh
   fi
 else
-  chsh -s /bin/zsh
+  sudo chsh -s /bin/zsh lildude
 fi
