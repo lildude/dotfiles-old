@@ -108,25 +108,26 @@ install_dotfiles () {
 
 create_my_std_dirs() {
   cd ${HOME}
-  if [ ! -L ~/tmp ]; then
-    msg='Linked ~/Downloads to ~/tmp'
-    ln -s Downloads tmp && success $msg || fail $msg
+  local dirs="bin tmp/trash Development"
+
+  if [ -d ~/Downloads ]; then
+    if [ ! -L ~/tmp ]; then
+      msg='Linked ~/Downloads to ~/tmp'
+      ln -s Downloads tmp && success $msg || fail $msg
+    else
+      success "Skipped ~/tmp already a symlink"
+    fi
   else
-    success "Skipped ~/tmp already a symlink"
+    dirs="tmp $dirs"
   fi
 
-  if [ ! -d ~/tmp/trash ]; then
-    msg='Created ~/tmp/trash'
-    mkdir ~/tmp/trash && success $msg || fail $msg
-  else
-    success "Skipped ~/tmp/trash already exists"
-  fi
-
-  if [ ! -d ~/Development ]; then
-    msg='Created ~/Development'
-    mkdir ~/Development && success $msg || fail $msg
-  else
-    success "Skipped ~/Development already exists"
+  for dir in $dirs; do
+    if [ ! -d ~/$dir ]; then
+      msg="Created ~/$dir"
+      mkdir ~/$dir && success $msg || fail $msg
+    else
+      success "Skipped ~/$dir already exists"
+    fi
   fi
 }
 
