@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'caskroom/fonts'
+tap 'shopify/shopify' # Needed for toxiproxy
 cask 'java'   # Needs to be first so dependents can be installed.
 
 brew 'ack'
@@ -38,6 +39,7 @@ brew 'shellcheck'
 brew 'sleepwatcher'
 brew 'speedtest-cli'
 brew 'tmux'
+brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
 brew 'xz'
 brew 'zsh'
 brew 'zsh-completions'
