@@ -63,8 +63,7 @@
   b = branch
   # OSX's xargs doesn't support -r so install GNU xargs from `findutils` with homebrew
   # Remove all local branches that were tracking remote branches that have been deleted.
-  # Ensure you have an `alias gxargs=xargs` on Linux platforms.
-  up = !git checkout master && git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | gxargs -r git branch -d
+  up = !git checkout master && git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | $(which gxargs xargs | grep -v \"not found\" | head -1) -r git branch -d
   janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
 
 
