@@ -6,7 +6,8 @@
   trustctime = false    # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
   excludesfile = ~/.gitignore  # Exclude everything this file. Used for general exclusions.
   attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
-  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r
+  # Use the diff-highlighter, if it's available.
+  pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r || less -r"
 
 [user]
 	name = Colin Seymour
@@ -62,6 +63,7 @@
   b = branch
   # OSX's xargs doesn't support -r so install GNU xargs from `findutils` with homebrew
   # Remove all local branches that were tracking remote branches that have been deleted.
+  # Ensure you have an `alias gxargs=xargs` on Linux platforms.
   up = !git checkout master && git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | gxargs -r git branch -d
   janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
 
