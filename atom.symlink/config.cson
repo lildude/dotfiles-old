@@ -1,6 +1,8 @@
 "*":
   "atom-beautify":
     _analyticsUserId: "9bcec154-9a6f-4217-89eb-8b975e4da0d6"
+    general:
+      _analyticsUserId: "2ee99915-6bfc-4e96-aca8-f60071a8cd72"
   autosave:
     enabled: true
   "base16-syntax":
