@@ -10,8 +10,8 @@
   pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r || less -r"
 
 [user]
-	name = Colin Seymour
-	email = colin@github.com
+  name = Colin Seymour
+  email = lildood@gmail.com
   signingkey = lildood@gmail.com
 
 [github]
@@ -20,7 +20,7 @@
 [color]
   ui = always   # Cos everyone loves colours
   branch = auto
-	diff = auto
+  diff = auto
   status = auto
 
 # Supported colors: normal, black, red, green, yellow, blue, magenta, cyan, or white
