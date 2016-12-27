@@ -27,6 +27,7 @@
       "language-toml"
       "welcome"
       "linter-shellcheck"
+      "minimap"
     ]
     ignoredNames: [
       ".git"
