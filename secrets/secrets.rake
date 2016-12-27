@@ -8,15 +8,23 @@ require 'fileutils'
 FILES = {
   "ssh" => {
     local: "~/.ssh",
-    glob:  %w[authorized_keys config* *rsa*]
+    glob:  %w[authorized_keys config* *rsa* *dsa* *.pem]
   },
-  "gh_ssh" => {
-    local: "~/GitHub/.ssh",
-    glob:  "*"
+  "gnupg" => {
+    local: "~/.gnupg",
+    glob:  "%w[*.conf *.gpg private-keys* RevCerts]"
   },
   "secret" => {
     local: "~/.dotfiles/secret",
     glob:  "**/*"
+  },
+  "aws" => {
+    local: "~/.aws",
+    glob: "**/*"
+  },
+  "netrc" => {
+    local: "~/",
+    glob: "\.netrc"
   }
 }
 
