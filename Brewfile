@@ -5,7 +5,6 @@ tap 'caskroom/fonts'
 tap 'shopify/shopify' # Needed for toxiproxy
 cask 'java'   # Needs to be first so dependents can be installed.
 
-brew 'ack'
 brew 'autossh'
 brew 'awscli'
 brew 'base64'
@@ -38,6 +37,7 @@ brew 's3cmd'
 brew 'shellcheck'
 brew 'sleepwatcher'
 brew 'speedtest-cli'
+brew 'the_silver_searcher' # ag, a faster ack
 brew 'tmux'
 brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
 brew 'xz'
