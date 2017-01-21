@@ -1,5 +1,5 @@
 /* Disable coloured file-icons icons */
-@import "packages/file-icons/features/no-colours";
+//@import "packages/file-icons/features/no-colours";
 
 /* Over-write styles with my own prefs.
  * 7 Jun '16: I like the Atom One Dark Syntax theme, just not the background,
@@ -11,7 +11,7 @@
 @syntax-gutter-background-color-selected: rgba(255, 255, 255, 0.14);
 
 /* Apply these customisations _only_ to the Atom One Dark syntax theme */
-.theme-one-dark-syntax atom-text-editor, .theme-one-dark-syntax atom-text-editor::shadow {
+.theme-one-dark-syntax atom-text-editor {
   background-color: @syntax-background-color;
   .line.cursor-line {
     background-color: @syntax-background-color;
@@ -27,6 +27,13 @@
   }
   .line-number.cursor-line-no-selection {
     background-color: @syntax-gutter-background-color-selected;
+  }
+  /* Markdown improvements */
+  .markup {
+    &.strike {
+      text-decoration: line-through;
+      color: #5c6370;
+    }
   }
 }
 
