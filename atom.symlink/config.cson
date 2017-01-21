@@ -6,7 +6,7 @@
   autosave:
     enabled: true
   "base16-syntax":
-    scheme: "Tomorrow"
+    scheme: "Yesterday"
   core:
     disabledPackages: [
       "file-type-icons"
@@ -27,7 +27,8 @@
       "language-toml"
       "welcome"
       "linter-shellcheck"
-      "minimap"
+      "editorconfig"
+      "github"
     ]
     ignoredNames: [
       ".git"
@@ -51,10 +52,13 @@
     onChanges: true
   "git-plus":
     splitPane: "Down"
+  "language-markdown": {}
   linter: {}
   "linter-shellcheck":
     enableNotice: true
     userParameters: "-x -e SC2046,SC1090"
+  "linter-write-good":
+    severityLevel: "Info"
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
   nvatom:

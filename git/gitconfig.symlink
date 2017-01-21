@@ -103,5 +103,5 @@
 [commit]
   gpgSign = true
 
-[branch]
-  autosetupmerge = always
+#[branch]
+#  autosetupmerge = always

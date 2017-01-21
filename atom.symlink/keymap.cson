@@ -11,3 +11,6 @@
 # 'body':
 #   'ctrl-P': 'core:move-up'
 #   'ctrl-p': 'core:move-down'
+
+'atom-workspace atom-text-editor:not(.mini)':
+  'ctrl-d': 'toggle-markdown-task:toggle'
