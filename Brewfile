@@ -47,6 +47,7 @@ brew 'zsh-completions'
 
 cask '1password'
 cask 'alfred'
+cask 'amazon-music'
 cask 'apache-directory-studio'
 cask 'appcleaner'
 cask 'atom'
