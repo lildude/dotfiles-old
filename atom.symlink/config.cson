@@ -3,10 +3,11 @@
     _analyticsUserId: "9bcec154-9a6f-4217-89eb-8b975e4da0d6"
     general:
       _analyticsUserId: "2ee99915-6bfc-4e96-aca8-f60071a8cd72"
+    python: {}
   autosave:
     enabled: true
   "base16-syntax":
-    scheme: "Yesterday"
+    scheme: "Monokai"
   core:
     disabledPackages: [
       "file-type-icons"
@@ -16,7 +17,6 @@
       "color-picker"
       "language-puppet"
       "remote-edit"
-      "terminal-plus"
       "symbols-tree-view"
       "activate-power-mode"
       "language-clojure"
@@ -27,7 +27,6 @@
       "language-toml"
       "welcome"
       "linter-shellcheck"
-      "editorconfig"
     ]
     ignoredNames: [
       ".git"
@@ -51,17 +50,22 @@
     onChanges: true
   "git-plus":
     splitPane: "Down"
+  "isotope-ui":
+    customBackgroundColorPicker: "#212121"
   "language-markdown": {}
   linter: {}
   "linter-shellcheck":
     enableNotice: true
     userParameters: "-x -e SC2046,SC1090"
+  "linter-ui-default": {}
   "linter-write-good":
     severityLevel: "Info"
   metrics:
     userId: "cfec7940-c340-6a9f-4655-647e38c19564"
   nvatom:
     directory: "/Users/lildude/Dropbox/notebook"
+  "one-dark-ui":
+    layoutMode: "Compact"
   "release-notes":
     viewedVersion: "0.95.0"
   "spell-check":
