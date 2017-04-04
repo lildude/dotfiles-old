@@ -14,3 +14,6 @@
 
 'atom-workspace atom-text-editor:not(.mini)':
   'ctrl-d': 'toggle-markdown-task:toggle'
+  # Stop accidentally killing Atom when I really want to close the tab
+  'cmd-q': 'core:save'
+  'cmd-q cmd-q': 'application:quit'
