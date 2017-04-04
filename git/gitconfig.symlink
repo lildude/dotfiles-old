@@ -106,3 +106,6 @@
 
 #[branch]
 #  autosetupmerge = always
+
+[gpg]
+  program = gpg2
