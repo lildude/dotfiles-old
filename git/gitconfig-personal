@@ -2,4 +2,4 @@
 name = Colin Seymour
 email = lildood@gmail.com
 # ID taken from `gpg --list-keys` - more accurate than using emails.
-signingkey = EA92DE7B4E2FF7562D8DE92E88109C73073E7080
+signingkey = 88109C73073E7080
