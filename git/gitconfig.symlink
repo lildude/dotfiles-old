@@ -17,6 +17,10 @@
 #  signingkey = lildood@gmail.com
 # Using conditional includes for user info instead.
 # NB: Order is important.
+[user]
+# ID taken from `gpg --list-keys` - more accurate than using emails.
+signingkey = 88109C73073E7080
+
 [includeIf "gitdir:~/"]
   path = ~/.dotfiles/git/gitconfig-personal
 [includeIf "gitdir:~/github/"]
