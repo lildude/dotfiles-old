@@ -11,16 +11,18 @@
   # Don't prompt for commit messages for merge commits.
   mergeoptions = --no-edit
 
-#[user]
-#  name = Colin Seymour
-#  email = lildood@gmail.com
-#  signingkey = lildood@gmail.com
+[user]
+  name = Colin Seymour
+  email = lildood@gmail.com
+  signingkey = lildood@gmail.com
+
+# 22 May: Commented out as Atom doesn't pick up the content of these files.
 # Using conditional includes for user info instead.
 # NB: Order is important.
-[includeIf "gitdir:~/"]
-  path = ~/.dotfiles/git/gitconfig-personal
-[includeIf "gitdir:~/github/"]
-  path = ~/.dotfiles/git/gitconfig-github
+#[includeIf "gitdir:~/"]
+#  path = ~/.dotfiles/git/gitconfig-personal
+#[includeIf "gitdir:~/github/"]
+#  path = ~/.dotfiles/git/gitconfig-github
 
 [github]
   user = lildude
