@@ -57,7 +57,8 @@
   "linter-shellcheck":
     enableNotice: true
     userParameters: "-x -e SC2046,SC1090"
-  "linter-ui-default": {}
+  "linter-ui-default":
+    panelHeight: 81
   "linter-write-good":
     severityLevel: "Info"
   metrics:
