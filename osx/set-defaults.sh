@@ -234,6 +234,12 @@ sudo systemsetup -settimezone "Europe/London" > /dev/null
 # CNS: Set keyboard to British
 defaults write com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID -string "com.apple.keylayout.British"
 
+# Automatically illuminate built-in MacBook keyboard in low light
+defaults write com.apple.BezelServices kDim -bool true
+
+# Turn off keyboard illumination when computer is not used for 5 minutes\n"
+defaults write com.apple.BezelServices kDimTime -int 300
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -369,6 +375,9 @@ sudo nvram boot-args="mbasd=1"
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Hide the Game Centre
+chflags hidden /Applications/game\ center.app
 
 # Remove Dropbox’s green checkmark icons in Finder
 #file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
