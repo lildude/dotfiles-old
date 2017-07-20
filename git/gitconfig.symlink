@@ -117,3 +117,5 @@
 
 [gpg]
   program = gpg2
+
+# vim: set ft=gitconfig
