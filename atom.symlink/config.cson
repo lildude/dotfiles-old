@@ -27,6 +27,8 @@
       "language-toml"
       "welcome"
       "linter-shellcheck"
+      "cson"
+      "merge-conflicts"
     ]
     ignoredNames: [
       ".git"
@@ -80,8 +82,7 @@
     ]
   "terminal-plus":
     core: {}
-    style:
-      theme: "inverse"
+    style: {}
     toggles:
       autoClose: true
       cursorBlink: false
