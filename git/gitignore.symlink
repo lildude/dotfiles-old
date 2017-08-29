@@ -22,3 +22,6 @@ ehthumbs.db
 .bundle/bin/
 vendor/ruby/
 vendor/*/vendor/ruby/
+
+# Ignore sync config file
+.sync-config.cson
