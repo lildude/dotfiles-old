@@ -1,0 +1,12 @@
+# My global Vagrant configuration file
+configure_vbguest(config)
+  if Vagrant.has_plugin?('vbguest')
+    config.vbguest.auto_update = true
+  end
+end
+
+Vagrant.configure('2') do |config|
+  config.vm.provider :virtualbox do |vbox, override|
+    configure_vbguest(override)
+  end
+end
