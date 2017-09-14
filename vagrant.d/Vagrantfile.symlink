@@ -1,6 +1,6 @@
 # My global Vagrant configuration file
-configure_vbguest(config)
-  if Vagrant.has_plugin?('vbguest')
+def configure_vbguest(config)
+  if Vagrant.has_plugin?('vagrant-vbguest')
     config.vbguest.auto_update = true
   end
 end
