@@ -1,92 +1,16 @@
 "*":
-  "atom-beautify":
-    _analyticsUserId: "9bcec154-9a6f-4217-89eb-8b975e4da0d6"
-    general:
-      _analyticsUserId: "2ee99915-6bfc-4e96-aca8-f60071a8cd72"
-    python: {}
-  autosave:
-    enabled: true
-  "base16-syntax":
-    scheme: "Monokai"
   core:
-    disabledPackages: [
-      "file-type-icons"
-      "linter-rubocop"
-      "white-cursor"
-      "notational-velocity"
-      "color-picker"
-      "language-puppet"
-      "remote-edit"
-      "symbols-tree-view"
-      "activate-power-mode"
-      "language-clojure"
-      "language-java"
-      "language-mustache"
-      "language-objective-c"
-      "language-perl"
-      "language-toml"
-      "welcome"
-      "linter-shellcheck"
-      "cson"
-      "merge-conflicts"
-    ]
-    ignoredNames: [
-      ".git"
-      ".svn"
-      ".DS_Store"
-    ]
+    telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
       "one-dark-syntax"
     ]
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    showInvisibles: true
-    softWrap: true
-    tabType: "soft"
+  editor: {}
   "exception-reporting":
-    userId: "5eb658cf-90a1-36a3-4ccb-234f0621f498"
+    userId: "7c730ce2-d1a5-4f86-aadd-1a86c3570dae"
   "file-icons":
     coloured: false
-    onChanges: true
-  "git-plus":
-    splitPane: "Down"
-  "isotope-ui":
-    customBackgroundColorPicker: "#212121"
-  "language-markdown": {}
-  linter: {}
-  "linter-shellcheck":
-    enableNotice: true
-    userParameters: "-x -e SC2046,SC1090"
   "linter-ui-default":
     panelHeight: 81
-  "linter-write-good":
-    severityLevel: "Info"
-  metrics:
-    userId: "cfec7940-c340-6a9f-4655-647e38c19564"
-  nvatom:
-    directory: "/Users/lildude/Dropbox/notebook"
-  "one-dark-ui":
-    layoutMode: "Compact"
-  "release-notes":
-    viewedVersion: "0.95.0"
-  "spell-check":
-    grammars: [
-      "text.plain"
-      "source.gfm"
-      "text.git-commit"
-    ]
-    locales: [
-      "en-GB"
-    ]
-  "terminal-plus":
-    core: {}
-    style: {}
-    toggles:
-      autoClose: true
-      cursorBlink: false
-  "tree-view":
-    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
