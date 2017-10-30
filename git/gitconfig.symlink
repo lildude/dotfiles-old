@@ -16,7 +16,7 @@
   email = lildood@gmail.com
   signingkey = lildood@gmail.com
 
-# 22 May: Commented out as Atom doesn't pick up the content of these files.
+# 22 May '17': Commented out as Atom doesn't pick up the content of these files.
 # Using conditional includes for user info instead.
 # NB: Order is important.
 #[includeIf "gitdir:~/"]
