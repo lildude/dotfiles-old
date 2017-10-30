@@ -1,15 +1,29 @@
 "*":
+  "atom-beautify":
+    bash: {}
+    general:
+      _analyticsUserId: "6e08afdd-69fc-48a9-b30c-967e47bf6864"
+    go:
+      beautify_on_save: true
+    gohtml:
+      beautify_on_save: true
   core:
+    disabledPackages: [
+      "linter-rubocop"
+    ]
     telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
       "one-dark-syntax"
     ]
-  editor: {}
+  editor:
+    showInvisibles: true
   "exception-reporting":
     userId: "7c730ce2-d1a5-4f86-aadd-1a86c3570dae"
   "file-icons":
     coloured: false
+  "linter-rubocop":
+    command: "/Users/lildude/.rbenv/shims/rubocop"
   "linter-ui-default":
     panelHeight: 81
   welcome:
