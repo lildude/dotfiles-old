@@ -1,0 +1,15 @@
+---
+last_check:
+  etag: '"f9085529651d7e04df33159d50c6b498"'
+  version: 1.8.8
+  at: 1511364469
+checked_completion: true
+completion_version: 1.8.6
+endpoints:
+  https://api.travis-ci.org/:
+    access_token: ***REMOVED***
+repos:
+  lildude/build-gh-pages-from-travis:
+    endpoint: https://api.travis-ci.org/
+  lildude/micropub-github-pages:
+    endpoint: https://api.travis-ci.org/
