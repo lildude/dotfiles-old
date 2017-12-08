@@ -10,6 +10,8 @@
   core:
     disabledPackages: [
       "linter-rubocop"
+      "language-git"
+      "open-on-github"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -22,9 +24,11 @@
     userId: "7c730ce2-d1a5-4f86-aadd-1a86c3570dae"
   "file-icons":
     coloured: false
+  "git-diff": {}
   "linter-rubocop":
     command: "/Users/lildude/.rbenv/shims/rubocop"
-  "linter-ui-default":
-    panelHeight: 81
+  "linter-ui-default": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
