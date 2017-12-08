@@ -35,6 +35,7 @@ atom.symlink/.apm
 atom.symlink/.npm
 atom.symlink/compile-cache
 atom.symlink/blob-store
+atom.symlink/split-diff
 
 # All directories under rbenv
 rbenv.symlink/*/
