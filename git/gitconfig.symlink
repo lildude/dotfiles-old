@@ -119,3 +119,5 @@
   program = gpg2
 
 # vim: set ft=gitconfig
+[merge]
+	conflictstyle = diff3
