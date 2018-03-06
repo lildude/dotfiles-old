@@ -23,3 +23,7 @@ fail () {
 setting() {
   printf "  [ \033[00;35m⚙\033[0m ] %s\n" "$1"
 }
+
+indent() {
+  sed 's/^/         /';
+}

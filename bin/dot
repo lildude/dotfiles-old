@@ -9,19 +9,21 @@ source $ZSH/bin/lib.sh
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # Install homebrew if not installed
-  $ZSH/homebrew/install.sh 2>&1
+  info "Updating homebrew stuffs"
+
+  $ZSH/homebrew/install.sh 2>&1 | indent
 
   # Update homebrew
-  brew update && success "Brew formulae updated" || fail "Brew formulae updated"
+  brew update && success "Brew formulae updated" | indent || fail "Brew formulae updated"
 
   # Upgrade homebrew pkgs
   if [ $(brew outdated | wc -l) -gt 0 ]; then
-    brew upgrade && success "Upgraded brew packages" || fail "Upgrade brew packages"
+    brew upgrade && success "Upgraded brew packages" | indent || fail "Upgrade brew packages"
   fi
 
   # Clean up
   if [ $(brew cleanup -n 2> /dev/null | wc -l) -gt 0 ]; then
-    brew cleanup && success "Brew cleaned up" || fail "Brew clean up"
+    brew cleanup && success "Brew cleaned up" | indent || fail "Brew clean up"
   fi
 fi
 
