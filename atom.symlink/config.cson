@@ -12,6 +12,7 @@
       "linter-rubocop"
       "language-git"
       "open-on-github"
+      "language-nextflow"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -27,7 +28,8 @@
   "git-diff": {}
   "linter-rubocop":
     command: "/Users/lildude/.rbenv/shims/rubocop"
-  "linter-ui-default": {}
+  "linter-ui-default":
+    panelHeight: 81
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
