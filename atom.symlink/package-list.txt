@@ -29,5 +29,3 @@ toggle-quotes@1.1.0
 vim-modeline@0.5.2
 visual-bell@1.0.0
 
-github@0.10.1
-
