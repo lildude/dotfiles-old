@@ -54,7 +54,7 @@ cask 'atom-beta'
 cask 'bartender'
 cask 'calibre'
 cask 'dash'
-cash 'docker'
+cask 'docker'
 cask 'dropbox'
 cask 'etcher'
 cask 'fantastical'
@@ -71,7 +71,7 @@ cask 'iterm2'
 cask 'little-snitch'
 cask 'muzzle'
 cask 'postman'
-cask 'skype'
+#cask 'skype'
 cask 'skitch'
 cask 'sketch'
 cask 'slack'
@@ -89,5 +89,4 @@ cask 'vmware-fusion'
 cask 'wireshark'
 
 # AppStore Apps that need manual install for the mo.
-# cask 'onenote' # Doesn't exist
 # cask 'pixelmator' # Doesn't exist
