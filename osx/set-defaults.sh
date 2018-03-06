@@ -377,7 +377,9 @@ sudo nvram boot-args="mbasd=1"
 chflags nohidden ~/Library
 
 # Hide the Game Centre
-chflags hidden /Applications/game\ center.app
+if [ -d /Applications/game\ center.app ]; then
+  chflags hidden /Applications/game\ center.app
+fi
 
 # Remove Dropbox’s green checkmark icons in Finder
 #file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
