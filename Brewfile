@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'caskroom/fonts'
+tap 'caskroom/versions'
 tap 'shopify/shopify' # Needed for toxiproxy
 cask 'java'   # Needs to be first so dependents can be installed.
 
