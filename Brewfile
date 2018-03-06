@@ -2,8 +2,9 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'caskroom/fonts'
-tap 'caskroom/versions'
-tap 'shopify/shopify' # Needed for toxiproxy
+tap 'caskroom/versions' # Needed for beta versions
+tap 'caskroom/drivers'  # Needed for garmin-express
+tap 'shopify/shopify'   # Needed for toxiproxy
 cask 'java'   # Needs to be first so dependents can be installed.
 
 brew 'autossh'
@@ -62,8 +63,8 @@ cask 'flux'
 cask 'garmin-express'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
-cask 'google-drive'
-cask 'gpgtools'
+cask 'google-drive-file-stream'
+cask 'gpg-suite'
 cask 'imagealpha'
 cask 'imageoptim'
 cask 'iterm2'
@@ -77,7 +78,7 @@ cask 'sketch'
 cask 'slack'
 cask 'spotify'
 cask 'textexpander'
-cask 'the-unarchiver'
+#cask 'the-unarchiver' - download temporarily broken
 cask 'torbrowser'
 cask 'transmission'
 cask 'vagrant'
