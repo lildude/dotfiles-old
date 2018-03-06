@@ -11,7 +11,7 @@ source $ZSH/bin/lib.sh
 if [ "$(uname -s)" = "Darwin" ]; then
   # Run Homebrew through the Brewfile
   info "brew bundle"
-  brew bundle
+  brew bundle | indent
 fi
 
 # find the installers and run them iteratively
