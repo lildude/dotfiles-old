@@ -51,7 +51,7 @@ Maid.rules do
     `apm-beta upgrade` unless @file_options[:noop]
   end
   rule 'Updating Atom packages list' do
-    `apm-beta list --installed --bare | egrep -v "language-coffee-script|metrics|welcome" > ~/.atom/package-list.txt` unless @file_options[:noop]
+    `apm-beta list --installed --bare > ~/.atom/package-list.txt` unless @file_options[:noop]
   end
 
 
