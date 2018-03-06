@@ -36,7 +36,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 # Update list of Atom packages
-if [ $(which apm) ]; then
+if [ $(which apm-beta) ]; then
   info "Updating Atom package list"
-  apm list --installed --bare > ~/.atom/package-list.txt
+  apm-beta list --installed --bare > ~/.atom/package-list.txt
 fi
