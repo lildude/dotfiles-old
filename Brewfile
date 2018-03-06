@@ -32,7 +32,7 @@ brew 'pstree'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-default-gems'
-brew 'homebrew/dupes/rsync'
+brew 'rsync'
 brew 's3cmd'
 brew 'shellcheck'
 brew 'the_silver_searcher' # ag, a faster ack
