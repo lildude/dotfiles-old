@@ -50,34 +50,42 @@ cask 'amazon-drive'
 cask 'amazon-music'
 cask 'apache-directory-studio'
 cask 'appcleaner'
+cask 'arq'
 cask 'atom-beta'
+cask 'banktivity'
 cask 'bartender'
 cask 'calibre'
 cask 'dash'
 cask 'docker'
 cask 'dropbox'
+cask 'encryptme'
 cask 'etcher'
+cask 'exodus'
 cask 'fantastical'
 cask 'firefox-beta'
 cask 'flux'
 cask 'garmin-express'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
-cask 'google-drive-file-stream'
+cask 'google-backup-and-sync'
 cask 'gpg-suite'
 cask 'imagealpha'
 cask 'imageoptim'
 cask 'iterm2'
+cask 'licecap'
 cask 'little-snitch'
 cask 'keybase'
+cask 'monit'
 cask 'muzzle'
+cask 'netspot'
 cask 'postman'
 #cask 'skype'
 cask 'skitch'
 cask 'sketch'
 cask 'slack'
 cask 'spotify'
-cask 'textexpander'
+cask 'teamviewer'
+cask 'textexpander5'
 #cask 'the-unarchiver' - download temporarily broken
 cask 'torbrowser'
 cask 'transmission'
@@ -87,7 +95,18 @@ cask 'virtualbox-extension-pack'
 cask 'viscosity'
 cask 'vlc'
 cask 'vmware-fusion'
+cask 'whatsapp'
 cask 'wireshark'
 
 # AppStore Apps that need manual install for the mo.
-# cask 'pixelmator' # Doesn't exist
+# bear
+# magnet
+# managed software center - github
+# microsoft onenote
+# microsoft remote desktop
+# monosnap
+# opendns roaming client - github
+# pixelmator
+
+# Ano apps
+# logitech camera settings
