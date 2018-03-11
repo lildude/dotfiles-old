@@ -640,7 +640,7 @@ sudo mdutil -i on / > /dev/null
 sudo mdutil -E / > /dev/null
 
 ###############################################################################
-# Terminal & iTerm2                                                           #
+# Terminal (iTerm2 has it's own config opt to sync with Dropbox)              #
 ###############################################################################
 setting "Terminal & iTerm2"
 # Only use UTF-8 in Terminal.app
@@ -701,7 +701,7 @@ defaults write com.apple.terminal StringEncodings -array 4
 
 # Install the Solarized Dark theme for iTerm
 # CNS: This is my custom theme - I've change the highlight color to blue so I can see what I've highlighted
-open "${HOME}/.dotfiles/iterm2/Custom-Solarized-Dark.itermcolors"
+# open "${HOME}/.dotfiles/iterm2/Custom-Solarized-Dark.itermcolors"
 
 # Load/save settings from/to Dropbox
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "/Users/lildude/Dropbox/App Prefs"
