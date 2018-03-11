@@ -1,0 +1,57 @@
+#
+# @lildude's Mackup configuration file
+#
+[storage]
+engine = icloud
+directory = Backups/Mackup
+
+# List of applications to explicitly sync
+# One application name per line
+# If this list is empty, Mackup will try to sync all the supported
+# applications.
+#
+# To see a list of supported application names, launch mackup list
+# Use the names listed below.
+[applications_to_sync]
+appcleaner
+arq
+azure
+bartender
+bundler
+dash
+defaultkeybinding
+docker
+exercism
+fantastical
+flux
+keybase
+littlesnitch
+macosx
+microsoft-remote-desktop
+my-files
+scripts
+sketch
+skitch
+slack
+spotify
+textexpander
+transmission
+vlc
+vscode
+wget
+wireshark
+xcode
+
+# CNS: Ignore everything backed up by my .dotfiles
+[applications_to_ignore]
+ack
+atom
+aws
+git
+gnupg
+heroku
+maid
+prezto
+ruby
+vim
+zsh
