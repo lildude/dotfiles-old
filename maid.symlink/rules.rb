@@ -35,12 +35,6 @@ Maid.rules do
   rule 'Cleaning Brew' do
     `brew cleanup` unless @file_options[:noop]
   end
-  rule 'Cleaning Brew Cask' do
-    `brew cask cleanup` unless @file_options[:noop]
-  end
-  rule 'Updating Cask Appliactions' do
-    `brew cask update` unless @file_options[:noop]
-  end
   rule 'Updating gems ' do
     `gem update` unless @file_options[:noop]
   end
