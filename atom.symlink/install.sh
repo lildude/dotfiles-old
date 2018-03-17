@@ -19,7 +19,8 @@ for pkg in $(cat $HOME/.atom/package-list.txt); do
   if [ -d "$HOME/.atom/packages/$pkg" ]; then
     info "$pkg already installed"
   else
-    apm-beta install --compatible "$pkg" | indent || failures=1
+    info "Installing $pkg"
+    apm-beta install --compatible "$pkg" | tr -s | indent || failures=1
   fi
 done
 
