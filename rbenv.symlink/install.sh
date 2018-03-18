@@ -3,4 +3,7 @@
 export ZSH=$HOME/.dotfiles
 source $ZSH/bin/lib.sh
 
-rbenv install 2.4.2
+VERSION=2.4.2
+
+rbenv install $VERSION
+rbenv global $VERSION
