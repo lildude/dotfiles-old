@@ -8,5 +8,5 @@ source $ZSH/bin/lib.sh
 
 if [ "$(uname -s)" = "Darwin" ]; then
   info "sudo softwareupdate -i -a"
-  sudo softwareupdate -i -a | indent
+  sudo softwareupdate -i -a 2>&1 | indent
 fi
