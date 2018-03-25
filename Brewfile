@@ -46,6 +46,7 @@ brew 'zsh'
 brew 'zsh-completions'
 
 cask '1password'
+cask 'aerial'
 cask 'alfred'
 cask 'amazon-drive'
 cask 'amazon-music'
