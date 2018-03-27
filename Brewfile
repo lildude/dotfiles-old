@@ -98,6 +98,7 @@ cask 'vlc'
 cask 'vmware-fusion'
 cask 'whatsapp'
 cask 'wireshark'
+cask 'pallotron-yubiswitch'
 
 # AppStore Apps that need manual install for the mo.
 # bear
