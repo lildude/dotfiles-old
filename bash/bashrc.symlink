@@ -1,0 +1,96 @@
+#
+# My fallback bashrc for when ZSH isn't available or not needed
+#
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+PROMPT_COMMAND='history -a;history -n'
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# some aliases
+alias l='ls -l'
+alias ll='ls -la'
+alias gb='git branch'
+alias gbc='git checkout -b'
+alias gco='git checkout'
+alias gcom='git checkout master'
+alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
+alias gst='git status'
+alias gup='git up'
+alias myprocs='ps aux | grep [l]ildude'
+alias path='echo -e ${PATH//:/\\n}'
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+export GPG_TTY=$(tty)
+
+# Add enterprise2 to my path
+[ -d ~/github/enterprise2 ] && export PATH=$PATH:~/github/enterprise2
+
+# Load rbenv automatically
+which rbenv > /dev/null && eval "$(rbenv init -)"
+
+# Load nodenv automatically
+which nodenv > /dev/null && eval "$(nodenv init -)"
+
+# Predictable SSH authentication socket location.
+SOCK="/tmp/ssh-agent-$USER-tmux"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]; then
+    rm -f /tmp/ssh-agent-$USER-tmux
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
+
+# Automatically start tmux if interactively connecting to this host over SSH and tmux is available.
+if [ -z "$TMUX" ] && [ "$SSH_CONNECTION" != "" ] && type tmux >/dev/null 2>&1; then
+    #tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+    # iTerm2 integration
+    tmux -CC attach || tmux -CC
+    exit
+fi
+
+# Make renaming tmux tabs under iTerm2 easy: tabname "foobar"
+function tabname {
+  [ -n "$TMUX" ] && tmux rename-window "$@"
+}
