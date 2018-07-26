@@ -1,10 +1,10 @@
 ---
 last_check:
-  etag: '"f9085529651d7e04df33159d50c6b498"'
+  etag: '"21634c26520aea84cb5473dee6746f6e"'
   version: 1.8.8
-  at: 1511364469
+  at: 1522237004
 checked_completion: true
-completion_version: 1.8.6
+completion_version: 1.8.8
 endpoints:
   https://api.travis-ci.org/:
     access_token: ***REMOVED***
