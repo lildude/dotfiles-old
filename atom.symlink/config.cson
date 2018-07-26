@@ -5,6 +5,7 @@
       _analyticsUserId: "6e08afdd-69fc-48a9-b30c-967e47bf6864"
     go:
       beautify_on_save: true
+      default_beautifier: "goimports"
     gohtml:
       beautify_on_save: true
   core:
@@ -12,13 +13,15 @@
       "linter-rubocop"
       "language-git"
       "open-on-github"
-      "language-nextflow"
+      "cson"
+      "language-hcl"
+      "language-liquid"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-typescript"
     ]
     telemetryConsent: "limited"
-    themes: [
-      "atom-dark-ui"
-      "one-dark-syntax"
-    ]
   editor:
     showInvisibles: true
   "exception-reporting":
@@ -30,7 +33,18 @@
     command: "/Users/lildude/.rbenv/shims/rubocop"
   "linter-ui-default":
     panelHeight: 81
+  "markdown-preview":
+    useGitHubStyle: true
+  "one-dark-ui":
+    fontSize: 11
+  "spell-check":
+    locales: [
+      "en-GB"
+    ]
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
+".gotemplate.source":
+  editor:
+    showIndentGuide: false
