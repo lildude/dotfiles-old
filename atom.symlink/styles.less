@@ -1,3 +1,11 @@
+/* Workaround for https://github.com/atom/atom/issues/17174 fixed in https://github.com/atom/atom/pull/17208 */
+@ibeam-1x: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAL0lEQVQoz2NgCD3x//9/BhBYBWdhgFVAiVW4JBFKGIa4AqD0//9D3pt4I4tAdAMAHTQ/j5Zom30AAAAASUVORK5CYII=');
+@ibeam-2x: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAz0lEQVRIx2NgYGBY/R8I/vx5eelX3n82IJ9FxGf6tksvf/8FiTMQAcAGQMDvSwu09abffY8QYSAScNk45G198eX//yev73/4///701eh//kZSARckrNBRvz//+8+6ZohwCzjGNjdgQxkAg7B9WADeBjIBqtJCbhRA0YNoIkBSNmaPEMoNmA0FkYNoFKhapJ6FGyAH3nauaSmPfwI0v/3OukVi0CIZ+F25KrtYcx/CTIy0e+rC7R1Z4KMICVTQQ14feVXIbR695u14+Ir4gwAAD49E54wc1kWAAAAAElFTkSuQmCC');
+
+.editor {
+  cursor: -webkit-image-set(@ibeam-1x 1x, @ibeam-2x 2x) 5 8, text;
+}
+
 /* Disable coloured file-icons icons */
 //@import "packages/file-icons/features/no-colours";
 
@@ -11,7 +19,7 @@
 @syntax-gutter-background-color-selected: rgba(255, 255, 255, 0.14);
 
 /* Apply these customisations _only_ to the Atom One Dark syntax theme */
-.theme-one-dark-syntax atom-text-editor {
+.theme-one-dark-syntax.theme-atom-dark-ui atom-text-editor {
   background-color: @syntax-background-color;
   .line.cursor-line {
     background-color: @syntax-background-color;
