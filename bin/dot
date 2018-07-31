@@ -5,7 +5,8 @@
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
-source $ZSH/bin/lib.sh
+# shellcheck source=.dotfiles/bin/lib.sh
+. $ZSH/bin/lib.sh
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # Install homebrew if not installed
@@ -17,12 +18,16 @@ if [ "$(uname -s)" = "Darwin" ]; then
   brew update && success "Brew formulae updated" | indent || fail "Brew formulae updated"
 
   # Upgrade homebrew pkgs
-  if [ $(brew outdated | wc -l) -gt 0 ]; then
+  if [ "$(brew outdated | wc -l)" -gt 0 ]; then
     brew upgrade && success "Upgraded brew packages" | indent || fail "Upgrade brew packages"
   fi
 
+  if [ "$(brew cask utdated | wc -l)" -gt 0 ]; then
+    brew upgrade && success "Upgraded brew cask packages" | indent || fail "Upgrade brew cask packages"
+  fi
+
   # Clean up
-  if [ $(brew cleanup -n 2> /dev/null | wc -l) -gt 0 ]; then
+  if [ "$(brew cleanup -n 2> /dev/null | wc -l)" -gt 0 ]; then
     brew cleanup && success "Brew cleaned up" | indent || fail "Brew clean up"
   fi
 fi
@@ -38,7 +43,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 # Update list of Atom packages
-if [ $(which apm-beta) ]; then
+if [ "$(which apm-beta)" ]; then
   info "Updating Atom package list"
   apm-beta list --installed --bare > ~/.atom/package-list.txt
 fi
