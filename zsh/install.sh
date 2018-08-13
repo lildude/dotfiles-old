@@ -18,6 +18,10 @@ info "Installing ZSH rc files"
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
   if [ ! -L "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]; then
+    if [ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]; then
+      echo "Backing up ${ZDOTDIR:-$HOME}/.${rcfile:t} to ${ZDOTDIR:-$HOME}/.${rcfile:t}.bak"
+      mv ${ZDOTDIR:-$HOME}/.${rcfile:t} ${ZDOTDIR:-$HOME}/.${rcfile:t}.bak
+    fi
     ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
   fi
 done
