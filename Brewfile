@@ -5,7 +5,8 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions' # Needed for beta versions
 tap 'caskroom/drivers'  # Needed for garmin-express
 tap 'shopify/shopify'   # Needed for toxiproxy
-cask 'java'   # Needs to be first so dependents can be installed.
+tap 'dteoh/sqa'         # Needed for slowquitapps
+cask 'java'             # Needs to be first so dependents can be installed.
 
 brew 'autossh'
 brew 'awscli'
@@ -13,6 +14,7 @@ brew 'base64'
 brew 'checkbashisms'
 brew 'coreutils'
 brew 'dos2unix'
+brew 'exa'
 brew 'exercism'
 brew 'findutils'
 brew 'fswatch'
@@ -86,6 +88,7 @@ cask 'postman'
 cask 'skitch'
 cask 'sketch'
 cask 'slack'
+cask 'slowquitapps'  # Requires `tap dteoh/sqa` - https://github.com/dteoh/SlowQuitApps
 cask 'spotify'
 cask 'teamviewer'
 cask 'textexpander5'
