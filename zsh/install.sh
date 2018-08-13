@@ -8,7 +8,7 @@ if [ ! -d ${HOME}/.zprezto ]; then
   info "Downloading prezto"
   git clone -q --recursive https://github.com/lildude/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 else
-  info "Updating .zpreto from fork on GitHub"
+  info "Updating .zpreto from fork on GitHub (previously updated using 'zprezto-update')"
   cd ${HOME}/.zprezto
   git pull -q
   cd ${HOME}
