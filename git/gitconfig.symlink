@@ -78,7 +78,10 @@
   janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
   # Create a pull request on GitHub using the `hub` command.
   pr = !hub pull-request -o
-
+  # Grab someone else's PR changes without using hub
+  # Source: https://davidwalsh.name/pull-down-pr
+  prco = !f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f
+  pr-clean = !git checkout master ; git for-each-ref refs/heads/pr/* --format="%(refname)" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done
 
 [gist]
   browse = true  # Open GitHub Gist in browser after submission.
