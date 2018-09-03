@@ -59,7 +59,7 @@
         "remotePath": "lildude@enterprise2-dev-8aeb724.cp1-iad.github.net:/home/lildude/github/enterprise2",
       },
     ],
-    "sync-rsync.notification": true,
+    "sync-rsync.notification": false,
     "sync-rsync.exclude": [
         ".git",
         ".vscode"
