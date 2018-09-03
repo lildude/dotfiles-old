@@ -22,7 +22,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
       echo "Backing up ${ZDOTDIR:-$HOME}/.${rcfile:t} to ${ZDOTDIR:-$HOME}/.${rcfile:t}.bak"
       mv ${ZDOTDIR:-$HOME}/.${rcfile:t} ${ZDOTDIR:-$HOME}/.${rcfile:t}.bak
     fi
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    overwrite_all=false backup_all=false skip_all=false link_file "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
   fi
 done
 
