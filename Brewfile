@@ -45,6 +45,7 @@ brew 'rsync'
 brew 's3cmd'
 brew 'shellcheck'
 brew 'the_silver_searcher' # ag, a faster ack
+brew 'tldr'
 brew 'tmux'
 brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
 brew 'xz'
