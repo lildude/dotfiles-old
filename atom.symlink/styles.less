@@ -56,3 +56,45 @@
   background: #DA2C43;
   opacity: 0.9;
 }
+
+// Customise the symbols view from cmd+R
+// From http://marcio.io/2015/07/supercharging-atom-editor-for-go-development/
+.symbols-view {
+  &.select-list ol.list-group li .primary-line,
+  &.select-list ol.list-group li .secondary-line {
+
+    //font-family: Inconsolata;
+    font-size: 14px;
+
+    // let lines wrap
+    text-overflow: initial;
+    white-space: initial;
+    overflow: initial;
+
+    // reduce line-height
+    line-height: 1.0em;
+    padding-top: .1em;
+    padding-bottom: .0em;
+
+    // make sure wrapped lines get padding
+    // padding-left: 21px;
+    &.icon:before {
+      margin-left: -21px;
+    }
+
+    .character-match {
+        color: rgb(200, 200, 10) !important;
+    }
+  }
+}
+
+.symbols-view {
+  &.select-list ol.list-group li .secondary-line {
+      float: right;
+      margin-top: -12px;
+      padding-top: 0em;
+      padding-bottom: 0em;
+      font-size: 12px;
+      color: rgba(200, 200, 10, 0.8) !important;
+  }
+}
