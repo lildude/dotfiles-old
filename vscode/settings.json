@@ -1,0 +1,68 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.renderWhitespace": "boundary",
+    "editor.fontFamily": "Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
+    "editor.cursorWidth": 3,
+    "files.autoGuessEncoding": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": false,
+    "terminal.external.osxExec": "iTerm2.app",
+    "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": true,
+    "workbench.tree.horizontalScrolling": true,
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    "workbench.iconTheme": "file-icons",
+    "workbench.colorCustomizations": {
+        "editorIndentGuide.activeBackground": "#999"
+        //"sideBar.background": "#333",
+        //"sideBar.foreground": "#aaa",
+        //"list.activeSelectionForeground": "#fff",
+        //"list.inactiveSelectionForeground": "#fff",
+        //"list.inactiveFocusForeground": "#fff",
+        //"list.activeSelectionBackground": "#444",
+        //"statusBar.background" : "#1A1A1A",
+        //"statusBar.foreground": "#999",
+        //"statusBar.noFolderBackground" : "#0A0A0D",
+        //"statusBar.debuggingBackground": "#511f1f",
+        //"editorWarning.foreground": "#ffaa2c",
+        //"gitDecoration.untrackedResourceForeground": "#2BDA77",
+    },
+    "git.countBadge": "tracked",
+    "workbench.statusBar.feedback.visible": false,  // Hide Twitter smiley
+    "window.newWindowDimensions": "inherit",
+    "window.clickThroughInactive": false,
+    "terminal.integrated.copyOnSelection": true,
+    "telemetry.enableTelemetry": false,
+    "git.enableCommitSigning": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "go.coverageOptions": "showUncoveredCodeOnly",
+    "go.coverageDecorator": {
+        "uncoveredHighlightColor": "rgba(209, 59, 46, 0.2)",
+        },
+    "explorer.openEditors.visible": 0,
+    "git.showPushSuccessNotification": true,
+    "git.confirmSync": false,
+    "diffEditor.renderSideBySide": false,
+    "editor.scrollBeyondLastLine": false,
+    "sync-rsync.onSaveIndividual": true,
+    "sync-rsync.sites": [
+      {
+        "localPath": "/Users/lildude/github/backup-utils",
+        "remotePath": "lildude@enterprise2-dev-8aeb724.cp1-iad.github.net:/home/lildude/github/backup-utils",
+      },
+      {
+        "localPath": "/Users/lildude/github/enterprise2",
+        "remotePath": "lildude@enterprise2-dev-8aeb724.cp1-iad.github.net:/home/lildude/github/enterprise2",
+      },
+    ],
+    "sync-rsync.notification": true,
+    "sync-rsync.exclude": [
+        ".git",
+        ".vscode"
+    ],
+    "sync-rsync.flags": "avzpur",
+}
