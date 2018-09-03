@@ -1,0 +1,17 @@
+akamud.vscode-theme-onedark
+castwide.solargraph
+emmanuelbeziat.vscode-great-icons
+Equinusocio.vsc-material-theme
+fabiospampinato.vscode-commands
+file-icons.file-icons
+formulahendry.code-runner
+joshpeng.theme-onedark-sublime
+jpogran.puppet-vscode
+mohsen1.prettify-json
+ms-vscode.Go
+rebornix.ruby
+seansassenrath.vscode-theme-superonedark
+timonwong.shellcheck
+vscode-ext.sync-rsync
+wayou.vscode-todo-highlight
+zhuangtongfa.Material-theme
