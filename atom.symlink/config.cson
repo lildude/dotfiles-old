@@ -6,6 +6,7 @@
     go:
       beautify_on_save: true
       default_beautifier: "goimports"
+      disabled: true
     gohtml:
       beautify_on_save: true
   core:
@@ -29,10 +30,13 @@
   "file-icons":
     coloured: false
   "git-diff": {}
+  "go-plus":
+    test:
+      runTestsWithVerboseFlag: true
   "linter-rubocop":
     command: "/Users/lildude/.rbenv/shims/rubocop"
   "linter-ui-default":
-    panelHeight: 81
+    panelHeight: 207.5
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
