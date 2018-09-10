@@ -65,4 +65,5 @@
         ".vscode"
     ],
     "sync-rsync.flags": "avzpur",
+    "explorer.confirmDragAndDrop": false,
 }
