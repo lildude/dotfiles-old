@@ -150,7 +150,8 @@ defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 # CNS: Show battery percent in menu bar
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-
+# CNS: Disable captive portal - use browser instead
+defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -172,6 +173,13 @@ setting "SSD-specific tweaks"
 # Disable the sudden motion sensor as it’s not useful for SSDs
 sudo pmset -a sms 0
 
+# CNS: Secure FileVault on sleep
+sudo pmset -a destroyfvkeyonstandby 1
+sudo pmset -a hibernatemode 25
+sudo pmset -a powernap 0
+sudo pmset -a standby 0
+sudo pmset -a standbydelay 0
+sudo pmset -a autopoweroff 0
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -828,6 +836,7 @@ defaults write org.m0k.transmission WarningLegal -bool false
 ###############################################################################
 # Photos.app                                                                  #
 ###############################################################################
+setting "Photos.app"
 # Prevent Photos.app opening when connecting device
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
@@ -845,6 +854,7 @@ defaults write com.apple.archiveutility dearchive-move-after -string "~/.Trash"
 ###############################################################################
 # Set Alfred settings here as this needs to run after Alfred has been installed
 # with Homebrew.
+setting "Alfred.app"
 defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/Dropbox/Alfred"
 
 ###############################################################################
