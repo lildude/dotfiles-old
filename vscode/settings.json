@@ -66,4 +66,13 @@
     ],
     "sync-rsync.flags": "avzpur",
     "explorer.confirmDragAndDrop": false,
+    "shellcheck.customArgs": ["-x"],
+    "shellcheck.useWorkspaceRootAsCwd": true,
+    "githubPullRequests.hosts": [
+        {
+            "host": "https://github.com",
+            "username": "oauth",
+            "token": "system"
+        }
+    ],
 }
