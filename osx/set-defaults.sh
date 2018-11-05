@@ -144,8 +144,11 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # CNS: Set powerchime when connecting power cord ala iOS
 defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
 
-# CNS: Enable dark menu bar
+# CNS: Enable dark mode
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# CNS: Enable dark menu bar in mojave
+#defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
 # CNS: Show battery percent in menu bar
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
