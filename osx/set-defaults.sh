@@ -153,6 +153,9 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 # CNS: Disable captive portal - use browser instead
 defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
 
+# CNS: Enable sub-pixel aliasing on mojave and later - https://www.howtogeek.com/358596/how-to-fix-blurry-fonts-on-macos-mojave-with-subpixel-antialiasing/
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
