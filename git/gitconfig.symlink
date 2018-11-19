@@ -7,7 +7,7 @@
   excludesfile = ~/.gitignore  # Exclude everything this file. Used for general exclusions.
   attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
   # Use the diff-highlighter, if it's available.
-  pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r || less -r"
+  pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -rFX || less -rFX"
   # Don't prompt for commit messages for merge commits.
   mergeoptions = --no-edit
 
@@ -130,3 +130,5 @@
 
 # vim: set ft=gitconfig
 
+[protocol]
+	version = 2
