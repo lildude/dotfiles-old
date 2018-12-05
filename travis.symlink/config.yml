@@ -7,7 +7,6 @@ checked_completion: true
 completion_version: 1.8.8
 endpoints:
   https://api.travis-ci.org/:
-    access_token: ***REMOVED***
 repos:
   lildude/build-gh-pages-from-travis:
     endpoint: https://api.travis-ci.org/
