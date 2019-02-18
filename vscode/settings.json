@@ -6,7 +6,6 @@
     "editor.tabSize": 2,
     "editor.minimap.enabled": false,
     "editor.cursorWidth": 3,
-    "files.autoGuessEncoding": true,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": false,
     "terminal.external.osxExec": "iTerm2.app",
@@ -68,11 +67,8 @@
     "explorer.confirmDragAndDrop": false,
     "shellcheck.customArgs": ["-x"],
     "shellcheck.useWorkspaceRootAsCwd": true,
-    "githubPullRequests.hosts": [
-        {
-            "host": "https://github.com",
-            "username": "oauth",
-            "token": "system"
-        }
+    "go.testFlags": [
+        "-v"
     ],
+    "markdown.previewFrontMatter": "show",
 }
