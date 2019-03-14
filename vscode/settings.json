@@ -71,4 +71,5 @@
         "-v"
     ],
     "markdown.previewFrontMatter": "show",
+    "git.autofetch": true,
 }
