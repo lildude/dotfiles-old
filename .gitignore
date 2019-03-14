@@ -47,3 +47,7 @@ maid.symlink/maid.log
 
 # Heroku
 heroku.symlink/analytics.json
+
+# Restic
+restic.symlink/restic.env
+restic.symlink/**/*.log
