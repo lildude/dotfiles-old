@@ -8,7 +8,7 @@ require 'fileutils'
 FILES = {
   "ssh" => {
     local: "~/.ssh",
-    glob:  %w[authorized_keys config* *rsa* *dsa* *.pem]
+    glob:  "**/*"
   },
   "gnupg" => {
     local: "~/.gnupg",
@@ -25,6 +25,14 @@ FILES = {
   "netrc" => {
     local: "~/",
     glob: "\.netrc"
+  },
+  "azure" => {
+    local: "~/.azure",
+    glob: "**/*"
+  },
+  "restic" => {
+    local: "~/.restic",
+    glob: "restic.env"
   }
 }
 
