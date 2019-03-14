@@ -3,7 +3,8 @@
 # restic
 #
 export ZSH=$HOME/.dotfiles
-source $ZSH/bin/lib.sh
+# shellcheck source=bin/lib.sh
+source "$ZSH/bin/lib.sh"
 
 if [ "$(uname -s)" = "Darwin" ]; then
   info "Installing launchd job"

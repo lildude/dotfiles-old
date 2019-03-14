@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 export ZSH=$HOME/.dotfiles
-source $ZSH/bin/lib.sh
+# shellcheck source=bin/lib.sh
+source "$ZSH/bin/lib.sh"
 
 VERSION=2.4.2
 

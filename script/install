@@ -4,9 +4,10 @@
 
 set -e
 
-cd "$(dirname $0)"/..
+cd "$(dirname "$0")"/..
 export ZSH=$HOME/.dotfiles
-source $ZSH/bin/lib.sh
+# shellcheck source=bin/lib.sh
+source "$ZSH/bin/lib.sh"
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # Run Homebrew through the Brewfile
@@ -16,4 +17,4 @@ fi
 
 # find the installers and run them iteratively
 info "Running dotfiles installers"
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find . -name install.sh | while read -r installer ; do sh -c "${installer}" ; done

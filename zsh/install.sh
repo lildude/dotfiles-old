@@ -2,7 +2,8 @@
 #
 # Download my .zprezto repo and set it up
 export ZSH=$HOME/.dotfiles
-source $ZSH/bin/lib.sh
+# shellcheck source=bin/lib.sh
+source "$ZSH/bin/lib.sh"
 
 if [ ! -d ${HOME}/.zprezto ]; then
   info "Downloading prezto"
