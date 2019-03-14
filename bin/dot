@@ -1,18 +1,18 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # dot
 #
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
-# shellcheck source=.dotfiles/bin/lib.sh
-. $ZSH/bin/lib.sh
+# shellcheck source=bin/lib.sh
+source "$ZSH/bin/lib.sh"
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # Install homebrew if not installed
   info "Updating homebrew stuffs"
 
-  $ZSH/homebrew/install.sh 2>&1 | indent
+  "$ZSH/homebrew/install.sh" 2>&1 | indent
 
   # Update homebrew
   brew update && success "Brew formulae updated" | indent || fail "Brew formulae updated"
@@ -34,16 +34,16 @@ fi
 
 # Install software
 info "$ZSH/script/install"
-$ZSH/script/install
+"$ZSH/script/install"
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # Set OS X defaults
   info "Setting OSX defaults"
-  $ZSH/osx/set-defaults.sh
+  "$ZSH/osx/set-defaults.sh"
 fi
 
 # Update list of Atom packages
-if [ "$(which apm-beta)" ]; then
+if [ "$(command -v apm-beta)" ]; then
   info "Updating Atom package list"
   apm-beta list --installed --bare > ~/.atom/package-list.txt
 fi
