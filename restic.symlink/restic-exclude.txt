@@ -1,0 +1,11 @@
+# Restic Exclude list
+.DS_Store
+.localized
+Downloads/trash/
+github/backup-utils/data*
+github/enterprise2/.vagrant
+github/enterprise2/chroot-base-*
+github/enterprise2/chroot-*-dev-packages/
+github/enterprise2/img-*/
+github/enterprise2/reprepro-jessie/
+
