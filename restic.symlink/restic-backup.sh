@@ -52,6 +52,12 @@ notify() {
   fi
 }
 
+# Prevent running whilst already running.
+[ -n "$LOCKED" ] || {
+  export LOCKED=1
+  exec lockrun --lockfile=/var/run/restic-backup.lock -- "$0" "$@"
+}
+
 # Don't run if we're on battery power
 pmset -g batt | grep -q "Now drawing from 'Battery Power'" && {
   notify "Skipping backups whilst on battery"
