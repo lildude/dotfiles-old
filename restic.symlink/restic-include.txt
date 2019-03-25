@@ -3,6 +3,7 @@ bin/
 Desktop/
 Development/
 Documents/
+Downloads/
 exercism/
 github/backup-utils/
 github/enterprise-chatops/
