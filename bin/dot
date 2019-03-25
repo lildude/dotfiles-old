@@ -22,7 +22,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
     brew upgrade && success "Upgraded brew packages" | indent || fail "Upgrade brew packages"
   fi
 
-  if [ "$(brew cask utdated | wc -l)" -gt 0 ]; then
+  if [ "$(brew cask outdated | wc -l)" -gt 0 ]; then
     brew upgrade && success "Upgraded brew cask packages" | indent || fail "Upgrade brew cask packages"
   fi
 
