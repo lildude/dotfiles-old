@@ -38,28 +38,29 @@
 #/ GOOGLE_APPLICATION_CREDENTIALS      Application Credentials for Google Cloud Storage (e.g. $HOME/.config/gs-secret-restic-key.json)
 #/
 #/ RCLONE_BWLIMIT                      rclone bandwidth limit
+set -e
 
 #shellcheck source=/Users/lildude/.restic/restic.env
 source "$HOME/.restic/restic.env"
+PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
 
 notify() {
   if hash terminal-notifier 2> /dev/null; then
-    terminal-notifier -title "$1" -message "$2"
+    terminal-notifier -title "Restic Backup" -message "$1"
   else
-    osascript -e "display notification \"$2\" with title \"$1\""
+    osascript -e "display notification \"$1\" with title \"Restic Backup\""
   fi
 }
 
 # Don't run if we're on battery power
 pmset -g batt | grep -q "Now drawing from 'Battery Power'" && {
-  echo "Skipping backups whilst on battery"
+  notify "Skipping backups whilst on battery"
   exit 0
 }
 
-notify "Restic Backups" "Started..."
+notify "Started..."
 
 # prevent sleeping on OS X with: caffeinate -sw [backup_pid]
-
 for dest in $DESTS; do
 ( # Run backups in parallel
   repo=${dest}_RESTIC_REPOSITORY
@@ -133,6 +134,6 @@ done
 # Wait for all background jobs to finish
 wait
 
-notify "Restic Backup" "🌈 Finished Successfully 🎉"
+notify "🌈 Finished Successfully 🎉"
 
 
