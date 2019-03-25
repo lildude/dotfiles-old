@@ -13,4 +13,8 @@ if [ -d "$strap_dir" ]; then
 fi
 
 cd "$strap_dir"
+STRAP_GIT_NAME="Colin Seymour" \
+STRAP_GIT_EMAIL="lildood@gmail.com" \
+STRAP_GITHUB_USER="lildude" \
+STRAP_GITHUB_TOKEN="" \
 bash bin/strap.sh
