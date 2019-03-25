@@ -11,12 +11,18 @@ fi
 info "Installing VSCode settings"
 overwrite_all=false backup_all=false skip_all=false link_file "$ZSH/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 
+EXTENSIONS="$(code --list-extensions)"
+
 info "Installing VSCode packages"
 # Install all the pkgs in package-list.txt
-for pkg in $(cat "$ZSH/vscode/package-list.txt"); do
-  if code --install-extension "$pkg" > /dev/null; then
-    success "Installed $pkg package"
-  else
-    fail "Failed to install $pkg"
+while IFS= read -r ext; do
+  if echo "$EXTENSIONS" | grep -q "$ext"; then
+    info "Extension $ext already installed."
+    else
+    if code --install-extension "$ext" > /dev/null; then
+      success "Installed $ext package"
+    else
+      fail "Failed to install $ext"
+    fi
   fi
-done
+done < <(grep -v '^ *#' < "$ZSH/vscode/package-list.txt")
