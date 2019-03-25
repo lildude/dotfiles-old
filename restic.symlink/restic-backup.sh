@@ -50,7 +50,16 @@ notify() {
   fi
 }
 
+# Don't run if we're on battery power
+pmset -g batt | grep -q "Now drawing from 'Battery Power'" && {
+  echo "Skipping backups whilst on battery"
+  exit 0
+}
+
 notify "Restic Backups" "Started..."
+
+# prevent sleeping on OS X with: caffeinate -sw [backup_pid]
+
 for dest in $DESTS; do
 ( # Run backups in parallel
   repo=${dest}_RESTIC_REPOSITORY
@@ -68,13 +77,11 @@ for dest in $DESTS; do
 
   if [ "$dest" == "LOCAL" ]; then
     # Mount backup volume
-    if ! "$HOME/bin/mount-backups"; then
+    if ! "$HOME/bin/mount-backups" > /dev/null 2>&1; then
     echo "ERROR: failed to mount backup volume"
     exit 1
     fi
   fi
-
-  # prevent sleeping on OS X with: caffeinate -sw [backup_pid]
 
   # unlock, in case there's a lock
   restic unlock
@@ -88,7 +95,7 @@ for dest in $DESTS; do
 
   printf "\n\n*** Running restic forget with prune....\n"
   # remove outdated snapshots
-  restic forget --keep-last 20 \
+  restic forget --keep-last 10 \
     --keep-daily 7 \
     --keep-weekly 4 \
     --keep-monthly 12 \
@@ -114,8 +121,7 @@ for dest in $DESTS; do
   printf "\n===================================================================\n\n\n"
 
   if [ "$dest" == "LOCAL" ]; then
-    true
-    #"$HOME/bin/umount-backups" || echo "ERROR: failed to umount backup volume"
+    "$HOME/bin/umount-backups" > /dev/null 2>&1 || echo "ERROR: failed to umount backup volume"
   fi
 
   } | ts >> "$RESTIC_LOG_FILE"
