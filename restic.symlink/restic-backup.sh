@@ -66,7 +66,9 @@ pmset -g batt | grep -q "Now drawing from 'Battery Power'" && {
 
 notify "Started..."
 
-# prevent sleeping on OS X with: caffeinate -sw [backup_pid]
+# prevent sleeping as long as we're on AC power
+caffeinate -s -w $$ &
+
 for dest in $DESTS; do
 ( # Run backups in parallel
   repo=${dest}_RESTIC_REPOSITORY
