@@ -52,10 +52,10 @@ notify() {
   fi
 }
 
-# Prevent running whilst already running.
+# Prevent running whilst already running, and also prevent sleeping by running via caffeinate
 [ -n "$LOCKED" ] || {
   export LOCKED=1
-  exec lockrun --lockfile=/tmp/restic-backup.lock -- "$0" "$@"
+  exec lockrun --lockfile=/tmp/restic-backup.lock -- caffeinate -s "$0" "$@"
 }
 
 # Don't run if we're on battery power
@@ -65,9 +65,6 @@ pmset -g batt | grep -q "Now drawing from 'Battery Power'" && {
 }
 
 notify "Started..."
-
-# prevent sleeping as long as we're on AC power
-caffeinate -s -w $$ &
 
 for dest in $DESTS; do
 ( # Run backups in parallel
