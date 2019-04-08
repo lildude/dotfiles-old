@@ -5,6 +5,7 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions' # Needed for beta versions
 tap 'caskroom/drivers'  # Needed for garmin-express
 tap 'shopify/shopify'   # Needed for toxiproxy
+tap 'yqrashawn/goku'    # Needed for goku
 cask 'java'             # Needs to be first so dependents can be installed.
 
 brew 'ansible'
@@ -25,6 +26,7 @@ brew 'git'
 brew 'git-lfs'
 brew 'gnu-sed'
 brew 'go'
+brew 'goku'
 brew 'heroku'
 brew 'htop'
 brew 'httpie'
@@ -89,6 +91,7 @@ cask 'imageoptim'
 cask 'iterm2'
 cask 'licecap'
 #cask 'little-snitch'
+cask 'karabiner-elements'
 cask 'keybase'
 cask 'muzzle'
 cask 'netspot'
