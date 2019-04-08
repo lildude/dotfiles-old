@@ -18,9 +18,9 @@ setup_gitconfig () {
     fi
 
     user ' - What is your github author name?'
-    read -e git_authorname
+    read -re git_authorname
     user ' - What is your github author email?'
-    read -e git_authoremail
+    read -re git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
@@ -29,13 +29,13 @@ setup_gitconfig () {
 }
 
 create_my_std_dirs() {
-  cd ${HOME}
+  cd "$HOME" || exit 1
   local dirs="bin tmp/trash Development"
 
   if [ -d ~/Downloads ]; then
     if [ ! -L ~/tmp ]; then
       msg='Linked ~/Downloads to ~/tmp'
-      ln -s Downloads tmp && success $msg || fail $msg
+      if ln -s Downloads tmp; then success "$msg"; else fail "$msg"; fi
     else
       success "Skipped ~/tmp already a symlink"
     fi
@@ -44,9 +44,9 @@ create_my_std_dirs() {
   fi
 
   for dir in $dirs; do
-    if [ ! -d ~/$dir ]; then
+    if [ ! -d "$HOME/$dir" ]; then
       msg="Created ~/$dir"
-      mkdir ~/$dir && success $msg || fail $msg
+      if mkdir "$HOME/$dir"; then success "$msg"; else fail "$msg"; fi
     else
       success "Skipped ~/$dir already exists"
     fi
@@ -58,7 +58,8 @@ install_dotfiles
 [ "$(uname -s)" = "Darwin" ] && create_my_std_dirs
 
 info "Installing dependencies..."
-if source $DOTFILES_ROOT/bin/dot | tee /tmp/dotfiles-dot 2>&1; then
+# shellcheck source=bin/dot
+if source "$DOTFILES_ROOT/bin/dot" | tee /tmp/dotfiles-dot 2>&1; then
   success "Dependencies installed"
 else
   fail "Error installing dependencies"
