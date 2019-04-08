@@ -72,4 +72,5 @@
     ],
     "markdown.previewFrontMatter": "show",
     "git.autofetch": true,
+    "ruby.intellisense": "rubyLocate",
 }
