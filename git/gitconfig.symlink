@@ -68,7 +68,7 @@
   rem = remote -v
   co = checkout
   #lg = log --graph --pretty=oneline --abbrev-commit --decorate
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
   cob = checkout -b
   b = branch
   # OSX's xargs doesn't support -r so install GNU xargs from `findutils` with homebrew
