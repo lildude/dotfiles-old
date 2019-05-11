@@ -93,7 +93,7 @@ for dest in $DESTS; do
   restic unlock
 
   # --quiet - should speed up backup process see: https://github.com/restic/restic/pull/1676
-  restic backup \
+  nice -n 19 ionice -c 3 restic backup \
     --verbose \
     --exclude-caches \
     --files-from "$HOME/.restic/restic-include.txt" \
@@ -101,7 +101,7 @@ for dest in $DESTS; do
 
   printf "\n\n*** Running restic forget with prune....\n"
   # remove outdated snapshots
-  restic forget --keep-last 10 \
+  nice -n 19 ionice -c 3 restic forget --keep-last 10 \
     --keep-daily 7 \
     --keep-weekly 4 \
     --keep-monthly 12 \
@@ -114,13 +114,15 @@ for dest in $DESTS; do
   if [ "$dest" != "LOCAL" ]; then
     check_opt="--with-cache"
   fi
-  restic check $check_opt
+  nice -n 19 ionice -c 3 restic check $check_opt
 
-  printf "\n\n*** Running restic stats....\n"
-  restic stats
+  if [ -n "$SHOW_STATS" ]; then
+    printf "\n\n*** Running restic stats....\n"
+    restic stats
 
-  printf "\n*** Running restic stats for raw-data:\n"
-  restic stats --mode raw-data
+    printf "\n*** Running restic stats for raw-data:\n"
+    restic stats --mode raw-data
+  fi
 
   printf "\n*** RESTIC BACKUP SCRIPT FINISHED\n"
 
