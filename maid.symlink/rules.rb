@@ -48,6 +48,11 @@ Maid.rules do
     `apm-beta list --installed --bare > ~/.atom/package-list.txt` unless @file_options[:noop]
   end
 
+  # Tidy up after Docker
+  rule 'Cleaning up after Docker' do
+    `docker rmi $(docker images -q -f "dangling=true")` unless @file_options[:noop]
+    #`docker system prune` unless @file_options[:noop] # Very aggressive clean up
+  end
 
   # Move trash files to trash after 2 weeks
   rule 'Old files downloaded while tatting about' do
