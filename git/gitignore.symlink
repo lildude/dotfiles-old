@@ -28,3 +28,6 @@ vendor/*/vendor/ruby/
 
 # Ignore VSCode config dir
 .vscode
+
+# Tmp disable globally
+coverage/
