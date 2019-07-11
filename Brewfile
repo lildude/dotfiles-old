@@ -6,6 +6,7 @@ tap 'caskroom/versions' # Needed for beta versions
 tap 'caskroom/drivers'  # Needed for garmin-express
 tap 'shopify/shopify'   # Needed for toxiproxy
 tap 'yqrashawn/goku'    # Needed for goku
+tap 'jesseduffield/lazydocker' # Needed for lazydocker
 cask 'java'             # Needs to be first so dependents can be installed.
 
 brew 'ansible'
@@ -13,6 +14,7 @@ brew 'autossh'
 brew 'awscli'
 brew 'base64'
 brew 'bat'              # Like cat, but prettier
+cask 'chatmate-for-whatsapp'
 brew 'checkbashisms'
 brew 'coreutils'
 brew 'diff-so-fancy'
@@ -33,8 +35,8 @@ brew 'httpie'
 brew 'hub'
 brew 'icu4c'
 brew 'jq'
+brew 'lazydocker'
 brew 'lockrun'
-brew 'mackup'
 brew 'moreutils'
 brew 'openssl'
 brew 'pinentry-mac'
@@ -49,7 +51,6 @@ brew 'ripgrep'  # rg, an even faster version of ag
 brew 'rsync'
 brew 's3cmd'
 brew 'shellcheck'
-brew 'the_silver_searcher' # ag, a faster ack
 brew 'tldr'
 brew 'tmux'
 brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
@@ -120,7 +121,6 @@ cask 'virtualbox-extension-pack'
 cask 'viscosity'
 #cask 'vlc'
 cask 'vmware-fusion'
-cask 'whatsapp'
 cask 'wireshark'
 
 # AppStore Apps that need manual install for the mo.
