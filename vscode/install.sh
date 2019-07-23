@@ -16,6 +16,7 @@ EXTENSIONS="$(code --list-extensions)"
 
 info "Installing VSCode packages"
 # Install all the pkgs in package-list.txt
+# Update this using: code --list-extensions >! $HOME/.dotfiles/vscode/package-list.txt
 while IFS= read -r ext; do
   if echo "$EXTENSIONS" | grep -q "$ext"; then
     info "Extension $ext already installed."
