@@ -10,6 +10,7 @@ fi
 
 info "Installing VSCode settings"
 overwrite_all=false backup_all=false skip_all=false link_file "$ZSH/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+overwrite_all=false backup_all=false skip_all=false link_file "$ZSH/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 EXTENSIONS="$(code --list-extensions)"
 
