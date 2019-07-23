@@ -1,6 +1,5 @@
 akamud.vscode-theme-onedark
 artdiniz.quitcontrol-vscode
-be5invis.vscode-custom-css
 bierner.github-markdown-preview
 bierner.markdown-checkbox
 bierner.markdown-emoji

@@ -79,6 +79,4 @@
     "coverage-gutters.partialHighlightDark": "rgba(121, 86, 10, 0.2)",
     "ruby.useLanguageServer": true,
     "code-runner.enableAppInsights": false,
-    "vscode_custom_css.imports": ["file:///Users/lildude/.dotfiles/vscode/custom.css"],
-    "vscode_custom_css.policy": true,
 }
