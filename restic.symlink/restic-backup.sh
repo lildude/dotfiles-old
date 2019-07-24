@@ -108,6 +108,8 @@ for dest in $DESTS; do
     --keep-yearly 2 \
     --prune
 
+  # Only perform restic check at the end of the day when I'm not likely to be working
+  if [ "$(date +%H)" -eq 19 ]; then
   printf "\n\n*** Running restic check....\n"
 
   # --with-cache - limits Class B Transactions on BackBlaze B2 see: https://forum.restic.net/t/limiting-b2-transactions/209/4
@@ -122,6 +124,7 @@ for dest in $DESTS; do
 
     printf "\n*** Running restic stats for raw-data:\n"
     restic stats --mode raw-data
+  fi
   fi
 
   printf "\n*** RESTIC BACKUP SCRIPT FINISHED\n"
