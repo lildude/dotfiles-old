@@ -106,25 +106,26 @@ for dest in $DESTS; do
     --keep-weekly 4 \
     --keep-monthly 12 \
     --keep-yearly 2 \
+    --cleanup-cache \
     --prune
 
   # Only perform restic check at the end of the day when I'm not likely to be working
   if [ "$(date +%H)" -eq 19 ]; then
-  printf "\n\n*** Running restic check....\n"
+    printf "\n\n*** Running restic check....\n"
 
-  # --with-cache - limits Class B Transactions on BackBlaze B2 see: https://forum.restic.net/t/limiting-b2-transactions/209/4
-  if [ "$dest" != "LOCAL" ]; then
-    check_opt="--with-cache"
-  fi
-  nice -n 19 restic check $check_opt
+    # --with-cache - limits Class B Transactions on BackBlaze B2 see: https://forum.restic.net/t/limiting-b2-transactions/209/4
+    if [ "$dest" != "LOCAL" ]; then
+      check_opt="--with-cache"
+    fi
+    nice -n 19 restic check $check_opt
 
-  if [ -n "$SHOW_STATS" ]; then
-    printf "\n\n*** Running restic stats....\n"
-    restic stats
+    if [ -n "$SHOW_STATS" ]; then
+      printf "\n\n*** Running restic stats....\n"
+      restic stats
 
-    printf "\n*** Running restic stats for raw-data:\n"
-    restic stats --mode raw-data
-  fi
+      printf "\n*** Running restic stats for raw-data:\n"
+      restic stats --mode raw-data
+    fi
   fi
 
   printf "\n*** RESTIC BACKUP SCRIPT FINISHED\n"
