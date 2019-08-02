@@ -92,6 +92,7 @@ cask 'google-cloud-sdk'
 cask 'gpg-suite'
 cask 'imagealpha'
 cask 'imageoptim'
+#cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
 cask 'licecap'
 cask 'little-snitch'
