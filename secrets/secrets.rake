@@ -6,33 +6,49 @@ require 'fileutils'
 # stored. The sub-hash describes the `:local` directory for the files, and the
 # `:glob` patterns used to match the files that will be copied.
 FILES = {
-  "ssh" => {
-    local: "~/.ssh",
-    glob:  "**/*"
-  },
-  "gnupg" => {
-    local: "~/.gnupg",
-    glob:  "%w[*.conf *.gpg private-keys* RevCerts]"
-  },
-  "secret" => {
-    local: "~/.dotfiles/secret",
-    glob:  "**/*"
-  },
   "aws" => {
     local: "~/.aws",
     glob: "**/*"
-  },
-  "netrc" => {
-    local: "~/",
-    glob: "\.netrc"
   },
   "azure" => {
     local: "~/.azure",
     glob: "**/*"
   },
+  "exercism" => {
+    local: "~/.config/exercism",
+    glob: "user.json"
+  },
+  "gcloud" => {
+    local: "~/.config/gcloud",
+    glob: "%w[configurations/* credentials legacy_credentials/*"
+  },
+  "gem" => {
+    local: "~/.gem",
+    glob: "credentials"
+  },
+  "gnupg" => {
+    local: "~/.gnupg",
+    glob:  "%w[*.conf *.gpg private-keys* RevCerts]"
+  },
+  "hub" => {
+    local: "~/.config",
+    glob: "hub"
+  },
+  "netrc" => {
+    local: "~/",
+    glob: "\.netrc"
+  },
   "restic" => {
     local: "~/.restic",
     glob: "restic.env"
+  },
+  "secrets" => {
+    local: "~/.dotfiles/secrets",
+    glob:  "**/*"
+  },
+  "ssh" => {
+    local: "~/.ssh",
+    glob:  "**/*"
   }
 }
 
