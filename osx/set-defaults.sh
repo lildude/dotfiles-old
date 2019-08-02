@@ -854,7 +854,7 @@ setting "Archive utility"
 # Move archive files to trash after expansion
 # Delete directly: "/dev/null"
 # Leave alone (default) "."
-defaults write com.apple.archiveutility dearchive-move-after -string "~/.Trash"
+defaults write com.apple.archiveutility dearchive-move-after -string "$HOME/.Trash"
 
 ###############################################################################
 # Alfred                                                                      #
@@ -862,7 +862,7 @@ defaults write com.apple.archiveutility dearchive-move-after -string "~/.Trash"
 # Set Alfred settings here as this needs to run after Alfred has been installed
 # with Homebrew.
 setting "Alfred.app"
-defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/Dropbox/Alfred"
+defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "$HOME/Dropbox/Alfred"
 
 ###############################################################################
 # Kill affected applications                                                  #

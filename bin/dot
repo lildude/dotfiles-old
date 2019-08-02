@@ -15,20 +15,20 @@ if [ "$(uname -s)" = "Darwin" ]; then
   "$ZSH/homebrew/install.sh" 2>&1 | indent
 
   # Update homebrew
-  brew update && success "Brew formulae updated" | indent || fail "Brew formulae updated"
+  if brew update; then success "Brew formulae updated" | indent; else fail "Brew formulae updated"; fi
 
   # Upgrade homebrew pkgs
   if [ "$(brew outdated | wc -l)" -gt 0 ]; then
-    brew upgrade && success "Upgraded brew packages" | indent || fail "Upgrade brew packages"
+    if brew upgrade; then success "Upgraded brew packages" | indent; else fail "Upgrade brew packages"; fi
   fi
 
   if [ "$(brew cask outdated | wc -l)" -gt 0 ]; then
-    brew upgrade && success "Upgraded brew cask packages" | indent || fail "Upgrade brew cask packages"
+    if brew upgrade; then success "Upgraded brew cask packages" | indent; else fail "Upgrade brew cask packages"; fi
   fi
 
   # Clean up
   if [ "$(brew cleanup -n 2> /dev/null | wc -l)" -gt 0 ]; then
-    brew cleanup && success "Brew cleaned up" | indent || fail "Brew clean up"
+    if brew cleanup; then success "Brew cleaned up" | indent; else fail "Brew clean up"; fi
   fi
 fi
 

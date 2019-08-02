@@ -37,8 +37,8 @@ link_file () {
   if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
 
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
-
-      local currentSrc="$(readlink "$dst")"
+      local currentSrc
+      currentSrc="$(readlink "$dst")"
 
       if [ "$currentSrc" == "$src" ]; then
         skip=true;
@@ -46,7 +46,7 @@ link_file () {
 
         user "File already exists: $dst ($(basename "$src")), what do you want to do?\\n\\n
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -n 1 action
+        read -rn 1 action
 
         case "$action" in
           o )
@@ -99,8 +99,8 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*'); do
+  while IFS= read -r -d '' src; do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
-  done
+  done <  <(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -print0)
 }

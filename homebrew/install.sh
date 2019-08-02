@@ -10,17 +10,16 @@ source "$ZSH/bin/lib.sh"
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # Check for Homebrew
-  if [ ! $(command -v brew) ]; then
+  if ! command -v brew > /dev/null 2>&1; then
     info "Installing Homebrew for you."
 
     # Install the correct homebrew for each OS type
-    if [ "$(uname)" = "Darwin" ]; then
+    os_type=$(uname -s)
+    if [ "$os_type" = "Darwin" ]; then
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    elif [ "$os_type" = "Linux" ]; then
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
     fi
 
   fi
 fi
-
-exit 0
