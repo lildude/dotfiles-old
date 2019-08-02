@@ -12,8 +12,8 @@
   mergeoptions = --no-edit
 
 [user]
-  name = Colin Seymour
-  email = lildood@gmail.com
+	name = Colin Seymour
+	email = lildood@gmail.com
   signingkey = lildood@gmail.com
 
 # 22 May '17': Commented out as Atom doesn't pick up the content of these files.
@@ -128,7 +128,7 @@
   diff = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX
 
-# vim: set ft=gitconfig
-
 [protocol]
 	version = 2
+
+# vim: set ft=gitconfig
