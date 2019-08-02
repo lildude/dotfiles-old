@@ -4,6 +4,7 @@
 
 cd "$(dirname "$0")/.." || exit
 DOTFILES_ROOT=$(pwd -P)
+# shellcheck source=bin/lib.sh
 source ./bin/lib.sh
 
 echo ''
