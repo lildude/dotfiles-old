@@ -64,7 +64,7 @@ pmset -g batt | grep -q "Now drawing from 'Battery Power'" && {
   exit 0
 }
 
-notify "Started..."
+#notify "Started..."
 
 for dest in $DESTS; do
 ( # Run backups in parallel
@@ -97,7 +97,7 @@ for dest in $DESTS; do
     --verbose \
     --exclude-caches \
     --files-from "$HOME/.restic/restic-include.txt" \
-    --exclude-file "$HOME/.restic/restic-exclude.txt"
+    --exclude-file "$HOME/.restic/restic-exclude.txt" || notify "🚨 FAILED 🚨"
 
   printf "\n\n*** Running restic forget with prune....\n"
   # remove outdated snapshots
@@ -145,6 +145,6 @@ done
 # Wait for all background jobs to finish
 wait
 
-notify "🌈 Finished Successfully 🎉"
+#notify "🌈 Finished Successfully 🎉"
 
 
