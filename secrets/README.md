@@ -31,19 +31,19 @@ image, and restore those secret files from the disk image.
 To backup your secrets:
 
 ```sh
-rake secrets:backup
+rake -f secrets.rake secrets:backup
 ```
 
 To restore your secrets:
 
 ```sh
-rake secrets:install
+rake -f secrets.rake secrets:install
 ```
 
 To remove the encrypted disk image from iCloud Drive:
 
 ```sh
-rake secrets:clobber
+rake -f secrets.rake secrets:clobber
 ```
 
 You can define what gets backed up to the encrypted disk image by editing the
