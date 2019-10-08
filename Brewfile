@@ -56,6 +56,7 @@ brew 'shellcheck'
 brew 'tldr'
 brew 'tmux'
 brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
+brew 'watch'
 brew 'xz'
 brew 'zsh'
 brew 'zsh-completions'
