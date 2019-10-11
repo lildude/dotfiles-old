@@ -137,6 +137,7 @@ cask 'wireshark'
 # monosnap
 # opendns roaming client - github
 # pixelmator
+# Window Focus - https://rink.hockeyapp.net/api/2/apps/10ecea325a98419bb1f3e5eb6c328724?format=zip
 
 # Ano apps
 # logitech camera settings
