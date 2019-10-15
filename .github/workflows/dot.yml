@@ -1,0 +1,17 @@
+name: Initial Bootstrap
+
+on: [push, pull_request]
+
+jobs:
+  run:
+    name: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Move to $HOME
+      run: |
+        echo $HOME
+        pwd
+      shell: bash
