@@ -40,7 +40,7 @@
 #/ RCLONE_BWLIMIT                      rclone bandwidth limit
 set -e
 
-#shellcheck source=/Users/lildude/.restic/restic.env
+#shellcheck source=/Users/lildude/.restic/restic.env disable=SC1091
 source "$HOME/.restic/restic.env"
 PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
 
