@@ -18,3 +18,7 @@ jobs:
       run: |
         cd $HOME/.dotfiles
         script/bootstrap
+    - name: Shellcheck
+      run: |
+        brew install shellcheck
+        script/shellcheck
