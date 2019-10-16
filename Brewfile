@@ -1,9 +1,9 @@
 cask_args appdir: '/Applications'
 tap 'homebrew/cask-cask'
 tap 'homebrew/bundle'
-tap 'caskroom/fonts'
+tap 'homebrew/cask-fonts'
 tap 'caskroom/versions' # Needed for beta versions
-tap 'caskroom/drivers'  # Needed for garmin-express
+tap 'homebrew/cask-drivers'  # Needed for garmin-express
 tap 'heroku/brew'       # Needed for heroku
 tap 'shopify/shopify'   # Needed for toxiproxy
 tap 'yqrashawn/goku'    # Needed for goku
@@ -40,6 +40,7 @@ brew 'lazydocker'
 brew 'lazygit'
 brew 'lesspipe'
 brew 'lockrun'
+brew 'mas'        # CLI tool for installing Mac App Store apps at the end of this file.
 brew 'moreutils'
 brew 'openssl'
 brew 'pinentry-mac'
@@ -64,17 +65,17 @@ brew 'zsh-completions'
 
 cask '1password-cli'
 cask '1password'
-cask 'aerial'
+#cask 'aerial'
 cask 'alfred'
-cask 'amazon-drive'
-cask 'amazon-music'
-cask 'apache-directory-studio'
+#cask 'amazon-drive'
+#cask 'amazon-music'
+#cask 'apache-directory-studio'
 cask 'appcleaner'
-cask 'arq'
-cask 'atom-beta'
-cask 'banktivity'
+#cask 'arq'
+#cask 'atom-beta'
+#cask 'banktivity'
 cask 'bartender'
-cask 'brave-browser'
+#cask 'brave-browser'
 cask 'calibre'
 cask 'chatmate-for-whatsapp'
 cask 'code'
@@ -98,14 +99,13 @@ cask 'imagealpha'
 cask 'imageoptim'
 #cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
-cask 'licecap'
 cask 'little-snitch'
 cask 'karabiner-elements'
 cask 'keybase'
 cask 'muzzle'
 cask 'netspot'
 cask 'numi'
-cask 'pallotron-yubiswitch'
+#cask 'pallotron-yubiswitch'
 cask 'postman'
 cask 'qbserve'
 cask 'rocket'
@@ -113,31 +113,31 @@ cask 'rocket'
 cask 'skitch'
 cask 'sketch'
 cask 'slack'
-cask 'sloth'
+#cask 'sloth'
 cask 'spotify'
 cask 'teamviewer'
 cask 'textexpander5'
 #cask 'the-unarchiver' - download temporarily broken
-cask 'torbrowser'
-cask 'transit'
+#cask 'torbrowser'
+cask 'transmit'
 cask 'transmission'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
+#cask 'vagrant'
+#cask 'virtualbox'
+#cask 'virtualbox-extension-pack'
 cask 'viscosity'
 #cask 'vlc'
-cask 'vmware-fusion'
+#cask 'vmware-fusion'
 cask 'wireshark'
 
 # AppStore Apps that need manual install for the mo.
-# bear
-# magnet
+#mas 'bear'
+#mas 'magnet'
 # managed software center - github
-# microsoft onenote
-# microsoft remote desktop
-# monosnap
+#mas 'microsoft onenote'
+#mas 'microsoft remote desktop'
+#mas 'monosnap'
 # opendns roaming client - github
-# pixelmator
+#mas 'pixelmator'
 # Window Focus - https://rink.hockeyapp.net/api/2/apps/10ecea325a98419bb1f3e5eb6c328724?format=zip
 
 # Ano apps
