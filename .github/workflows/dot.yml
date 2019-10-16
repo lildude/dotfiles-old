@@ -11,10 +11,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@master
-    - name: Move to $HOME
-      run: |
-        echo "HOME: $HOME"
-        pwd
-        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-        ls -la ./
+    - name: Copy to $HOME
+      run: cp -Rf $GITHUB_WORKSPACE $HOME/.dotfiles
       shell: bash
+    - name: Bootstrap
+      run: |
+        cd $HOME/.dotfiles
+        script/bootstrap
