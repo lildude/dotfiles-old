@@ -15,4 +15,5 @@ jobs:
         echo "HOME: $HOME"
         pwd
         echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+        ls -la ./
       shell: bash
