@@ -15,7 +15,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   "$ZSH/homebrew/install.sh" 2>&1 | indent
 
   # Update homebrew
-  if brew update; then success "Brew formulae updated" | indent; else fail "Brew formulae updated"; fi
+  if brew update | indent; then success "Brew formulae updated" | indent; else fail "Brew formulae updated"; fi
 
   # Upgrade homebrew pkgs, but not in CI as we don't care about most of the pre-installed pkgs
   if [ -z "$GITHUB_WORKSPACE" ]; then
