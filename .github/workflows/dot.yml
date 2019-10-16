@@ -21,4 +21,5 @@ jobs:
     - name: Shellcheck
       run: |
         brew install shellcheck
+        cd $HOME/.dotfiles
         script/shellcheck
