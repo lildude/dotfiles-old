@@ -12,7 +12,12 @@ source "$ZSH/bin/lib.sh"
 if [ "$(uname -s)" = "Darwin" ]; then
   # Run Homebrew through the Brewfile
   info "brew bundle"
-  brew bundle | indent
+  if [ -n "$GITHUB_WORKSPACE" ]; then
+    echo "Would install:" | indent
+    brew bundle check --verbose | indent
+  else
+    brew bundle | indent
+  fi
 fi
 
 # find the installers and run them iteratively
