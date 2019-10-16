@@ -12,6 +12,7 @@ jobs:
     steps:
     - name: Move to $HOME
       run: |
-        echo $HOME
+        echo "HOME: $HOME"
         pwd
+        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
       shell: bash
