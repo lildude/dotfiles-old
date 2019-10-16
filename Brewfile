@@ -127,7 +127,7 @@ cask 'transmission'
 cask 'viscosity'
 #cask 'vlc'
 #cask 'vmware-fusion'
-cask 'wireshark'
+#cask 'wireshark' # This is having problems installing at the mo - Oct 2019.
 
 # AppStore Apps that need manual install for the mo.
 #mas 'bear'
