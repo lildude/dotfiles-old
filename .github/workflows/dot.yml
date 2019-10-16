@@ -10,6 +10,7 @@ jobs:
         os: [macOS-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - uses: actions/checkout@master
     - name: Move to $HOME
       run: |
         echo "HOME: $HOME"
