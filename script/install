@@ -14,7 +14,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   info "brew bundle"
   if [ -n "$GITHUB_WORKSPACE" ]; then
     echo "Would install:" | indent
-    brew bundle check --verbose | indent
+    brew bundle check --verbose 2>&1 | indent
   else
     brew bundle | indent
   fi
