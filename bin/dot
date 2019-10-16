@@ -41,11 +41,11 @@ info "$ZSH/script/install"
 if [ "$(uname -s)" = "Darwin" ]; then
   # Set OS X defaults
   info "Setting OSX defaults"
-  "$ZSH/osx/set-defaults.sh"
+  "$ZSH/osx/set-defaults.sh" 2>&1 | indent
 fi
 
 # Update list of Atom packages
 if [ "$(command -v apm-beta)" ]; then
   info "Updating Atom package list"
-  apm-beta list --installed --bare > ~/.atom/package-list.txt
+  apm-beta list --installed --bare > ~/.atom/package-list.txt 2>&1 | indent
 fi
