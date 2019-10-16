@@ -1,9 +1,10 @@
 cask_args appdir: '/Applications'
-tap 'caskroom/cask'
+tap 'homebrew/cask-cask'
 tap 'homebrew/bundle'
 tap 'caskroom/fonts'
 tap 'caskroom/versions' # Needed for beta versions
 tap 'caskroom/drivers'  # Needed for garmin-express
+tap 'heroku/brew'       # Needed for heroku
 tap 'shopify/shopify'   # Needed for toxiproxy
 tap 'yqrashawn/goku'    # Needed for goku
 tap 'jesseduffield/lazydocker' # Needed for lazydocker
