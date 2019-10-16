@@ -7,7 +7,7 @@ jobs:
     name: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-latest, ubuntu-latest]
+        os: [macOS-latest] # TODO: Add Linux support in the future.
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@master
