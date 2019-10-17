@@ -27,6 +27,11 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(README.md|zlogout)(.N); do
   fi
 done
 
+if [ -n "$GITHUB_WORKSPACE" ]; then
+  echo "Would attempt to change default shell to ZSH" | indent
+  exit 0
+fi
+
 if [ "$(uname -s)" = "Darwin" ]; then
   if [ "$(dscl . -read /Users/$USER UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
     info "Changing default shell to zsh"
