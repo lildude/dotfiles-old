@@ -15,20 +15,22 @@ if [ "$(uname -s)" = "Darwin" ]; then
   "$ZSH/homebrew/install.sh" 2>&1 | indent
 
   # Update homebrew
-  if brew update; then success "Brew formulae updated" | indent; else fail "Brew formulae updated"; fi
+  if brew update > /dev/null 2>&1; then success "Brew formulae updated" | indent; else fail "Brew formulae failed" | indent; fi
 
-  # Upgrade homebrew pkgs
-  if [ "$(brew outdated | wc -l)" -gt 0 ]; then
-    if brew upgrade; then success "Upgraded brew packages" | indent; else fail "Upgrade brew packages"; fi
-  fi
+  # Upgrade homebrew pkgs, but not in CI as we don't care about most of the pre-installed pkgs
+  if [ -z "$GITHUB_WORKSPACE" ]; then
+    if [ "$(brew outdated | wc -l)" -gt 0 ]; then
+      if brew upgrade; then success "Upgraded brew packages" | indent; else fail "Upgrade brew packages"; fi
+    fi
 
-  if [ "$(brew cask outdated | wc -l)" -gt 0 ]; then
-    if brew upgrade; then success "Upgraded brew cask packages" | indent; else fail "Upgrade brew cask packages"; fi
-  fi
+    if [ "$(brew cask outdated | wc -l)" -gt 0 ]; then
+      if brew upgrade; then success "Upgraded brew cask packages" | indent; else fail "Upgrade brew cask packages"; fi
+    fi
 
-  # Clean up
-  if [ "$(brew cleanup -n 2> /dev/null | wc -l)" -gt 0 ]; then
-    if brew cleanup; then success "Brew cleaned up" | indent; else fail "Brew clean up"; fi
+    # Clean up
+    if [ "$(brew cleanup -n 2> /dev/null | wc -l)" -gt 0 ]; then
+      if brew cleanup; then success "Brew cleaned up" | indent; else fail "Brew clean up"; fi
+    fi
   fi
 fi
 
@@ -39,11 +41,11 @@ info "$ZSH/script/install"
 if [ "$(uname -s)" = "Darwin" ]; then
   # Set OS X defaults
   info "Setting OSX defaults"
-  "$ZSH/osx/set-defaults.sh"
+  "$ZSH/osx/set-defaults.sh" 2>&1 | indent
 fi
 
 # Update list of Atom packages
 if [ "$(command -v apm-beta)" ]; then
   info "Updating Atom package list"
-  apm-beta list --installed --bare > ~/.atom/package-list.txt
+  apm-beta list --installed --bare > ~/.atom/package-list.txt 2>&1 | indent
 fi
