@@ -7,7 +7,8 @@ export ZSH=$HOME/.dotfiles
 # shellcheck source=bin/lib.sh
 source "$ZSH/bin/lib.sh"
 
-if [ "$(uname -s)" = "Darwin" ]; then
+# Don't run on Linux or under GitHub Actions (aka CI)
+if [ "$(uname -s)" = "Darwin" ] && [ -z "$GITHUB_WORKSPACE" ]; then
   info "sudo softwareupdate -i -a"
   sudo softwareupdate -i -a 2>&1 | indent
 fi
