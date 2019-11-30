@@ -13,7 +13,6 @@
     "workbench.statusBar.visible": true,
     "workbench.tree.horizontalScrolling": true,
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "One Dark Pro Vivid",
     "workbench.iconTheme": "file-icons",
     "workbench.colorCustomizations": {
         "editorIndentGuide.activeBackground": "#999"
@@ -51,11 +50,11 @@
     "sync-rsync.sites": [
       {
         "localPath": "/Users/lildude/github/backup-utils",
-        "remotePath": "lildude@enterprise2-dev-8aeb724.cp1-iad.github.net:/home/lildude/github/backup-utils",
+        "remotePath": "lildude@enterprise2-dev-798a0ea.cp1-iad.github.net:/home/lildude/github/backup-utils",
       },
       {
         "localPath": "/Users/lildude/github/enterprise2",
-        "remotePath": "lildude@enterprise2-dev-8aeb724.cp1-iad.github.net:/home/lildude/github/enterprise2",
+        "remotePath": "lildude@enterprise2-dev-798a0ea.cp1-iad.github.net:/home/lildude/github/enterprise2",
       },
     ],
     "sync-rsync.notification": false,
@@ -78,4 +77,7 @@
     "coverage-gutters.partialHighlightDark": "rgba(121, 86, 10, 0.2)",
     "code-runner.enableAppInsights": false,
     "ruby.codeCompletion": "rcodetools",
+    "editor.renderControlCharacters": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "One Dark Pro",
 }
