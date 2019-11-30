@@ -138,6 +138,10 @@ for dest in $DESTS; do
 
   } | ts >> "$RESTIC_LOG_FILE"
 
+  # Delete the log file on success - we're only really interested in the log if things go wrong
+  if [ -n "$DELETE_LOG_ON_SUCCESS" ]; then
+    rm "$RESTIC_LOG_FILE"
+  fi
 ) &
 
 done
