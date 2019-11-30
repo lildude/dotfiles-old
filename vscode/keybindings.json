@@ -1,12 +1,12 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "ctrl+alt+t",
+    "key": "ctrl+`",
     "command": "workbench.action.terminal.focus",
     "when": "!terminalFocus"
   },
   {
-    "key": "ctrl+alt+t",
+    "key": "ctrl+`",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   }
