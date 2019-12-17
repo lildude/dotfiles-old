@@ -11,11 +11,11 @@
     "terminal.external.osxExec": "iTerm2.app",
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
-    "workbench.tree.horizontalScrolling": true,
+    "workbench.list.horizontalScrolling": true,
     "workbench.activityBar.visible": true,
     "workbench.iconTheme": "file-icons",
     "workbench.colorCustomizations": {
-        "editorIndentGuide.activeBackground": "#999"
+        "editorIndentGuide.activeBackground": "#999",
         //"sideBar.background": "#333",
         //"sideBar.foreground": "#aaa",
         //"list.activeSelectionForeground": "#fff",
@@ -28,6 +28,8 @@
         //"statusBar.debuggingBackground": "#511f1f",
         //"editorWarning.foreground": "#ffaa2c",
         //"gitDecoration.untrackedResourceForeground": "#2BDA77",
+        //"activityBar.activeBorder": "#aa0000",
+        //"activityBar.activeBackground": "#aa0000"
     },
     "git.countBadge": "tracked",
     "workbench.statusBar.feedback.visible": false,  // Hide Twitter smiley
