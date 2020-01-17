@@ -1,14 +1,14 @@
 cask_args appdir: '/Applications'
 tap 'homebrew/cask-cask'
 tap 'homebrew/bundle'
-tap 'homebrew/cask-fonts'
-tap 'caskroom/versions' # Needed for beta versions
-tap 'homebrew/cask-drivers'  # Needed for garmin-express
-tap 'heroku/brew'       # Needed for heroku
-tap 'shopify/shopify'   # Needed for toxiproxy
-tap 'yqrashawn/goku'    # Needed for goku
-tap 'jesseduffield/lazydocker' # Needed for lazydocker
-cask 'java'             # Needs to be first so dependents can be installed.
+tap 'homebrew/cask-fonts'       # Needed for fonts
+tap 'caskroom/versions'         # Needed for beta versions
+tap 'homebrew/cask-drivers'     # Needed for garmin-express
+tap 'heroku/brew'               # Needed for heroku
+tap 'shopify/shopify'           # Needed for toxiproxy
+tap 'yqrashawn/goku'            # Needed for goku
+tap 'jesseduffield/lazydocker'  # Needed for lazydocker
+cask 'java'                     # Needs to be first so dependents can be installed.
 
 brew 'ansible'
 brew 'autossh'
@@ -90,6 +90,7 @@ cask 'fantastical'
 cask 'firefox-beta'
 cask 'flotato'
 cask 'flux'
+cask 'font-jetbrains-mono'
 cask 'garmin-express'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
