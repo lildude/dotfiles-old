@@ -23,6 +23,7 @@ brew 'exa'
 brew 'exercism'
 brew 'fd'               # Like find, but faster
 brew 'findutils'
+brew 'fish'
 brew 'fswatch'
 brew 'fzf'
 brew 'git'
