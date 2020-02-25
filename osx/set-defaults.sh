@@ -24,8 +24,8 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # Set standby delay to 12 hours (default is 1 hour)
 sudo pmset -a standbydelay 43200
 
-# Disable the sound effects on boot
-#sudo nvram SystemAudioVolume=" "
+# Enable the sound effects on boot - MBP 2015 and later - set to %01 to disable again
+sudo nvram StartupMute=%00
 
 # Disable the Screenshot and Empty Trash sound effects
 defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
