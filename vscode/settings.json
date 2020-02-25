@@ -1,11 +1,13 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.renderWhitespace": "boundary",
-    "editor.fontFamily": "Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
     "editor.fontSize": 14,
     "editor.tabSize": 2,
     "editor.minimap.enabled": false,
     "editor.cursorWidth": 3,
+    "editor.scrollBeyondLastLine": false,
+    "editor.fontLigatures": true,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": false,
     "terminal.external.osxExec": "iTerm2.app",
@@ -47,7 +49,6 @@
     "git.showPushSuccessNotification": true,
     "git.confirmSync": false,
     "diffEditor.renderSideBySide": false,
-    "editor.scrollBeyondLastLine": false,
     "sync-rsync.onSaveIndividual": true,
     "sync-rsync.sites": [
       {
@@ -56,7 +57,7 @@
       },
       {
         "localPath": "/Users/lildude/github/enterprise2",
-        "remotePath": "lildude@enterprise2-dev-798a0ea.cp1-iad.github.net:/home/lildude/github/enterprise2",
+        "remotePath": "lildude@enterprise2-dev-53692fa.sdc42-sea.github.net:/home/lildude/github/enterprise2",
       },
     ],
     "sync-rsync.notification": false,
