@@ -103,6 +103,7 @@ cask 'imageoptim'
 #cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
 cask 'little-snitch'
+cask 'kap'
 cask 'karabiner-elements'
 cask 'keybase'
 cask 'microblog'
@@ -133,6 +134,7 @@ cask 'viscosity'
 #cask 'vmware-fusion'
 #cask 'wireshark' # This is having problems installing at the mo - Oct 2019.
 cask 'yubico-yubikey-manager'
+cask 'zwift'
 
 # AppStore Apps that need manual install for the mo.
 #mas 'bear'
