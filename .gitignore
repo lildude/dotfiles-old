@@ -51,3 +51,10 @@ heroku.symlink/analytics.json
 # Restic
 restic.symlink/restic.env
 restic.symlink/**/*.log
+
+# Fish
+fish/completions/fisher.fish
+fish/completions/rustup.fish
+fish/functions/fisher.fish
+fish/fisher_plugins/
+fish/fish_variables
