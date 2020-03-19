@@ -57,7 +57,7 @@
       },
       {
         "localPath": "/Users/lildude/github/enterprise2",
-        "remotePath": "lildude@enterprise2-dev-53692fa.sdc42-sea.github.net:/home/lildude/github/enterprise2",
+        "remotePath": "lildude@enterprise2-dev-c2ff920.ac4-iad.github.net:/home/lildude/github/enterprise2",
       },
     ],
     "sync-rsync.notification": false,
@@ -83,4 +83,5 @@
     "editor.renderControlCharacters": true,
     "window.zoomLevel": 0,
     "workbench.colorTheme": "One Dark Pro",
+    "diffEditor.ignoreTrimWhitespace": false,
 }
