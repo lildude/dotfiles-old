@@ -1,5 +1,6 @@
+# vim: filetype=bash
 #
-# My fallback bashrc for when ZSH isn't available or not needed
+# My fallback bashrc for when my favourite shell of the day isn't available or not needed
 #
 # If not running interactively, don't do anything
 case $- in
