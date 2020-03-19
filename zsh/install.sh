@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 #
+# Exit early if ZSH isn't my default shell anymore.
+[ "$DEFAULT_SHELL" != "zsh" ] && exit 0
+
 # Download my .zprezto repo and set it up
 export ZSH=$HOME/.dotfiles
 # shellcheck source=bin/lib.sh
