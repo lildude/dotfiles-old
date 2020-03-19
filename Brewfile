@@ -26,6 +26,7 @@ brew 'findutils'
 brew 'fish'
 brew 'fswatch'
 brew 'fzf'
+brew 'fzy'
 brew 'git'
 brew 'git-lfs'
 brew 'gnu-sed'
@@ -138,6 +139,7 @@ cask 'zwift'
 
 # AppStore Apps that need manual install for the mo.
 #mas 'bear'
+#mas 'tot'
 #mas 'magnet'
 # managed software center - github
 #mas 'microsoft onenote'
@@ -145,6 +147,7 @@ cask 'zwift'
 #mas 'monosnap'
 # opendns roaming client - github
 #mas 'pixelmator'
+#mas 'wireguard'
 # Window Focus - https://rink.hockeyapp.net/api/2/apps/10ecea325a98419bb1f3e5eb6c328724?format=zip
 
 # Ano apps
