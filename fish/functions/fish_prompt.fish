@@ -45,7 +45,7 @@ function fish_prompt --description 'lildudes prompt'
   printf '%s' (prompt_pwd)
   set_color normal
   set -l icon (git_icon)
-  printf '%s' (fish_git_prompt " $icon %s")  # Adds the branch icon  from Nerd Font patched font
+  printf '%s' (fish_git_prompt " $icon %s")
   set_color magenta
   printf ']'
   set_color blue
