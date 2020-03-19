@@ -1,0 +1,4 @@
+completions/fisher.fish
+functions/fisher.fish
+fisher_plugins/
+fish_variables
