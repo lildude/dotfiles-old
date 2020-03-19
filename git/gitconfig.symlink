@@ -1,3 +1,4 @@
+# vim: set filetype=ini
 [credential]
   helper = osxkeychain
 
@@ -64,7 +65,7 @@
 
 [alias]
   branch-name = "!git rev-parse --abbrev-ref HEAD"  # Get branch. Used by other aliases.
-  st = "status --short --branch"
+  st = "status --short --branch --no-ahead-behind"
   rem = remote -v
   co = checkout
   #lg = log --graph --pretty=oneline --abbrev-commit --decorate
