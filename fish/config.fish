@@ -3,6 +3,16 @@
 #
 # Cool stuffs - https://github.com/jorgebucaran/awesome-fish
 
+# Put fisher plugin files in their own dir
+set -g fisher_path ~/.config/fish/fisher_plugins
+
+set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
+set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
+
+for file in $fisher_path/conf.d/*.fish
+  builtin source $file 2> /dev/null
+end
+
 # Exported variables
 # Start with the path. We use the universal thingy and not this file. Run this only _once_ at first config and then append as needed
 # This is actually stored in the fish_variables file
@@ -33,9 +43,6 @@ set -xg ICLOUD_DRIVE "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 # Prevent macos tar including hidden ._ files in tarballs
 set -xg COPYFILE_DISABLE 1
-
-# Load rbenv
-#status --is-interactive; and source (rbenv init -|psub)
 
 # fzf config
 set -xg FZF_CTRL_T_COMMAND "fd --glob '!.git/*' ."
