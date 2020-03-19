@@ -495,6 +495,11 @@ function __fish_git_prompt_staged --description "fish_git_prompt helper, tells w
     set -l staged
     set -l ret 0
 
+    # @lildude: Return early if sha == HEAD as it means the repo is brand new
+    if [ "$sha" = "HEAD" ]
+        return $ret
+    end
+
     if test -n "$sha"
         # The "diff" functions all return > 0 if there _is_ a diff,
         # but we want to return 0 if there are staged changes.
