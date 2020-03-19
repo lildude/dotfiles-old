@@ -16,6 +16,9 @@ if [ ! -d ~/.config/fish ]; then
   fi
 
   ln -s "$DIR" ~/.config/fish
+  # Install fisher
+  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+  # Install all fisher plugins
   fish -c fisher
 fi
 
