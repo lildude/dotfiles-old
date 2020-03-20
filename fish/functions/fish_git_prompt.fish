@@ -459,7 +459,9 @@ function fish_git_prompt --description "Prompt function for Git"
     set -q __fish_git_prompt_shorten_branch_char_suffix
     or set -l __fish_git_prompt_shorten_branch_char_suffix "…"
     if string match -qr '^\d+$' "$__fish_git_prompt_shorten_branch_len"; and test (string length "$b") -gt $__fish_git_prompt_shorten_branch_len
-        set b (string sub -l "$__fish_git_prompt_shorten_branch_len" "$b")"$__fish_git_prompt_shorten_branch_char_suffix"
+        # @lildude: truncate from the beginning of the branch name as I prefix all my branches with my handle
+        set b "$__fish_git_prompt_shorten_branch_char_suffix"(string sub -s -"$__fish_git_prompt_shorten_branch_len" "$b")
+        #set b (string sub -l "$__fish_git_prompt_shorten_branch_len" "$b")"$__fish_git_prompt_shorten_branch_char_suffix"
     end
     if test -n "$b"
         set b "$branch_color$b$branch_done"
