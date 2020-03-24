@@ -14,6 +14,7 @@ brew 'ansible'
 brew 'autossh'
 brew 'awscli'
 brew 'base64'
+brew 'bash'             # Only needed for my Bash scripts now macOS isn't shipping updates etc
 brew 'bat'              # Like cat, but prettier
 brew 'checkbashisms'
 brew 'coreutils'
