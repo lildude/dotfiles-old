@@ -68,7 +68,6 @@ brew 'zsh-completions'
 
 cask '1password-cli'
 cask '1password'
-#cask 'aerial'
 cask 'alfred'
 #cask 'amazon-drive'
 #cask 'amazon-music'
@@ -78,7 +77,6 @@ cask 'appcleaner'
 #cask 'atom-beta'
 #cask 'banktivity'
 cask 'bartender'
-#cask 'brave-browser'
 cask 'calibre'
 cask 'chatmate-for-whatsapp'
 cask 'code'
@@ -120,12 +118,10 @@ cask 'rocket'
 cask 'skitch'
 cask 'sketch'
 cask 'slack'
-#cask 'sloth'
 cask 'spotify'
 cask 'teamviewer'
 cask 'textexpander5'
 #cask 'the-unarchiver' - download temporarily broken
-#cask 'torbrowser'
 cask 'transmit'
 cask 'transmission'
 cask 'vagrant'
@@ -139,16 +135,18 @@ cask 'yubico-yubikey-manager'
 cask 'zwift'
 
 # AppStore Apps that need manual install for the mo.
-#mas 'bear'
-#mas 'tot'
-#mas 'magnet'
-# managed software center - github
-#mas 'microsoft onenote'
-#mas 'microsoft remote desktop'
-#mas 'monosnap'
-# opendns roaming client - github
-#mas 'pixelmator'
-#mas 'wireguard'
+mas "Bear", id: 1091189122
+mas "Be Focused Pro", id: 961632517
+mas "Magnet", id: 441258766
+mas "Microsoft OneNote", id: 784801555
+mas "Microsoft Remote Desktop 10", id: 1295203466
+mas "Monit", id: 1014850245
+mas "Monosnap", id: 540348655
+mas "Pixelmator", id: 407963104
+mas "Tot", id: 1491071483
+mas "WireGuard", id: 1451685025
+
+
 # Window Focus - https://rink.hockeyapp.net/api/2/apps/10ecea325a98419bb1f3e5eb6c328724?format=zip
 
 # Ano apps
