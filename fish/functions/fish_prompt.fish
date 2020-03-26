@@ -69,15 +69,6 @@ function fish_right_prompt
   if [ -d .git ]
     # Set the git config stuff for my prompt
     set -l email (git config user.email)
-    # If I'm working on work code, ensure the local user.email is set to my work email address.
-    if [ "$email" = "lildood@gmail.com" ] && [ "dirname (pwd)" = "$HOME/github" ] && [ -d (pwd)/.git ]
-      git config user.email colin@github.com
-      git config user.signingkey colin@github.com
-      set -l email (git config user.email)
-    end
-
-    if [ -d (pwd)/.git ]
-      echo -n -s $email
-    end
+    echo -n -s $email
   end
 end

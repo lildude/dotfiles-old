@@ -13,17 +13,15 @@
   mergeoptions = --no-edit
 
 [user]
+  # Never use the system info if the user info isn't set; error instead.
+	useConfigOnly = true
 	name = Colin Seymour
 	email = lildood@gmail.com
-  signingkey = lildood@gmail.com
+  signingkey = 88109C73073E7080
 
-# 22 May '17': Commented out as Atom doesn't pick up the content of these files.
-# Using conditional includes for user info instead.
-# NB: Order is important.
-#[includeIf "gitdir:~/"]
-#  path = ~/.dotfiles/git/gitconfig-personal
-#[includeIf "gitdir:~/github/"]
-#  path = ~/.dotfiles/git/gitconfig-github
+# Override default when working in work repos
+[includeIf "gitdir:~/github/"]
+  path = ~/.dotfiles/git/gitconfig-github
 
 [github]
   user = lildude
