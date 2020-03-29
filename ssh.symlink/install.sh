@@ -17,7 +17,7 @@ while IFS="=" read -r key value; do
 done < <(op list documents | jq -r '.[] | select(.overview.title | contains("SSH Key") ) | { (.uuid): .overview.title } | to_entries | .[] | .key + "=" + .value')
 #declare -p keys
 
-#cd "$HOME/.ssh/" || exit 1
+cd "$HOME/.ssh/" || exit 1
 
 for i in "${!keys[@]}"; do
   filename=$(echo "${keys[$i]}" | awk '{ printf $NF}')
@@ -28,4 +28,4 @@ for i in "${!keys[@]}"; do
   fi
 done
 
-#cd "$HOME" || exit
+cd "$HOME" || exit
