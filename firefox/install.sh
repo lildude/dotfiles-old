@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-#
-# Disable for now.
-exit 0
 
 export ZSH=$HOME/.dotfiles
 # shellcheck source=bin/lib.sh
@@ -15,5 +12,5 @@ else
   /Applications/Firefox.app/Contents/MacOS/firefox-bin --headless
   exec "$0"
 fi
-info "Installing Firefox ghacks user.js and your overrides"
-"$ZSH/firefox/updater.sh" -P "$PROFILE_DIR" -u -s
+info "Installing Firefox ghacks user.js and my overrides"
+"$ZSH/firefox/updater.sh" -p "$PROFILE_DIR" -u -s
