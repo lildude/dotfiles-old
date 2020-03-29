@@ -12,8 +12,8 @@ fi
 cd "$ZSH" || exit 1
 files=()
 while IFS= read -r file; do
-    # Skip travis.sh as this isn't my file.
-    [[ "$file" =~ travis\\.sh ]] && continue
+    # Skip firefox/updater.sh as this isn't my file.
+    [[ "$file" =~ updater\.sh ]] && continue
     if file --brief --mime "$file" | grep -q "x-shellscript"; then
       files+=( "$file" )
     fi
