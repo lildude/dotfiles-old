@@ -66,7 +66,7 @@ function git_icon
 end
 
 function fish_right_prompt
-  if [ -d .git ]
+  if [ -d .git ] || git rev-parse --is-inside-work-tree >/dev/null 2>&1
     # Set the git config stuff for my prompt
     set -l email (git config user.email)
     echo -n -s $email
