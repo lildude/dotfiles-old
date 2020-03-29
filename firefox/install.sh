@@ -13,4 +13,6 @@ else
   exec "$0"
 fi
 info "Installing Firefox ghacks user.js and my overrides"
+ln -s "$ZSH/firefox/user-overrides.js" "$PROFILE_DIR/user-overrides.js"
+ln -s "$ZSH/firefox/updater.sh" "$PROFILE_DIR/updater.sh"
 "$ZSH/firefox/updater.sh" -p "$PROFILE_DIR" -u -s
