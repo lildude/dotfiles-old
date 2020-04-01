@@ -4,6 +4,10 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
     "editor.fontSize": 14,
     "editor.tabSize": 2,
+    "editor.rulers": [
+      { "column": 80, "color": "#4444445e" },
+      //{ "column": 90, "color": "#880000" }
+    ],
     "editor.minimap.enabled": false,
     "editor.cursorWidth": 3,
     "editor.scrollBeyondLastLine": false,
