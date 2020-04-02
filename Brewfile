@@ -102,6 +102,7 @@ cask 'imagealpha'
 cask 'imageoptim'
 #cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
+cask 'font-jetbrainsmono-nerd-font'
 cask 'little-snitch'
 cask 'kap'
 cask 'karabiner-elements'
