@@ -53,6 +53,7 @@ brew 'pstree'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-default-gems'
+brew 'rclone'
 brew 'restic'
 brew 'ripgrep'  # rg, an even faster version of ag
 brew 'rsync'
