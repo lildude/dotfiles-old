@@ -15,7 +15,7 @@ user_pref("security.ask_for_password", 0); // 0903 - I don't use Firefox's passw
 user_pref("security.password_lifetime", 30); // 0904 - As for 0903
 
 user_pref("browser.cache.disk.enable", true); // 1001 - I use temp containers and a lot of tabs
-user_pref("browser.sessionstore.privacy_level", 0) // 1021 - I'm not sure about this just yet so sticking with default
+user_pref("browser.sessionstore.privacy_level", 0); // 1021 - I'm not sure about this just yet so sticking with default
 
 user_pref("security.mixed_content.block_display_content", false); // 1241 - Breaks a lot of sites
 user_pref("browser.display.use_document_fonts", 1); // 1401 - I want pretty fonts for now
@@ -30,6 +30,7 @@ user_pref("browser.download.useDownloadDir", true); // 2651 - I'm explicit in my
 user_pref("privacy.sanitize.sanitizeOnShutdown", false); // 2802 - Don't clear things everytime I shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", false); // cos 2802 is false
 
+user_pref("privacy.firstparty.isolate", false); // 4001 - Breaks stuff
 user_pref("privacy.resistFingerprinting", false); // 4501 - this breaks Okta login
 user_pref("privacy.resistFingerprinting.letterboxing", false); // 4504
 // 4600: These are enabled here because I've disabled 4501. Some of these might interfer with sites
@@ -42,7 +43,6 @@ user_pref("media.ondevicechange.enabled", false); // 4612
 user_pref("webgl.enable-debug-renderer-info", false); // 4613
 user_pref("dom.w3c_pointer_events.enabled", false); // 4614
 user_pref("ui.use_standins_for_native_colors", true); // 4615
-user_pref("ui.systemUsesDarkTheme", 0); // 4616
 
 /*** ANO non-ghacks settings ***/
 user_pref("security.enterprise_roots.enabled", true); // Trust keychain company certs - might work one day - https://www.jamf.com/jamf-nation/discussions/25166/how-to-firefox-trusting-company-certificates
