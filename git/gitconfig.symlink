@@ -28,16 +28,13 @@
 
 [color]
   ui = always   # Cos everyone loves colours
-  branch = auto
-  diff = auto
-  status = auto
 
 # Supported colors: normal, black, red, green, yellow, blue, magenta, cyan, or white
 # Supported effects: bold, dim, ul (underline), blink, and reverse (swap foreground and background)
 [color "branch"]
   #current = green # Default: green
   #local = yellow
-  #remote = green
+  remote = blue
 
 [color "diff"]
   commit = green
@@ -70,9 +67,10 @@
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
   cob = checkout -b
   b = branch
-  # OSX's xargs doesn't support -r so install GNU xargs from `findutils` with homebrew
+  # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
   # Remove all local branches that were tracking remote branches that have been deleted.
-  up = !git checkout master && git pull --rebase --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | $(which gxargs xargs | grep -v \"not found\" | head -1) -r git branch -d
+  up = !git checkout master && git pull --rebase --prune && git gc && git branch -vv | grep ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v \"not found\" | head -1) -r git branch -D
+
   # Open the current branch on janky to see our build results
   janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
   # Create a pull request on GitHub using the `hub` command.
