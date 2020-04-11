@@ -41,12 +41,6 @@ Maid.rules do
   rule 'Clean up gems' do
     `gem cleanup` unless @file_options[:noop]
   end
-  rule 'Updating Atom packages' do
-    `apm-beta upgrade` unless @file_options[:noop]
-  end
-  rule 'Updating Atom packages list' do
-    `apm-beta list --installed --bare > ~/.atom/package-list.txt` unless @file_options[:noop]
-  end
 
   # Tidy up after Docker
   rule 'Cleaning up after Docker' do
