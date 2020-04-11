@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
-VERSION=2.6.3
+VERSION=2.6.5
 
 if [ -n "$GITHUB_WORKSPACE" ]; then
   echo "rbenv would install Ruby $VERSION"
