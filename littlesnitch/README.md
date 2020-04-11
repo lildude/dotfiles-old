@@ -1,0 +1,1 @@
+This file contains a whole bunch of rules I've accrued over time.  You can't install these directly but you can subscribe to them from LittleSnitch.
