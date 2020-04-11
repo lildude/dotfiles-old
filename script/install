@@ -4,12 +4,11 @@
 
 set -e
 
-cd "$(dirname "$0")"/..
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
-if [ "$(uname -s)" = "Darwin" ]; then
+if [ $MACOS ]; then
   # Run Homebrew through the Brewfile
   info "brew bundle"
   if [ -n "$GITHUB_WORKSPACE" ]; then

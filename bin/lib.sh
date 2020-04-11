@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
 # Library of helper functions other scripts in my dotfiles can use.
-export DOTFILES=${DOTFILES:-$(cd "$(dirname "$0")/.." && pwd)}
 
 [ "$(uname -s)" = "Darwin" ] && export MACOS=1 && export UNIX=1
 [ "$(uname -s)" = "Linux" ] && export LINUX=1 && export UNIX=1

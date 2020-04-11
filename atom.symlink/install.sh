@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
 # Open Atom and install apm
 if ! command -v apm-beta > /dev/null 2>&1; then
