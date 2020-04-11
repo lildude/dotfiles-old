@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
 # Comment me out when finished testing
 #PROFILE_DIR="$HOME/Library/Application Support/Firefox/Profiles/897x8zng.gHacksTest"
@@ -18,6 +18,6 @@ if [ -z "$PROFILE_DIR" ]; then
   fi
 fi
 info "Installing Firefox ghacks user.js and my overrides to $PROFILE_DIR"
-ln -s "$ZSH/firefox/user-overrides.js" "$PROFILE_DIR/user-overrides.js"
-ln -s "$ZSH/firefox/updater.sh" "$PROFILE_DIR/updater.sh"
-"$ZSH/firefox/updater.sh" -p "$PROFILE_DIR" -u -s
+ln -s "$DOTFILES/firefox/user-overrides.js" "$PROFILE_DIR/user-overrides.js"
+ln -s "$DOTFILES/firefox/updater.sh" "$PROFILE_DIR/updater.sh"
+"$DOTFILES/firefox/updater.sh" -p "$PROFILE_DIR" -u -s

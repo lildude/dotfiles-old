@@ -4,9 +4,9 @@
 [ "$DEFAULT_SHELL" != "zsh" ] && exit 0
 
 # Download my .zprezto repo and set it up
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
 if [ ! -d ${HOME}/.zprezto ]; then
   info "Downloading prezto"

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Taken from ~/.osx — https://mths.be/osx and customised to suit my needs.
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
 # Ask for the administrator password upfront
 sudo -v

@@ -3,7 +3,6 @@
 # bootstrap installs things.
 
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
-export DOTFILES
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 export DEFAULT_SHELL="fish"
