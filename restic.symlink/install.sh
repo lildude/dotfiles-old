@@ -3,16 +3,16 @@
 # restic
 #
 set -e
-export ZSH=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$ZSH/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
-if [ "$(uname -s)" = "Darwin" ]; then
+if [ $MACOS ]; then
   info "Installing launchd job"
   if launchctl list local.restic_backup > /dev/null 2>&1; then
     launchctl unload "$HOME/Library/LaunchAgents/local.restic_backup.plist"
   fi
-  cp "$ZSH/restic.symlink/local.restic_backup.plist" "$HOME/Library/LaunchAgents/local.restic_backup.plist"
+  cp "$DOTFILES/restic.symlink/local.restic_backup.plist" "$HOME/Library/LaunchAgents/local.restic_backup.plist"
 
   launchctl load "$HOME/Library/LaunchAgents/local.restic_backup.plist"
 
