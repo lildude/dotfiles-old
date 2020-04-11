@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
 set -e
-export DOTFILES_ROOT=$HOME/.dotfiles
+DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
-source "$DOTFILES_ROOT/bin/lib.sh"
+source "$DOTFILES/bin/lib.sh"
 
 # Login if we're not already
 # shellcheck disable=SC2154 # the eval below sets it
