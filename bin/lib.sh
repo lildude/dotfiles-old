@@ -6,8 +6,11 @@ set -euo pipefail
 [ "$(uname -s)" = "Darwin" ] && export MACOS=1 && export UNIX=1
 [ "$(uname -s)" = "Linux" ] && export LINUX=1 && export UNIX=1
 
+export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
+
 info () {
-  printf "\\r  [ \\033[00;34m..\\033[0m ] %s\\n" "$1"
+  filler=${2:-..}
+  printf "\\r  [ \\033[00;34m$filler\\033[0m ] %s\\n" "$1"
 }
 
 user () {
@@ -15,11 +18,11 @@ user () {
 }
 
 success () {
-  printf "\\r\\033[2K  [ \\033[00;32mOK\033[0m ] %s\\n" "$1"
+  printf "\\r\\033[2K  [ \\033[00;32m✅\033[0m ] %s\\n" "$1"
 }
 
 fail () {
-  printf "\\r\\033[2K  [\\033[0;31mFAIL\033[0m] %s\\n" "$1"
+  printf "\\r\\033[2K  [ \\033[0;31m❌\033[0m ] %s\\n" "$1"
   echo ''
   exit
 }
@@ -35,7 +38,7 @@ indent() {
 link_file () {
   local src=$1 dst=$2
 
-  local overwrite='' backup='' skip=''
+  local overwrite='' backup='' skip='' overwrite_all='false' backup_all='false' skip_all='false'
   local action=''
 
   if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
