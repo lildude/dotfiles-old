@@ -17,17 +17,16 @@ if [ $MACOS ]; then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
-  # Update homebrew
-  brew update > /dev/null 2>&1
-
   # Ensure everything in the Brewfile is installed
-  brew_check=$(brew bundle check --verbose 2>&1)
+  brew_check=$(brew bundle check --file "$DOTFILES/Brewfile" --verbose 2>&1)
   if [ "$brew_check" != "The Brewfile's dependencies are satisfied" ]; then
     if [ -n "$GITHUB_WORKSPACE" ]; then
       echo "$brew_check" | indent
     else
-      brew bundle install --file "$DOTFILES/Brewfile" | indent
+      brew bundle install --file "$DOTFILES/Brewfile" > /dev/null | indent
     fi
+  else
+    success "Nothing new to install"
   fi
 
   # Upgrade homebrew pkgs, but not in CI as we don't care about most of the pre-installed pkgs
