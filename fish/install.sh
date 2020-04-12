@@ -1,29 +1,27 @@
 #!/usr/bin/env bash
 #
 # Exit early if Fish isn't my default shell anymore.
-[ "$DEFAULT_SHELL" != "fish" ] && exit 0
+set -e
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#[ "$DEFAULT_SHELL" != "fish" ] && exit 0
+
+DOTFILES=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+# shellcheck source=bin/lib.sh
+source "$DOTFILES/bin/lib.sh"
 
 if [ -n "$GITHUB_WORKSPACE" ]; then
-  echo "🐠 Would attempt to change default shell to Fish" | indent
+  info "🐠 Would attempt to change default shell to Fish" | indent
   exit 0
 fi
 
-if [ ! -d ~/.config/fish ]; then
-  if [ ! -d ~/.config ]; then
-    mkdir ~/.config
-  fi
-
-  ln -s "$DIR" ~/.config/fish
-  # Install fisher
-  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-  # Install all fisher plugins
-  fish -c fisher
+if [ -f "$HOME/.config/fish/functions/fisher.fish" ]; then
+  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish && success "Fisher installed"
 fi
+# Install all fisher plugins
+fish -c fisher && success "Fisher plugins installed and updated"
 
 info "🐠 Changing default shell to fish"
-if [ "$(uname -s)" = "Darwin" ]; then
+if [ $MACOS ]; then
   brew_prefix=$(brew --prefix)
   if [ "$(dscl . -read "/Users/$USER" UserShell)" != "UserShell: $brew_prefix/bin/fish" ]; then
     if ! grep -q "$brew_prefix/bin/fish" /etc/shells; then
@@ -31,6 +29,8 @@ if [ "$(uname -s)" = "Darwin" ]; then
     fi
     chsh -s "$brew_prefix/bin/fish"
   fi
-else
-  sudo chsh -s /bin/fish "$USER"
+elif [ $LINUX ]; then
+  if [[ ! "$SHELL" =~ bin/fish ]]; then
+    sudo chsh -s "$(command -v fish)" "$USER"
+  fi
 fi

@@ -8,17 +8,6 @@ DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 
-if [ $MACOS ]; then
-  # Run Homebrew through the Brewfile
-  info "brew bundle"
-  if [ -n "$GITHUB_WORKSPACE" ]; then
-    echo "Would install:" | indent
-    brew bundle check --verbose 2>&1 | indent
-  else
-    brew bundle | indent
-  fi
-fi
-
 # find the installers and run them iteratively
 info "Running dotfiles installers"
-find . -name install.sh | while read -r installer ; do sh -c "${installer}" ; done
+find . -name install.sh -maxdepth 2 -not -path "./homebrew/*" | while read -r installer ; do bash -c "${installer}" ; done

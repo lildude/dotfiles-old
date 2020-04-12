@@ -11,12 +11,12 @@ create_my_std_dirs() {
   cd "$HOME" || exit 1
   local dirs="bin tmp/trash Development"
 
-  if [ -d ~/Downloads ]; then
-    if [ ! -L ~/tmp ]; then
-      msg='Linked ~/Downloads to ~/tmp'
+  if [ -d "$HOME/Downloads" ]; then
+    if [ ! -L "$HOME/tmp" ]; then
+      msg="Linked $HOME/Downloads to $HOME/tmp"
       if ln -s Downloads tmp; then success "$msg"; else fail "$msg"; fi
     else
-      success "Skipped ~/tmp already a symlink"
+      success "Skipped $HOME/tmp already a symlink"
     fi
   else
     dirs="tmp $dirs"
@@ -24,100 +24,25 @@ create_my_std_dirs() {
 
   for dir in $dirs; do
     if [ ! -d "$HOME/$dir" ]; then
-      msg="Created ~/$dir"
+      msg="Created $HOME/$dir"
       if mkdir "$HOME/$dir"; then success "$msg"; else fail "$msg"; fi
     else
-      success "Skipped ~/$dir already exists"
+      success "Skipped $HOME/$dir already exists"
     fi
   done
 }
 
-link_file () {
-  local src=$1 dst=$2
-
-  local overwrite='' backup='' skip=''
-  local action=''
-
-  if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
-
-    if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
-      local currentSrc
-      currentSrc="$(readlink "$dst")"
-
-      if [ "$currentSrc" == "$src" ]; then
-        skip=true;
-      else
-
-        user "File already exists: $dst ($(basename "$src")), what do you want to do?\\n\\n
-        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -rn 1 action
-
-        case "$action" in
-          o )
-            overwrite=true;;
-          O )
-            overwrite_all=true;;
-          b )
-            backup=true;;
-          B )
-            backup_all=true;;
-          s )
-            skip=true;;
-          S )
-            skip_all=true;;
-          * )
-            ;;
-        esac
-
-      fi
-
-    fi
-
-    overwrite=${overwrite:-$overwrite_all}
-    backup=${backup:-$backup_all}
-    skip=${skip:-$skip_all}
-
-    if [ "$overwrite" == "true" ]; then
-      rm -rf "$dst"
-      success "Removed $dst"
-    fi
-
-    if [ "$backup" == "true" ]; then
-      mv "$dst" "${dst}.backup"
-      success "Moved $dst to ${dst}.backup"
-    fi
-
-    if [ "$skip" == "true" ]; then
-      success "Skipped $src"
-    fi
-  fi
-
-  if [ "$skip" != "true" ]; then  # "false" or empty
-    ln -s "$1" "$2"
-    success "Linked $1 to $2"
-  fi
-}
-
-install_dotfiles () {
-  info 'Installing dotfiles'
-
-  local overwrite_all=false backup_all=false skip_all=false
-
-  while IFS= read -r -d '' src; do
-    dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
-  done <  <(find -H "$DOTFILES" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -print0)
-}
+info "Bootstrapping to $HOME..."
 
 install_dotfiles
 [ $MACOS ] && create_my_std_dirs
+info "Installing and updating dependencies..."
 
-info "Installing dependencies..."
 # shellcheck source=bin/dot
 if source "$DOTFILES/bin/dot" | tee /tmp/dotfiles-dot 2>&1; then
   success "Dependencies installed"
 else
-  fail "Error installing dependencies"
+  fail "Error installing or updating dependencies"
 fi
 
 echo ''
