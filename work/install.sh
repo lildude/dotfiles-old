@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+set -euo pipefail
+
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 #shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"

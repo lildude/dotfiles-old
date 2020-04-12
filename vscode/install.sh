@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+set -euo pipefail
+
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
@@ -20,7 +22,7 @@ info "Installing VSCode packages"
 while IFS= read -r ext; do
   if echo "$EXTENSIONS" | grep -q "$ext"; then
     info "Extension $ext already installed."
-    else
+  else
     if code --install-extension "$ext" > /dev/null; then
       success "Installed $ext package"
     else

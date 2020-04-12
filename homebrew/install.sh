@@ -2,8 +2,9 @@
 #
 # Homebrew
 #
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
+# This installs some of the common dependencies needed (or at least desired) using Homebrew.
+set -euo pipefail
+
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
@@ -21,7 +22,7 @@ if [ $MACOS ]; then
 
   # Ensure everything in the Brewfile is installed
   brew_check=$(brew bundle check --verbose 2>&1)
-  if [ -n "$brew_check" ]; then
+  if [ "$brew_check" != "The Brewfile's dependencies are satisfied" ]; then
     if [ -n "$GITHUB_WORKSPACE" ]; then
       echo "$brew_check" | indent
     else

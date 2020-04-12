@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Taken from ~/.osx — https://mths.be/osx and customised to suit my needs.
+set -euo pipefail
+
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"

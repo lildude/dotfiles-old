@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #
 # Run all dotfiles installers.
-
-set -e
+#
+set -euo pipefail
 
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 
-# find the installers and run them iteratively
+# Find the installers and run them in turn
 info "Running dotfiles installers"
 find . -name install.sh -maxdepth 2 -not -path "./homebrew/*" | while read -r installer ; do bash -c "${installer}" ; done
