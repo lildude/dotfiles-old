@@ -66,7 +66,7 @@
   #lg = log --graph --pretty=oneline --abbrev-commit --decorate
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
   cob = checkout -b
-  b = branch
+  b = branch --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
   # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
   # Remove all local branches that were tracking remote branches that have been deleted.
   up = !git checkout master && git pull --rebase --prune && git gc && git branch -vv | grep ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v \"not found\" | head -1) -r git branch -D
