@@ -1,11 +1,10 @@
 cask_args appdir: '/Applications'
-tap 'homebrew/cask-cask'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'       # Needed for fonts
-tap 'caskroom/versions'         # Needed for beta versions
+tap 'homebrew/cask-versions'    # Needed for beta versions
 tap 'homebrew/cask-drivers'     # Needed for garmin-express
 tap 'heroku/brew'               # Needed for heroku
-tap 'shopify/shopify'           # Needed for toxiproxy
+#tap 'shopify/shopify'           # Needed for toxiproxy
 tap 'yqrashawn/goku'            # Needed for goku
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
 cask 'java'                     # Needs to be first so dependents can be installed.
@@ -61,11 +60,11 @@ brew 's3cmd'
 brew 'shellcheck'
 brew 'tldr'
 brew 'tmux'
-brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
+#brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
 brew 'watch'
 brew 'xz'
-brew 'zsh'
-brew 'zsh-completions'
+#brew 'zsh'
+#brew 'zsh-completions'
 
 cask '1password-cli'
 cask '1password'
@@ -80,7 +79,6 @@ cask 'appcleaner'
 cask 'bartender'
 cask 'calibre'
 cask 'chatmate-for-whatsapp'
-cask 'code'
 cask 'dash'
 cask 'divvy'
 cask 'docker'
@@ -123,7 +121,7 @@ cask 'sketch'
 cask 'slack'
 cask 'spotify'
 cask 'teamviewer'
-cask 'textexpander5'
+cask 'textexpander'
 #cask 'the-unarchiver' - download temporarily broken
 cask 'transmit'
 cask 'transmission'
@@ -131,6 +129,7 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'viscosity'
+cask 'visual-studio-code'
 #cask 'vlc'
 #cask 'vmware-fusion'
 #cask 'wireshark' # This is having problems installing at the mo - Oct 2019.
