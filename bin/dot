@@ -4,48 +4,22 @@
 #
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
+set -e
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 
-if [ $MACOS ]; then
-  # Install homebrew if not installed
-  info "Updating homebrew stuffs"
-
-  "$DOTFILES/homebrew/install.sh" 2>&1 | indent
-
-  # Update homebrew
-  if brew update > /dev/null 2>&1; then success "Brew formulae updated" | indent; else fail "Brew formulae failed" | indent; fi
-
-  # Upgrade homebrew pkgs, but not in CI as we don't care about most of the pre-installed pkgs
-  if [ -z "$GITHUB_WORKSPACE" ]; then
-    if [ "$(brew outdated | wc -l)" -gt 0 ]; then
-      if brew upgrade; then success "Upgraded brew packages" | indent; else fail "Upgrade brew packages"; fi
-    fi
-
-    if [ "$(brew cask outdated | wc -l)" -gt 0 ]; then
-      if brew upgrade; then success "Upgraded brew cask packages" | indent; else fail "Upgrade brew cask packages"; fi
-    fi
-
-    # Clean up
-    if [ "$(brew cleanup -n 2> /dev/null | wc -l)" -gt 0 ]; then
-      if brew cleanup; then success "Brew cleaned up" | indent; else fail "Brew clean up"; fi
-    fi
-  fi
-fi
+exit
+# Forcefully install homebrew first as it's needed by a lot of other things
+"$DOTFILES/homebrew/install.sh" 2>&1 | indent
 
 # Install software
-info "$DOTFILES/script/install"
+info "Installing all the things"
+exit
 "$DOTFILES/script/install"
 
 if [ $MACOS ]; then
   # Set OS X defaults
   info "Setting OSX defaults"
   "$DOTFILES/osx/set-defaults.sh" 2>&1 | indent
-fi
-
-# Update list of Atom packages
-if [ "$(command -v apm-beta)" ]; then
-  info "Updating Atom package list"
-  apm-beta list --installed --bare > ~/.atom/package-list.txt 2>&1 | indent
 fi
