@@ -1,3 +1,7 @@
 function gb --description 'shortcut for `git branch`'
-	git branch $argv;
+	if test -n "$argv"
+		git branch $argv;
+	else
+		git b
+	end
 end
