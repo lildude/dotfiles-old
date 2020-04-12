@@ -1,10 +1,12 @@
 cask_args appdir: '/Applications'
+tap 'github/gh'                 # Needed for gh
 tap 'homebrew/bundle'
+tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'       # Needed for fonts
 tap 'homebrew/cask-versions'    # Needed for beta versions
 tap 'homebrew/cask-drivers'     # Needed for garmin-express
 tap 'heroku/brew'               # Needed for heroku
-#tap 'shopify/shopify'           # Needed for toxiproxy
+#tap 'shopify/shopify'          # Needed for toxiproxy
 tap 'yqrashawn/goku'            # Needed for goku
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
 cask 'java'                     # Needs to be first so dependents can be installed.
@@ -12,6 +14,7 @@ cask 'java'                     # Needs to be first so dependents can be install
 brew 'ansible'
 brew 'autossh'
 brew 'awscli'
+brew 'azure-cli'
 brew 'base64'
 brew 'bash'             # Only needed for my Bash scripts now macOS isn't shipping updates etc
 brew 'bat'              # Like cat, but prettier
@@ -27,19 +30,23 @@ brew 'fish'
 brew 'fswatch'
 brew 'fzf'
 brew 'fzy'
+brew 'gh'
 brew 'git'
 brew 'git-lfs'
 brew 'gnu-sed'
+brew 'gnupg', link: false
 brew 'go'
 brew 'goku'
 brew 'heroku'
 brew 'htop'
 brew 'httpie'
 brew 'hub'
+brew 'hugo'
 brew 'icu4c'
 brew 'jq'
 brew 'lazydocker'
 brew 'lazygit'
+brew 'lcov'
 brew 'lesspipe'
 brew 'lockrun'
 brew 'mas'        # CLI tool for installing Mac App Store apps at the end of this file.
@@ -66,8 +73,9 @@ brew 'xz'
 #brew 'zsh'
 #brew 'zsh-completions'
 
-cask '1password-cli'
 cask '1password'
+cask '1password-cli'
+cask 'aerial' # Aerial screensaver
 cask 'alfred'
 #cask 'amazon-drive'
 #cask 'amazon-music'
@@ -107,6 +115,8 @@ cask 'kap'
 cask 'karabiner-elements'
 cask 'keybase'
 cask 'microblog'
+cask 'microsoft-edge'
+cask 'microsoft-teams'
 cask 'muzzle'
 cask 'netnewswire'
 cask 'netspot'
@@ -114,6 +124,7 @@ cask 'numi'
 #cask 'pallotron-yubiswitch'
 cask 'postman'
 cask 'qbserve'
+cask 'qlmarkdown'
 cask 'rocket'
 #cask 'skype'
 cask 'skitch'
@@ -121,11 +132,12 @@ cask 'sketch'
 cask 'slack'
 cask 'spotify'
 cask 'teamviewer'
+cask 'telegram'
 cask 'textexpander'
 #cask 'the-unarchiver' - download temporarily broken
-cask 'transmit'
 cask 'transmission'
-cask 'vagrant'
+cask 'transmit'
+#cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'viscosity'
@@ -138,13 +150,13 @@ cask 'zwift'
 
 # AppStore Apps that need manual install for the mo.
 mas "Bear", id: 1091189122
-mas "Be Focused Pro", id: 961632517
 mas "Magnet", id: 441258766
 mas "Microsoft OneNote", id: 784801555
 mas "Microsoft Remote Desktop 10", id: 1295203466
 mas "Monit", id: 1014850245
 mas "Monosnap", id: 540348655
 mas "Pixelmator", id: 407963104
+mas "pomodorome", id: 1484801884
 mas "Tot", id: 1491071483
 mas "WireGuard", id: 1451685025
 
