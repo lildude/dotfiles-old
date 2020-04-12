@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #
 # Shellcheck all my bash scripts in this repo
+#
+set -euo pipefail
+
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"

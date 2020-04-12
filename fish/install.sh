@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# Exit early if Fish isn't my default shell anymore.
-set -e
+set -euo pipefail
 
-#[ "$DEFAULT_SHELL" != "fish" ] && exit 0
+# Exit early if Fish isn't my default shell
+[ "$DEFAULT_SHELL" != "fish" ] && exit 0
 
 DOTFILES=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=bin/lib.sh
