@@ -27,15 +27,8 @@ Temporary Items
 .apdisk
 
 ###### Application/directory-specific files to ignore
-# Atom
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/.node-gyp
-atom.symlink/.apm
-atom.symlink/.npm
-atom.symlink/compile-cache
-atom.symlink/blob-store
-atom.symlink/split-diff
+# Brew
+Brewfile.lock.json
 
 # All directories under rbenv
 rbenv.symlink/*/
