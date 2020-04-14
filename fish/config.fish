@@ -49,6 +49,8 @@ set -xg FZF_CTRL_T_COMMAND "fd --glob '!.git/*' ."
 set -xg FZF_DEFAULT_COMMAND "fd --type d --glob '!.git/*' ."
 set -xg FZF_TMUX 1
 set -U FZF_COMPLETE 0
+# Set to avoid `env` output from changing console colour
+set -x LESS_TERMEND (set_color normal)
 
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
@@ -80,3 +82,4 @@ set -U fish_pager_color_completion  normal
 set -U fish_pager_color_description yellow
 set -U fish_pager_color_prefix      'white' '--bold' '--underline'
 set -U fish_pager_color_progress    'brwhite' '--background=cyan'
+
