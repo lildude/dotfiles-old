@@ -1,3 +1,3 @@
 function less --description 'Set default args for `less`'
-	/usr/bin/less -RMFXK $argv;
+	command less -RMFXK $argv;
 end
