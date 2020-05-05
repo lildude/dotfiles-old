@@ -77,6 +77,9 @@
         "-v"
     ],
     "markdown.previewFrontMatter": "show",
+    "[markdown]": {
+      "files.trimTrailingWhitespace": false
+    },
     "git.autofetch": true,
     "go.useLanguageServer": true,
     "coverage-gutters.highlightdark": "rgba(45, 121, 10, 0.2)",
@@ -88,4 +91,7 @@
     "window.zoomLevel": 0,
     "workbench.colorTheme": "One Dark Pro",
     "diffEditor.ignoreTrimWhitespace": false,
+    "code-runner.executorMapByFileExtension": {
+
+    },
 }
