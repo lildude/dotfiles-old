@@ -51,3 +51,6 @@ fish/completions/rustup.fish
 fish/functions/fisher.fish
 fish/fisher_plugins/
 fish/fish_variables
+
+# Sssssh
+.secrets
