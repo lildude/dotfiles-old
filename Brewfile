@@ -9,6 +9,7 @@ tap 'heroku/brew'               # Needed for heroku
 #tap 'shopify/shopify'          # Needed for toxiproxy
 tap 'yqrashawn/goku'            # Needed for goku
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
+tap 'octo-cli/octo'             # Needed for octo
 cask 'java'                     # Needs to be first so dependents can be installed.
 
 brew 'ansible'
@@ -53,6 +54,7 @@ brew 'lesspipe'
 brew 'lockrun'
 brew 'mas'        # CLI tool for installing Mac App Store apps at the end of this file.
 brew 'moreutils'
+brew 'octo'
 brew 'openssl'
 brew 'pinentry-mac'
 brew 'p7zip'
