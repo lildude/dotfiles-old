@@ -55,13 +55,14 @@
     "diffEditor.renderSideBySide": false,
     "sync-rsync.onSaveIndividual": true,
     "sync-rsync.sites": [
+
       {
         "localPath": "/Users/lildude/github/backup-utils",
         "remotePath": "lildude@enterprise2-dev-798a0ea.cp1-iad.github.net:/home/lildude/github/backup-utils",
       },
       {
         "localPath": "/Users/lildude/github/enterprise2",
-        "remotePath": "lildude@enterprise2-dev-c2ff920.ac4-iad.github.net:/home/lildude/github/enterprise2",
+        "remotePath": "lildude@enterprise2-dev-0db9f30.ac4-iad.github.net:/home/lildude/github/enterprise2",
       },
     ],
     "sync-rsync.notification": false,
@@ -94,4 +95,7 @@
     "code-runner.executorMapByFileExtension": {
 
     },
+    "customizeUI.activityBar": "regular",
+    "customizeUI.titleBar": "inline",
+    "window.titleBarStyle": "native",
 }
