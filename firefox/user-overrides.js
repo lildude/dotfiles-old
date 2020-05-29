@@ -23,6 +23,10 @@ user_pref("media.gmp-widevinecdm.enabled", true); // 1825 - I likes Netflix
 user_pref("media.gmp-widevinecdm.visible", true); // 1825 - I likes Netflix
 user_pref("media.eme.enabled", true); // 1830 - I likes Netflix
 
+user_pref("webgl.disabled", false); // 2010 - Strava and Mapbox playground needs WebGL
+user_pref("webgl.enable-webgl2", true); // 2010 - Strava and Mapbox playground needs WebGL
+user_pref("webgl.min_capability_mode", false); // 2012 - Strava and Mapbox playground needs WebGL
+user_pref("webgl.disable-fail-if-major-performance-caveat", false); // 2012 - Strava and Mapbox playground needs WebGL
 user_pref("dom.serviceWorkers.enabled", true); // 2302 - It breaks websites
 user_pref("dom.allow_cut_copy", true); // 2404 - I need this for GitHub's copy permalink func
 user_pref("browser.download.folderList", 1); // 2650 - Always download to downloads
