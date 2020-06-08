@@ -8,9 +8,9 @@
   excludesfile = ~/.gitignore  # Exclude everything this file. Used for general exclusions.
   attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
   # Use the diff-highlighter, if it's available.
-  #pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -rFX || less -rFX"
+  pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -rFX || less -rFX"
   # Use delta if it's available
-  pager = "[ -f /usr/local/bin/delta ] && /usr/local/bin/delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' || less -rFX"
+  # pager = "[ -f /usr/local/bin/delta ] && /usr/local/bin/delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' || less -rFX"
   # Don't prompt for commit messages for merge commits.
   mergeoptions = --no-edit
 
@@ -71,8 +71,7 @@
   b = branch --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
   # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
   # Remove all local branches that were tracking remote branches that have been deleted.
-  # TODO: I think there's a bug in this where colour codes are sneaking in
-  up = !git checkout master && git pull --rebase --prune && git gc && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v \"not found\" | head -1) -r git branch -D
+  up = !git checkout master && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v \"not found\" | head -1) -r git branch -D
 
   # Open the current branch on janky to see our build results
   janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
