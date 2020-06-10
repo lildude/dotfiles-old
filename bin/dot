@@ -10,13 +10,11 @@ DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 
-exit
 # Forcefully install homebrew first as it's needed by a lot of other things
 "$DOTFILES/homebrew/install.sh" 2>&1 | indent
 
 # Install software
 info "Installing all the things"
-exit
 "$DOTFILES/script/install"
 
 if [ $MACOS ]; then

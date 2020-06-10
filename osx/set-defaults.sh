@@ -2,6 +2,9 @@
 # Taken from ~/.osx — https://mths.be/osx and customised to suit my needs.
 set -euo pipefail
 
+# Exit early on CI
+[ -n "$GITHUB_WORKSPACE" ] && exit 0
+
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"

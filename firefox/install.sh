@@ -7,6 +7,7 @@ source "$DOTFILES/bin/lib.sh"
 if [ $MACOS ]; then
   PROFILES_DIR="$HOME/Library/Application Support/Firefox/Profiles/"
 elif [ $LINUX ]; then
+  exit 0
   PROFILES_DIR="$HOME/.mozilla/firefox/"
 fi
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #/ Backup using Restic
 #/
 #/ These are the accepted environment variables. Set as needed below.
@@ -51,6 +51,19 @@ notify() {
     osascript -e "display notification \"$1\" with title \"Restic Backup\""
   fi
 }
+
+# List snapshots of env passed as first arg
+if [ "$1" ]; then
+  dest=${1^^} # uppercase dest
+  repo=${dest}_RESTIC_REPOSITORY
+  pass=${dest}_RESTIC_PASSWORD
+  log=${dest}_RESTIC_LOG_FILE
+  export RESTIC_REPOSITORY=${!repo}
+  export RESTIC_PASSWORD=${!pass}
+  export RESTIC_LOG_FILE=${!log}
+  restic snapshots --compact
+  exit
+fi
 
 # Prevent running whilst already running, and also prevent sleeping by running via caffeinate
 [ -n "$LOCKED" ] || {

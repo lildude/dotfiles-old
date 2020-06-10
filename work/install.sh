@@ -6,6 +6,8 @@ DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 #shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 
+[ $LINUX ] && exit 0
+
 work="github" # Who do I work for? This is also assumed to be the GitHub org name
 workdir="$HOME/$work" # Where to store all repos
 # Default repos to clone the first time we run

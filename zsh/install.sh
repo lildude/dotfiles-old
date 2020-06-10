@@ -2,13 +2,13 @@
 #
 set -euo pipefail
 
-# Exit early if ZSH isn't my default shell
-[ "$DEFAULT_SHELL" != "zsh" ] && exit 0
-
 # Download my .zprezto repo and set it up
 DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
+
+# Exit early if ZSH isn't my default shell
+[ "$DEFAULT_SHELL" != "zsh" ] && exit 0
 
 if [ ! -d ${HOME}/.zprezto ]; then
   info "Downloading prezto"
