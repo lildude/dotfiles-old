@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+#
+set -euo pipefail
+DIR=$(cd "$(dirname "$0")/.." && pwd)
+
+#### Default config opts ####
+[ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
+[ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
+
+export MACOS=${MACOS:-}
+export LINUX=${LINUX:-}
+export BREWFILE="Brewfile.$OS"
+export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
+export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
+
+#### Lets GO!! ####
+echo "👢 Bootstrapping to $HOME…"
+
+echo "🏡 Arranging the furniture…"
+cd "$HOME" || exit 1
+
+for dir in bin Downloads Development; do
+  mkdir -p "$HOME/$dir"
+done
+ln -Ff -s Downloads tmp
+mkdir -p "$HOME/tmp/trash"
+[ -f "$DIR/$BREWFILE" ] && ln -Ff -s "$DIR/$BREWFILE" .Brewfile
+
+# Only install Homebrew if we've got a $HOME/.Brewfile
+if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
+  echo '🍺 Installing Homebrew…'
+   /usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
+if [ -f "$HOME/.Brewfile" ]; then
+  echo '📦 Checking if we need to install packages…'
+  if ! brew bundle check; then
+    # shellcheck disable=SC2016
+    echo '📦 Running `brew bundle install` to install desired packages.'
+    brew bundle install
+  fi
+fi
+
+# Link all linkable files
+while IFS= read -r -d '' src; do
+  dst="$HOME/.$(basename "${src%.*}")"
+  if [ ! -L "$dst" ]; then
+    echo "🔗 Linking $src → $dst"
+    ln -Ff -s "$src" "$dst"
+  fi
+done <  <(find -H "$DIR" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -print0)
+
+# Run all install.sh scripts
+find "$DIR" -maxdepth 2 -name install.sh -exec echo "👟 Running {}…" \; -exec {} \;
+
+printf "\\n\\033[01;32m%s\033[0m\\n\\n" '🏁 All done!!'
