@@ -31,4 +31,16 @@ for i in "${!keys[@]}"; do
   fi
 done
 
+# Grab the passwords from 1Password, cos why copy & paste when we can make a computer do the work 😁
+# TODO: Not 100 sure this works right now
+info "Storing SSH keys in keychain..."
+_old_display="${DISPLAY:-}"
+_old_askpass="${SSH_ASKPASS:-}"
+export DISPLAY=foobar SSH_ASKPASS="$DOTFILES/script/1pass-askpass"
+
+grep -slR "PRIVATE" ~/.ssh | xargs ssh-add -K 2>&1 | indent
+
+export DISPLAY="$_old_display" SSH_ASKPASS="$_old_askpass"
+unset _old_display _old_askpass
+
 cd "$HOME" || exit
