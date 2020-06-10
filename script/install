@@ -9,5 +9,6 @@ DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 source "$DOTFILES/bin/lib.sh"
 
 # Find the installers and run them in turn
+echo
 info "Running dotfiles installers"
-find . -name install.sh -maxdepth 2 -not -path "./homebrew/*" | while read -r installer ; do bash -c "${installer}" ; done
+find "$DOTFILES" -maxdepth 2 -name install.sh -not -path "$DOTFILES/homebrew/*" -exec {} \;

@@ -3,10 +3,13 @@
 # Library of helper functions other scripts in my dotfiles can use.
 set -euo pipefail
 
-[ "$(uname -s)" = "Darwin" ] && export MACOS=1 && export UNIX=1
-[ "$(uname -s)" = "Linux" ] && export LINUX=1 && export UNIX=1
+[ "$(uname -s)" = "Darwin" ] && MACOS=1
+[ "$(uname -s)" = "Linux" ] && LINUX=1
 
+export MACOS=${MACOS:-}
+export LINUX=${LINUX:-}
 export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
+export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
 
 info () {
   filler=${2:-..}

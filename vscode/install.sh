@@ -6,6 +6,9 @@ DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
 # shellcheck source=bin/lib.sh
 source "$DOTFILES/bin/lib.sh"
 
+# Exit early on Linux for the mo
+[ $LINUX ] && exit 0
+
 if ! command -v code > /dev/null 2>&1; then
   fail "VS Code shell commands not installed."
 fi
