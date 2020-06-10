@@ -13,7 +13,6 @@ tap 'octo-cli/octo'             # Needed for octo
 cask 'java'                     # Needs to be first so dependents can be installed.
 
 brew 'ansible'
-brew 'autossh'
 brew 'awscli'
 brew 'azure-cli'
 brew 'base64'
@@ -99,7 +98,7 @@ cask 'encryptme'
 cask 'etcher'
 cask 'exodus'
 cask 'fantastical'
-cask 'firefox-beta'
+cask 'firefox'
 cask 'fliqlo'
 cask 'flotato'
 cask 'flux'
@@ -150,7 +149,7 @@ cask 'visual-studio-code'
 #cask 'vlc'
 #cask 'vmware-fusion'
 #cask 'wireshark' # This is having problems installing at the mo - Oct 2019.
-cask 'yubico-yubikey-manager'
+#cask 'yubico-yubikey-manager'
 cask 'zwift'
 
 # AppStore Apps that need manual install for the mo.
