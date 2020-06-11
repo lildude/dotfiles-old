@@ -9,9 +9,9 @@ DIR=$(cd "$(dirname "$0")/.." && pwd)
 
 export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}
-export BREWFILE="Brewfile.$OS"
 export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
 export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
+BREWFILE="$DIR/$OS/Brewfile"
 
 #### Lets GO!! ####
 echo "👢 Bootstrapping to $HOME…"
@@ -24,20 +24,30 @@ for dir in bin Downloads Development; do
 done
 ln -Ff -s Downloads tmp
 mkdir -p "$HOME/tmp/trash"
-[ -f "$DIR/$BREWFILE" ] && ln -Ff -s "$DIR/$BREWFILE" .Brewfile
+[ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 
 # Only install Homebrew if we've got a $HOME/.Brewfile
 if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
   echo '🍺 Installing Homebrew…'
-   /usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > "$HOME/tmp/homebrew.log" 2>&1
+
+  if [ $LINUX ]; then
+    if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+      # If I have sudo access on the host, Homebrew will be here
+      eval $(SHELL=bash /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    else
+      # Else it'll be in my homedir
+      eval $(SHELL=bash $HOME/.linuxbrew/bin/brew shellenv)
+    fi
+  fi
 fi
 
-if [ -f "$HOME/.Brewfile" ]; then
+if [ -s "$HOME/.Brewfile" ]; then
   echo '📦 Checking if we need to install packages…'
-  if ! brew bundle check; then
+  if ! brew bundle check --global > /dev/null 2>&1; then
     # shellcheck disable=SC2016
-    echo '📦 Running `brew bundle install` to install desired packages.'
-    brew bundle install
+    echo '📦 Install missing packages…'
+    brew bundle install --global
   fi
 fi
 
