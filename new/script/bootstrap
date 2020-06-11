@@ -54,11 +54,15 @@ fi
 # Link all linkable files
 while IFS= read -r -d '' src; do
   dst="$HOME/.$(basename "${src%.*}")"
+  # Skip over OS-specific links that aren't this OS
+  if [[ $src =~ .dotfiles/(linux|macos)/ ]] && [[ ! $src =~ .dotfiles/$OS/ ]]; then
+    continue
+  fi
   if [ ! -L "$dst" ]; then
     echo "🔗 Linking $src → $dst"
     ln -Ff -s "$src" "$dst"
   fi
-done <  <(find -H "$DIR" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -print0)
+done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -print0)
 
 # Run all install.sh scripts
 find "$DIR" -maxdepth 2 -name install.sh -exec echo "👟 Running {}…" \; -exec {} \;
