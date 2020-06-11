@@ -65,6 +65,13 @@ while IFS= read -r -d '' src; do
 done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -print0)
 
 # Run all install.sh scripts
-find "$DIR" -maxdepth 2 -name install.sh -exec echo "👟 Running {}…" \; -exec {} \;
+while IFS= read -r -d '' installer; do
+  # Skip over OS-specific links that aren't this OS
+  if [[ $installer =~ .dotfiles/(linux|macos)/ ]] && [[ ! $installer =~ .dotfiles/$OS/ ]]; then
+    continue
+  fi
+  echo "👟 Running $installer…"
+  $installer
+done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 
 printf "\\n\\033[01;32m%s\033[0m\\n\\n" '🏁 All done!!'
