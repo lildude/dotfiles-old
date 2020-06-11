@@ -13,10 +13,14 @@ export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
 export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
 BREWFILE="$DIR/$OS/Brewfile"
 
-#### Lets GO!! ####
-echo "👢 Bootstrapping to $HOME…"
+info () {
+  printf "\\033[01;34m%s\\033[0m\\n" "$1"
+}
 
-echo "🏡 Arranging the furniture…"
+#### Lets GO!! ####
+info "👢 Bootstrapping to $HOME…"
+
+info "🏡 Arranging the furniture…"
 cd "$HOME" || exit 1
 
 for dir in bin Downloads Development; do
@@ -28,13 +32,13 @@ mkdir -p "$HOME/tmp/trash"
 
 # Only install Homebrew if we've got a $HOME/.Brewfile
 if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
-  echo '🍺 Installing Homebrew…'
+  info '🍺 Installing Homebrew…'
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > "$HOME/tmp/homebrew.log" 2>&1
 
   if [ $LINUX ]; then
     if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
       # If I have sudo access on the host, Homebrew will be here
-      eval $(SHELL=bash /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+      eval "$(SHELL=bash /home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     else
       # Else it'll be in my homedir
       eval $(SHELL=bash $HOME/.linuxbrew/bin/brew shellenv)
@@ -43,10 +47,10 @@ if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
 fi
 
 if [ -s "$HOME/.Brewfile" ]; then
-  echo '📦 Checking if we need to install packages…'
+  info '📦 Checking if we need to install packages…'
   if ! brew bundle check --global > /dev/null 2>&1; then
     # shellcheck disable=SC2016
-    echo '📦 Install missing packages…'
+    info '📦 Install missing packages…'
     brew bundle install --global
   fi
 fi
@@ -59,7 +63,7 @@ while IFS= read -r -d '' src; do
     continue
   fi
   if [ ! -L "$dst" ]; then
-    echo "🔗 Linking $src → $dst"
+    info "🔗 Linking $src → $dst"
     ln -Ff -s "$src" "$dst"
   fi
 done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -print0)
@@ -70,7 +74,7 @@ while IFS= read -r -d '' installer; do
   if [[ $installer =~ .dotfiles/(linux|macos)/ ]] && [[ ! $installer =~ .dotfiles/$OS/ ]]; then
     continue
   fi
-  echo "👟 Running $installer…"
+  info "👟 Running $installer…"
   $installer
 done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 
