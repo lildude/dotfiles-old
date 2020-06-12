@@ -9,6 +9,7 @@ tap 'heroku/brew'               # Needed for heroku
 #tap 'shopify/shopify'          # Needed for toxiproxy
 tap 'yqrashawn/goku'            # Needed for goku
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
+tap 'jgavris/rs-git-fsmonitor'
 tap 'octo-cli/octo'             # Needed for octo
 cask 'java'                     # Needs to be first so dependents can be installed.
 
@@ -65,6 +66,7 @@ brew 'rbenv-default-gems'
 brew 'rclone'
 brew 'restic'
 brew 'ripgrep'  # rg, an even faster version of ag
+brew 'rs-git-fsmonitor'   # Run `git config core.fsmonitor rs-git-fsmonitor` in large repos you want this magic in
 brew 'rsync'
 brew 's3cmd'
 brew 'shellcheck'
