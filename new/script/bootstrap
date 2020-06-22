@@ -6,6 +6,7 @@ DIR=$(cd "$(dirname "$0")/.." && pwd)
 #### Default config opts ####
 [ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
 [ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
+[[ "$(hostname)" =~ ^ip- ]] && BPDEV=1
 
 export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}
@@ -28,7 +29,11 @@ for dir in bin Downloads Development; do
 done
 ln -Ff -s Downloads tmp
 mkdir -p "$HOME/tmp/trash"
-[ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
+
+# Don't install Homebrew on bpdev nodes
+if [ -z "${BPDEV:-1}" ]; then
+  [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
+fi
 
 # Only install Homebrew if we've got a $HOME/.Brewfile
 if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
@@ -53,6 +58,16 @@ if [ -s "$HOME/.Brewfile" ]; then
     info '📦 Install missing packages…'
     brew bundle install --global
   fi
+fi
+
+# We can't install 1password-cli with Homebrew on Linux
+if [ $LINUX ] && [ -z "${BPDEV:-}" ]; then
+  filename="op_linux_amd64_v1.1.0.zip"
+  curl -sLO "https://cache.agilebits.com/dist/1P/op/pkg/v1.1.0/$filename"
+  cd bin
+  unzip "../$filename" -x op.sig > /dev/null
+  cd ..
+  rm $filename
 fi
 
 # Link all linkable files
