@@ -43,10 +43,12 @@ if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
   if [ $LINUX ]; then
     if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
       # If I have sudo access on the host, Homebrew will be here
-      eval "$(SHELL=bash /home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      # shellcheck disable=SC2046
+      eval $(SHELL=bash /home/linuxbrew/.linuxbrew/bin/brew shellenv)
     else
       # Else it'll be in my homedir
-      eval $(SHELL=bash $HOME/.linuxbrew/bin/brew shellenv)
+      # shellcheck disable=SC2046
+      eval $(SHELL=bash "$HOME/.linuxbrew/bin/brew shellenv")
     fi
   fi
 fi
