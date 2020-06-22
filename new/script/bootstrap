@@ -31,7 +31,7 @@ ln -Ff -s Downloads tmp
 mkdir -p "$HOME/tmp/trash"
 
 # Don't install Homebrew on bpdev nodes
-if [ -z "${BPDEV:-1}" ]; then
+if [ -z "${BPDEV:-}" ]; then
   [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
