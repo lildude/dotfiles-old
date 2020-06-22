@@ -74,7 +74,7 @@ fi
 while IFS= read -r -d '' src; do
   dst="$HOME/.$(basename "${src%.*}")"
   # Skip over OS-specific links that aren't this OS
-  if [[ $src =~ .dotfiles/(linux|macos)/ ]] && [[ ! $src =~ .dotfiles/$OS/ ]]; then
+  if [[ $src =~ $DIR/(linux|macos)/ ]] && [[ ! $src =~ $DIR/$OS/ ]]; then
     continue
   fi
   if [ ! -L "$dst" ]; then
@@ -86,7 +86,7 @@ done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -prin
 # Run all install.sh scripts
 while IFS= read -r -d '' installer; do
   # Skip over OS-specific links that aren't this OS
-  if [[ $installer =~ .dotfiles/(linux|macos)/ ]] && [[ ! $installer =~ .dotfiles/$OS/ ]]; then
+  if [[ $installer =~ $DIR/(linux|macos)/ ]] && [[ ! $installer =~ $DIR/$OS/ ]]; then
     continue
   fi
   info "👟 Running $installer…"
