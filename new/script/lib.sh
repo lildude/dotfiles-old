@@ -24,5 +24,3 @@ fail () {
   echo ''
   exit 1
 }
-
-export -f info fail
