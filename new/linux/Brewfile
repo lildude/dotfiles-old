@@ -1,0 +1,9 @@
+brew 'bat'
+brew 'exa'
+brew 'fd'               # Like find, but faster
+brew 'fzf'
+brew 'fzy'
+brew 'hub'
+brew 'jq'
+brew 'neovim'
+brew 'ripgrep'  # rg, an even faster version of ag
