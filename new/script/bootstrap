@@ -30,8 +30,10 @@ done
 ln -Ff -s Downloads tmp
 mkdir -p "$HOME/tmp/trash"
 
+export PATH=$HOME/bin:$PATH
+
 # Don't install Homebrew on bpdev nodes
-if [ -z "${BPDEV:-}" ]; then
+if [ -z "${BPDEV:-1}" ]; then
   [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
@@ -62,16 +64,6 @@ if [ -s "$HOME/.Brewfile" ]; then
   fi
 fi
 
-# We can't install 1password-cli with Homebrew on Linux
-if [ $LINUX ] && [ -z "${BPDEV:-}" ]; then
-  filename="op_linux_amd64_v1.1.0.zip"
-  curl -sLO "https://cache.agilebits.com/dist/1P/op/pkg/v1.1.0/$filename"
-  cd bin
-  unzip "../$filename" -x op.sig > /dev/null
-  cd ..
-  rm $filename
-fi
-
 # Link all linkable files
 while IFS= read -r -d '' src; do
   dst="$HOME/.$(basename "${src%.*}")"
@@ -94,5 +86,8 @@ while IFS= read -r -d '' installer; do
   info "👟 Running $installer…"
   $installer
 done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
+
+# This needs to be separate as it requires interaction
+"$DIR/secrets/extract-onepassword-secrets"
 
 printf "\\n\\033[01;32m%s\033[0m\\n\\n" '🏁 All done!!'
