@@ -32,6 +32,13 @@ Host *.githubapp.com
   User lildude
   ForwardAgent yes
 
+Host *.github-staging-lab.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/github_2018_ed25519
+  AddKeysToAgent yes
+  User monalisa
+  ForwardAgent yes
+
 Host prodshell shell
   Hostname shell.service.cp1-iad.github.net
   IdentitiesOnly yes
@@ -81,7 +88,7 @@ Host enterprise2-dev-*.github.net *.cp1-prd.iad.github.net *.private-us-east-1.g
   User lildude
 
 Host dev
-  Hostname enterprise2-dev-0db9f30.ac4-iad.github.net
+  Hostname enterprise2-dev-ca70a38.va3-iad.github.net
   IdentitiesOnly yes
   IdentityFile ~/.ssh/github_2018_ed25519
   ProxyJump %r@bastion.githubapp.com
