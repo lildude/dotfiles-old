@@ -3,8 +3,8 @@
 # Library of helper functions other scripts in my dotfiles can use.
 
 #### Default config opts ####
-[ "$(uname -s)" = "Darwin" ] && MACOS=1
-[ "$(uname -s)" = "Linux" ] && LINUX=1
+[ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
+[ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
 [[ "$(hostname)" =~ ^ip- ]] && BPDEV=1
 
 export MACOS=${MACOS:-}
