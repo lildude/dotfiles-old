@@ -19,8 +19,8 @@ mkdir -p "$HOME/tmp/trash"
 
 export PATH=$HOME/bin:$PATH
 
-# Don't install Homebrew on bpdev nodes
-if [ -z "${BPDEV:-}" ]; then
+# Don't install Homebrew on minimal installations
+if [ -z "${MIN:-}" ]; then
   [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
@@ -29,7 +29,7 @@ if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
   info '🍺 Installing Homebrew…'
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > "$HOME/tmp/homebrew.log" 2>&1
 
-  if [ $LINUX ]; then
+  if [ "$LINUX" ]; then
     if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
       # If I have sudo access on the host, Homebrew will be here
       # shellcheck disable=SC2046
