@@ -36,6 +36,24 @@
         //"gitDecoration.untrackedResourceForeground": "#2BDA77",
         //"activityBar.activeBorder": "#aa0000",
         //"activityBar.activeBackground": "#aa0000"
+        //"terminal.background":"#131212",
+        //"terminal.foreground":"#dddad6",
+        //"terminal.ansiBlack":"#1D2021",
+        //"terminal.ansiBrightBlack":"#665C54",
+        //"terminal.ansiBrightBlue":"#61afef",
+        //"terminal.ansiBrightCyan":"#8BA59B",
+        //"terminal.ansiBrightGreen":"#237e02",
+        //"terminal.ansiBrightMagenta":"#8F4673",
+        //"terminal.ansiBrightRed":"#FB543F",
+        //"terminal.ansiBrightWhite":"#FDF4C1",
+        //"terminal.ansiBrightYellow":"#d19a66",
+        //"terminal.ansiCyan":"#8BA59B",
+        //"terminal.ansiGreen":"#95C085",
+        //"terminal.ansiMagenta":"#8F4673",
+        //"terminal.ansiRed":"#FB543F",
+        //"terminal.ansiWhite":"#A89984",
+        "terminal.ansiYellow":"#e5a52f",
+        "terminal.ansiBlue":"#359bef",
     },
     "git.countBadge": "tracked",
     "workbench.statusBar.feedback.visible": false,  // Hide Twitter smiley
@@ -62,7 +80,7 @@
       },
       {
         "localPath": "/Users/lildude/github/enterprise2",
-        "remotePath": "lildude@enterprise2-dev-0db9f30.ac4-iad.github.net:/home/lildude/github/enterprise2",
+        "remotePath": "lildude@enterprise2-dev-ca70a38.va3-iad.github.net:/home/lildude/enterprise2",
       },
     ],
     "sync-rsync.notification": false,
@@ -98,4 +116,8 @@
     "customizeUI.activityBar": "regular",
     "customizeUI.titleBar": "inline",
     "window.titleBarStyle": "native",
+    "sync-rsync.local": "",
+    "ruby.locate": {
+
+    },
 }
