@@ -2,21 +2,8 @@
 #
 set -euo pipefail
 DIR=$(cd "$(dirname "$0")/.." && pwd)
-
-#### Default config opts ####
-[ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
-[ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
-[[ "$(hostname)" =~ ^ip- ]] && BPDEV=1
-
-export MACOS=${MACOS:-}
-export LINUX=${LINUX:-}
-export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
-export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
-BREWFILE="$DIR/$OS/Brewfile"
-
-info () {
-  printf "\\033[01;34m%s\\033[0m\\n" "$1"
-}
+# shellcheck source=script/lib.sh
+source "$DIR/script/lib.sh"
 
 #### Lets GO!! ####
 info "👢 Bootstrapping to $HOME…"
@@ -33,7 +20,7 @@ mkdir -p "$HOME/tmp/trash"
 export PATH=$HOME/bin:$PATH
 
 # Don't install Homebrew on bpdev nodes
-if [ -z "${BPDEV:-1}" ]; then
+if [ -z "${BPDEV:-}" ]; then
   [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
