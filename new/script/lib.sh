@@ -5,11 +5,12 @@
 #### Default config opts ####
 [ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
 [ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
-[[ "$(hostname)" =~ ^ip- ]] && BPDEV=1
+# bpdev hostnames start with ip- so default to minimal install on these
+[[ "$(hostname)" =~ ^ip- ]] && MIN=1
 
 export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}
-export BPDEV=${BPDEV:-}
+export MIN=${MIN:-}
 export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
 export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
 export BREWFILE="$DIR/$OS/Brewfile"
