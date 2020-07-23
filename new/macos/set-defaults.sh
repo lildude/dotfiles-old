@@ -5,14 +5,14 @@ set -euo pipefail
 # Exit early on CI
 [ -n "$GITHUB_WORKSPACE" ] && exit 0
 
-DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
-# shellcheck source=bin/lib.sh
-source "$DOTFILES/bin/lib.sh"
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+# shellcheck source=script/lib.sh
+source "$DIR/../script/lib.sh"
 
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+# Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
