@@ -48,20 +48,6 @@ Host prodshell shell
   AddKeysToAgent yes
   User lildude
 
-Host chatops-prod
-  Hostname enterprisechatops-app-67eb7ae.private-us-east-1.github.net
-  IdentitiesOnly yes
-  IdentityFile ~/.ssh/github_2018_ed25519
-  ProxyJump %r@bastion.githubapp.com
-  User lildude
-
-Host chatops-staging
-  Hostname enterprisechatops-app-50d5d08.private-us-east-1.github.net
-  IdentitiesOnly yes
-  IdentityFile ~/.ssh/github_2018_ed25519
-  ProxyJump %r@bastion.githubapp.com
-  User lildude
-
 Host bastion
   Hostname bastion.githubapp.com
   IdentitiesOnly yes
@@ -86,6 +72,15 @@ Host enterprise2-dev-*.github.net *.cp1-prd.iad.github.net *.private-us-east-1.g
   ForwardAgent yes
   AddKeysToAgent yes
   User lildude
+
+Host *.bpdev-us-east-1.github.net
+  User build
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/github_2018_ed25519
+  DynamicForward 8888
+  ForwardAgent yes
+  AddKeysToAgent yes
+  RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
 
 Host dev
   Hostname enterprise2-dev-ca70a38.va3-iad.github.net
