@@ -6,12 +6,13 @@
 #
 set -euo pipefail
 
-DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
-# shellcheck source=bin/lib.sh
-source "$DOTFILES/bin/lib.sh"
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+# shellcheck source=script/lib.sh
+source "$DIR/../script/lib.sh"
 
 # Don't run on Linux or under GitHub Actions (aka CI)
 if [ $MACOS ] && [ -z "$GITHUB_WORKSPACE" ]; then
   info "sudo softwareupdate -i -a"
-  sudo softwareupdate -i -a 2>&1 | indent
+  sudo softwareupdate -i -a 2>&1
+  "$DIR/set-defaults.sh"
 fi
