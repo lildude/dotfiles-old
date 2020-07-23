@@ -24,8 +24,8 @@ if [ -z "${MIN:-}" ]; then
   [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
-# Only install Homebrew if we've got a $HOME/.Brewfile
-if ! command -v brew &> /dev/null && [ -f "$HOME/.Brewfile" ]; then
+# Only install Homebrew if we've got a populated $HOME/.Brewfile
+if ! command -v brew &> /dev/null && [ -s "$HOME/.Brewfile" ]; then
   info '🍺 Installing Homebrew…'
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > "$HOME/tmp/homebrew.log" 2>&1
 
@@ -75,6 +75,8 @@ while IFS= read -r -d '' installer; do
 done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 
 # This needs to be separate as it requires interaction
-"$DIR/secrets/extract-onepassword-secrets"
+"$DIR/script/extract-onepassword-secrets"
 
 printf "\\n\\033[01;32m%s\033[0m\\n\\n" '🏁 All done!!'
+
+fish -l
