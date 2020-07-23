@@ -1,6 +1,6 @@
 # Dockerfile for testing Linux env on macos
 # docker run --rm -it $(docker build -q .)
-# docker build -t dotfiles . && docker run --rm -it dotfiles
+# docker build -t dotfiles . && docker run --rm -it -e MIN=1 dotfiles
 FROM ubuntu:19.10
 
 RUN apt-get update && \
