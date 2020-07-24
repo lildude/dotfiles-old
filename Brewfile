@@ -87,6 +87,7 @@ cask "alfred"
 #cask 'amazon-drive'
 #cask 'amazon-music'
 #cask 'apache-directory-studio'
+cask "android-file-transfer" # Used as a backup to transfer files from my Garmin
 cask "appcleaner"
 #cask 'arq'
 #cask 'atom-beta'
