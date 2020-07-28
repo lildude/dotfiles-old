@@ -132,6 +132,8 @@
 [protocol]
 	version = 2
 
-# vim: set ft=gitconfig
 [feature]
 	manyFiles = true
+
+[init]
+	defaultBranch = main
