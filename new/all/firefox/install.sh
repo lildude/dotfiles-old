@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-[ -n "${MIN:-}" ] && exit 0
-
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
 source "$DIR/../script/lib.sh"
+
+[ -n "${MIN:-}" ] && exit 0
 
 if [ "$MACOS" ]; then
   PROFILES_DIR="$HOME/Library/Application Support/Firefox/Profiles/"
