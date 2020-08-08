@@ -134,7 +134,8 @@ cask "numi"
 #cask 'pallotron-yubiswitch'
 cask "postman"
 cask "qbserve"
-cask "qlmarkdown"
+cask "qlmarkdown"   # QuickLook support for markdown
+cask "qlimagesize"  # QuickLook support for webp and showing image dimensions
 #cask 'rocket'
 #cask 'skype'
 cask "skitch"
