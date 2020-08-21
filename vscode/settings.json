@@ -5,7 +5,7 @@
     "editor.fontSize": 14,
     "editor.tabSize": 2,
     "editor.rulers": [
-      { "column": 80, "color": "#4444445e" },
+      { "column": 120, "color": "#4444445e" },
       //{ "column": 90, "color": "#880000" }
     ],
     "editor.minimap.enabled": false,
@@ -56,7 +56,6 @@
         "terminal.ansiBlue":"#359bef",
     },
     "git.countBadge": "tracked",
-    "workbench.statusBar.feedback.visible": false,  // Hide Twitter smiley
     "window.newWindowDimensions": "inherit",
     "window.clickThroughInactive": false,
     "terminal.integrated.copyOnSelection": true,
@@ -112,6 +111,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "code-runner.executorMapByFileExtension": {
 
+
     },
     "customizeUI.activityBar": "regular",
     "customizeUI.titleBar": "inline",
@@ -125,4 +125,8 @@
     "gulp.autoDetect": "off",
     "jake.autoDetect": "off",
     "npm.autoDetect": "off",
+    "[ruby]": {
+      "editor.formatOnSave": true
+    },
+    "ruby.intellisense": "rubyLocate",
 }
