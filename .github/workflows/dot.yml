@@ -7,14 +7,16 @@ jobs:
     name: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-latest] # TODO: Add Linux support in the future.
+        os: [macOS-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: Copy to $HOME
       run: cp -Rf $GITHUB_WORKSPACE $HOME/.dotfiles
       shell: bash
     - name: Bootstrap
+      env:
+        MIN: 1
       run: |
         cd $HOME/.dotfiles
         script/bootstrap
