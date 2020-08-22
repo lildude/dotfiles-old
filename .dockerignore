@@ -1,5 +1,6 @@
 .git/
 .github/
+.dockerignore
 .DS_Store
 Brewfile.lock.json
 config.symlink/configstore/
@@ -9,6 +10,7 @@ config.symlink/fisher/
 config.symlink/gcloud/
 config.symlink/wireshark/
 config.symlink/hub
+Dockerfile
 firefox/userjs_backups
 fish/fisher_plugins/
 fish/fish_variables
