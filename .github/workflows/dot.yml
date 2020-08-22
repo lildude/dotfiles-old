@@ -17,6 +17,7 @@ jobs:
     - name: Bootstrap
       env:
         MIN: 1
+        HOME: $HOME
       run: |
         cd $HOME/.dotfiles
         script/bootstrap
