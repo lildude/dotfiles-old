@@ -6,11 +6,8 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 source "$DIR/script/lib.sh"
 
 #### Lets GO!! ####
-echo "HOME2: $HOME"
-ls -la "$HOME"
 info "👢 Bootstrapping to ${HOME}…"
 
-set -x
 info "🏡 Arranging the furniture…"
 cd "$HOME" || exit 1
 
