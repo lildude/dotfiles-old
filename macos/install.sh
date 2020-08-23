@@ -8,7 +8,7 @@ set -euo pipefail
 
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
-source "$DIR/../script/lib.sh"
+source "$DIR/script/lib.sh"
 
 # Don't run on Linux or under GitHub Actions (aka CI)
 if [ $MACOS ] && [ -z "$CI" ]; then
