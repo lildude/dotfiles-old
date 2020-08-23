@@ -3,16 +3,16 @@
 # restic
 #
 set -euo pipefail
-DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
-# shellcheck source=bin/lib.sh
-source "$DOTFILES/bin/lib.sh"
+DIR=$(cd "$(dirname "$0")/.." && pwd)
+# shellcheck source=script/lib.sh
+source "$DIR/../script/lib.sh"
 
-if [ $MACOS ]; then
+if [ "$MACOS" ]; then
   info "Installing launchd job"
   if launchctl list local.restic_backup > /dev/null 2>&1; then
     launchctl unload "$HOME/Library/LaunchAgents/local.restic_backup.plist"
   fi
-  cp "$DOTFILES/restic.symlink/local.restic_backup.plist" "$HOME/Library/LaunchAgents/local.restic_backup.plist"
+  cp "$DIR/restic.symlink/local.restic_backup.plist" "$HOME/Library/LaunchAgents/local.restic_backup.plist"
 
   launchctl load "$HOME/Library/LaunchAgents/local.restic_backup.plist"
 
