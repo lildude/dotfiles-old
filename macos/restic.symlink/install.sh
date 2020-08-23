@@ -20,6 +20,6 @@ if [ "$MACOS" ]; then
     info "Performing initial backup..."
     launchctl start local.restic_backup
   else
-    info "restic.env doesn't exist yet. Create it or extract it from secrets.dmg"
+    info "restic.env doesn't exist yet. Create it or extract it from 1password"
   fi
 fi
