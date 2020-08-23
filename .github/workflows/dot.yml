@@ -11,18 +11,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
-    - name: Copy to $HOME
-      run: cp -Rf $GITHUB_WORKSPACE $HOME/.dotfiles
-      shell: bash
     - name: Bootstrap
-      env:
-        MIN: 1
-        HOME: $HOME
       run: |
-        cd $HOME/.dotfiles
         script/bootstrap
     - name: Shellcheck
       run: |
-        brew install shellcheck
-        cd $HOME/.dotfiles
         script/shellcheck.sh
