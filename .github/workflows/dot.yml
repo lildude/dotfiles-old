@@ -1,4 +1,4 @@
-name: Initial Bootstrap
+name: Bootstrap
 
 on: [push]
 
@@ -13,8 +13,3 @@ jobs:
     - uses: actions/checkout@v2
     - name: Bootstrap
       run: script/bootstrap
-  shellcheck:
-    name: Shellcheck
-    runs-on: ${{ matrix.os }}
-    steps:
-      - run: script/shellcheck.sh
