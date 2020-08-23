@@ -12,8 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Bootstrap
-      run: |
-        script/bootstrap
-    - name: Shellcheck
-      run: |
-        script/shellcheck.sh
+      run: script/bootstrap
+  shellcheck:
+    name: Shellcheck
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: script/shellcheck.sh
