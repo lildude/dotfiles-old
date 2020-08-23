@@ -20,7 +20,7 @@ mkdir -p "$HOME/tmp/trash"
 export PATH=$HOME/bin:$PATH
 
 # Don't install Homebrew on minimal installations or CI
-if [ -z "${MIN:-}" ] || [ -z "${CI:-}" ]; then
+if [ -z "${MIN:-}" ] && [ -z "${CI:-}" ]; then
   [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
@@ -78,5 +78,3 @@ done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 "$DIR/script/extract-onepassword-secrets"
 
 printf "\\n\\033[01;32m%s\033[0m\\n\\n" '🏁 All done!!'
-
-fish -l
