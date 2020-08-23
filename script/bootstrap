@@ -23,9 +23,9 @@ mkdir -p "$HOME/tmp/trash"
 export PATH=$HOME/bin:$PATH
 
 # Don't install Homebrew on minimal installations or CI
-[ -n "${MIN:-}" ] || [ -n "${CI:-}" ] && exit 0
-
-[ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
+if [ -z "${MIN:-}" ] || [ -z "${CI:-}" ]; then
+  [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
+fi
 
 # Only install Homebrew if we've got a populated $HOME/.Brewfile
 if ! command -v brew &> /dev/null && [ -s "$HOME/.Brewfile" ]; then
