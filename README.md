@@ -1,11 +1,14 @@
 # lildude's dotfiles
 
-These are my dotfiles.  I've borrowed many ideas from many different locations to create my ideal setup.
+These are my dotfiles. I've borrowed many ideas from many different locations to create my ideal setup.
 
-# Instructions
+## Instructions
 
+```console
+git clone git@github.com:lildude/dotfiles.git .dotfiles
+.dotfiles/script/bootstrap
 ```
-git clone --recursive git@github.com:lildude/dotfiles.git .dotfiles
-cd .dotfiles
-script/bootstrap
-```
+
+# Slack Theme
+
+#282A36,#44475A,#44475A,#8BE9FD,#6272A4,#FFFFFF,#50FA7B,#FF5555,#44475A,#FFFFFF

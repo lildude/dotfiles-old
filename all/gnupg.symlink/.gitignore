@@ -1,0 +1,5 @@
+# Ignore everything...
+*
+# ...except the files I've committed to the repo
+!.gitignore
+!gpg.conf

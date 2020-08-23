@@ -4,15 +4,17 @@
 #
 set -euo pipefail
 
-DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
-# shellcheck source=bin/lib.sh
-source "$DOTFILES/bin/lib.sh"
+DIR=$(cd "$(dirname "$0")/.." && pwd)
+# shellcheck source=script/lib.sh
+source "$DIR/script/lib.sh"
 
 if ! command -v shellcheck > /dev/null 2>&1; then
-  fail "Shellcheck not installed."
+  # Install shellcheck if not installed
+  [ "$MACOS" ] && brew install shellcheck
+  [ "$LINUX" ] && sudo apt-get install shellcheck
 fi
 
-cd "$DOTFILES" || exit 1
+cd "$DIR" || exit 1
 files=()
 while IFS= read -r file; do
     # Skip firefox/updater.sh as this isn't my file.

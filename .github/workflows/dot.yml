@@ -1,4 +1,4 @@
-name: Initial Bootstrap
+name: Bootstrap
 
 on: [push]
 
@@ -7,19 +7,9 @@ jobs:
     name: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-latest] # TODO: Add Linux support in the future.
+        os: [macOS-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@master
-    - name: Copy to $HOME
-      run: cp -Rf $GITHUB_WORKSPACE $HOME/.dotfiles
-      shell: bash
+    - uses: actions/checkout@v2
     - name: Bootstrap
-      run: |
-        cd $HOME/.dotfiles
-        script/bootstrap
-    - name: Shellcheck
-      run: |
-        brew install shellcheck
-        cd $HOME/.dotfiles
-        script/shellcheck.sh
+      run: script/bootstrap

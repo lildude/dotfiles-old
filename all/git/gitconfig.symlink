@@ -1,0 +1,139 @@
+# vim: set filetype=ini
+[credential]
+  helper = osxkeychain
+
+[core]
+  editor = nvim         # Change to 'atom --wait' if feeling bold.
+  trustctime = false    # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+  excludesfile = ~/.gitignore  # Exclude everything in this file. Used for general exclusions.
+  attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
+  # Use the diff-highlighter, if it's available.
+  pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -rFX || less -rFX"
+  # Use delta if it's available
+  # pager = "[ -f /usr/local/bin/delta ] && /usr/local/bin/delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' || less -rFX"
+  # Don't prompt for commit messages for merge commits.
+  mergeoptions = --no-edit
+
+[user]
+  # Never use the system info if the user info isn't set; error instead.
+	useConfigOnly = true
+	name = Colin Seymour
+	email = lildood@gmail.com
+  signingkey = 88109C73073E7080
+
+# Override default when working in work repos
+[includeIf "gitdir:~/github/"]
+  path = ~/.dotfiles/git/gitconfig-github
+
+[github]
+  user = lildude
+
+[color]
+  ui = always   # Cos everyone loves colours
+
+# Supported colors: normal, black, red, green, yellow, blue, magenta, cyan, or white
+# Supported effects: bold, dim, ul (underline), blink, and reverse (swap foreground and background)
+[color "branch"]
+  #current = green # Default: green
+  #local = yellow
+  remote = blue
+
+[color "diff"]
+  commit = green
+  meta = yellow # Default: unset
+  frag = magenta bold # Default: unset - Appears as purple on my current customised Solarized iTerm2 theme.
+  old = red # Default: red
+  new = green # Default: green
+  whitespace = red reverse # Default: unset - Protects me from committin ws changes
+
+[color "status"]
+  added = green # Default: green
+  changed = red # Default: red
+  untracked = magenta bold  # Default: red - Appears as purple on my current customised Solarized iTerm2 theme.
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[help]
+  autocorrect = 1   # Autocorrect mistyped commands.
+
+[alias]
+  branch-name = "!git rev-parse --abbrev-ref HEAD"  # Get branch. Used by other aliases.
+  st = "status --short --branch --no-ahead-behind"
+  rem = remote -v
+  co = checkout
+  #lg = log --graph --pretty=oneline --abbrev-commit --decorate
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+  cob = checkout -b
+  b = branch --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
+  # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
+  # Remove all local branches that were tracking remote branches that have been deleted.
+  up = !git checkout master && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v \"not found\" | head -1) -r git branch -D
+
+  # Open the current branch on janky to see our build results
+  janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
+  # Create a pull request on GitHub using the `hub` command.
+  pr = !hub pull-request -o
+  # Grab someone else's PR changes without using hub
+  # Source: https://davidwalsh.name/pull-down-pr
+  prco = !f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f
+  pr-clean = !git checkout master ; git for-each-ref refs/heads/pr/* --format="%(refname)" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done
+  tagcommit = rev-list -n 1
+
+[gist]
+  browse = true  # Open GitHub Gist in browser after submission.
+
+[fetch]
+  prune = 1  # Always prune when fetching (and pulling).
+
+[push]
+  default = current # Default: simple
+
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+
+[diff]
+  renames = copies  # Detect copies as well as renames
+	noprefix = true   # Don't show the a/ and b/ at the beginning of file paths in diffs
+
+[http]
+  sslVerify = true
+
+[filter "lfs"]
+  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[archive]
+  restrictRemote = false
+
+[commit]
+  gpgSign = true
+
+#[branch]
+#  autosetupmerge = always
+
+[gpg]
+  program = gpg2
+
+[merge]
+	conflictstyle = diff3
+
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[protocol]
+	version = 2
+
+[feature]
+	manyFiles = true
+
+[init]
+	defaultBranch = main

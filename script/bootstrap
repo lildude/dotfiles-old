@@ -1,50 +1,80 @@
 #!/usr/bin/env bash
 #
-# bootstrap installs things.
 set -euo pipefail
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+# shellcheck source=script/lib.sh
+source "$DIR/script/lib.sh"
 
-DOTFILES=$(cd "$(dirname "$0")/.." && pwd)
-# shellcheck source=bin/lib.sh
-source "$DOTFILES/bin/lib.sh"
+#### Lets GO!! ####
+info "👢 Bootstrapping to ${HOME}…"
 
-#### Default config opts ####
-export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
-touch "$HOME/.secrets"
+info "🏡 Arranging the furniture…"
+cd "$HOME" || exit 1
 
-create_my_std_dirs() {
-  cd "$HOME" || exit 1
+for dir in bin Downloads Development; do
+  mkdir -p "$HOME/$dir"
+done
+ln -Ff -s Downloads tmp
+mkdir -p "$HOME/tmp/trash"
 
-  mkdir -p "$HOME/Downloads"
-  link_file Downloads tmp
+export PATH=$HOME/bin:$PATH
 
-  local dirs="bin tmp/trash Development"
-
-  for dir in $dirs; do
-    if [ ! -d "$HOME/$dir" ]; then
-      msg="Created $HOME/$dir"
-      if mkdir "$HOME/$dir"; then success "$msg"; else fail "$msg"; fi
-    else
-      success "Skipped $HOME/$dir already exists"
-    fi
-  done
-}
-
-### Lets go ###
-
-info "Bootstrapping to $HOME..." "👢"
-echo
-
-install_dotfiles
-create_my_std_dirs
-echo
-info "Installing and updating dependencies..."
-
-# shellcheck source=bin/dot
-if "$DOTFILES/bin/dot" 2>&1 | indent; then
-  success "Dependencies installed"
-else
-  fail "Error installing or updating dependencies"
+# Don't install Homebrew on minimal installations or CI
+if [ -z "${MIN:-}" ] && [ -z "${CI:-}" ]; then
+  [ -f "$BREWFILE" ] && ln -Ff -s "$BREWFILE" .Brewfile
 fi
 
-echo ''
-info 'All installed! 🏁' "🏁"
+# Only install Homebrew if we've got a populated $HOME/.Brewfile
+if ! command -v brew &> /dev/null && [ -s "$HOME/.Brewfile" ]; then
+  info '🍺 Installing Homebrew…'
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" > "$HOME/tmp/homebrew.log" 2>&1
+
+  if [ "$LINUX" ]; then
+    if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+      # If I have sudo access on the host, Homebrew will be here
+      # shellcheck disable=SC2046
+      eval $(SHELL=bash /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    else
+      # Else it'll be in my homedir
+      # shellcheck disable=SC2046
+      eval $(SHELL=bash "$HOME/.linuxbrew/bin/brew shellenv")
+    fi
+  fi
+fi
+
+if [ -s "$HOME/.Brewfile" ]; then
+  info '📦 Checking if we need to install packages…'
+  if ! brew bundle check --global > /dev/null 2>&1; then
+    # shellcheck disable=SC2016
+    info '📦 Install missing packages…'
+    brew bundle install --global
+  fi
+fi
+
+# Link all linkable files
+while IFS= read -r -d '' src; do
+  dst="$HOME/.$(basename "${src%.*}")"
+  # Skip over OS-specific links that aren't this OS
+  if [[ $src =~ $DIR/(linux|macos)/ ]] && [[ ! $src =~ $DIR/$OS/ ]]; then
+    continue
+  fi
+  if [ ! -L "$dst" ]; then
+    info "🔗 Linking $src → $dst"
+    ln -Ff -s "$src" "$dst"
+  fi
+done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -print0)
+
+# Run all install.sh scripts
+while IFS= read -r -d '' installer; do
+  # Skip over OS-specific links that aren't this OS
+  if [[ $installer =~ $DIR/(linux|macos)/ ]] && [[ ! $installer =~ $DIR/$OS/ ]]; then
+    continue
+  fi
+  info "👟 Running ${installer}…"
+  $installer
+done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
+
+# This needs to be separate as it requires interaction
+"$DIR/script/extract-onepassword-secrets"
+
+printf "\\n\\033[01;32m%s\033[0m\\n\\n" '🏁 All done!!'
