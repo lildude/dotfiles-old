@@ -70,7 +70,7 @@ while IFS= read -r -d '' installer; do
   if [[ $installer =~ $DIR/(linux|macos)/ ]] && [[ ! $installer =~ $DIR/$OS/ ]]; then
     continue
   fi
-  info "👟 Running $installer…"
+  info "👟 Running ${installer}…"
   $installer
 done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 
