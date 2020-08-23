@@ -6,7 +6,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
 source "$DIR/../script/lib.sh"
 
-[ $LINUX ] && exit 0
+[ $LINUX ] || [ -n "$CI" ] && exit 0
 
 work="github" # Who do I work for? This is also assumed to be the GitHub org name
 workdir="$HOME/$work" # Where to store all repos
