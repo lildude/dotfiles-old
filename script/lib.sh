@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Library of helper functions other scripts in my dotfiles can use.
-
+echo "HOME: $HOME"
 #### Default config opts ####
 [ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
 [ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
