@@ -8,7 +8,7 @@ source "$DIR/../script/lib.sh"
 
 VERSION=2.6.5
 
-if [ -n "$CI" ]; then
+if [ -n "${CI:-}" ]; then
   exit 0
 fi
 
