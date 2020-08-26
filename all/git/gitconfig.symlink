@@ -73,7 +73,7 @@
   db = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
   # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
   # Remove all local branches that were tracking remote branches that have been deleted.
-  up = !git checkout $(git db) && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v \"not found\" | head -1) -r git branch -D
+  up = !git checkout $(git db) && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v 'not found' | head -1) -r git branch -D
   com = !git checkout $(git db)
   # Open the current branch on janky to see our build results
   janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
