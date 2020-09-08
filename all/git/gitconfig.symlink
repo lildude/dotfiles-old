@@ -122,7 +122,7 @@
 #  autosetupmerge = always
 
 [gpg]
-  program = gpg2
+  program = gpg
 
 [merge]
 	conflictstyle = diff3
