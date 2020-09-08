@@ -36,7 +36,7 @@ brew "git"
 brew "git-delta"
 brew "git-lfs"
 brew "gnu-sed"
-brew "gnupg", link: false
+brew "gnupg"
 brew "go"
 brew "goku"
 brew "grc"              # General colorizer
@@ -113,7 +113,6 @@ cask "garmin-express"
 cask "google-chrome"
 cask "google-cloud-sdk"
 #cask 'google-backup-and-sync'
-cask "gpg-suite"
 cask "hammerspoon"
 cask "hey"
 cask "imagealpha"
