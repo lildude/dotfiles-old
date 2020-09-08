@@ -3,3 +3,4 @@ fishpkg/fish-git-util
 gyakovlev/fish-fzy
 jethrokuan/fzf
 rbenv/fish-rbenv
+cafedomancer/fish-nodenv
