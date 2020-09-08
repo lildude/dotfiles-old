@@ -84,3 +84,6 @@ set -U fish_pager_color_completion  normal
 set -U fish_pager_color_description yellow
 set -U fish_pager_color_prefix      'white' '--bold' '--underline'
 set -U fish_pager_color_progress    'brwhite' '--background=cyan'
+
+set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
