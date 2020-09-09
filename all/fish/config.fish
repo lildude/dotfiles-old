@@ -54,6 +54,8 @@ set -x LESS_TERMEND (set_color normal)
 # Pull in tokens
 [ -f $HOME/.secrets ] && builtin source $HOME/.secrets
 
+set -xg GPG_TTY (tty)
+
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
 set -U fish_color_autosuggestion    brblack
