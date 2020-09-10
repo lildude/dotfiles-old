@@ -9,7 +9,7 @@ git clone git@github.com:lildude/dotfiles.git .dotfiles
 .dotfiles/script/bootstrap
 ```
 
-# Slack Theme
+## Slack Theme
 
 Cos I need somewhere to store it
 
