@@ -15,7 +15,6 @@ if ! command -v rustup > /dev/null 2>&1; then
   curl https://sh.rustup.rs -sSf | sh
 fi
 
-echo 'set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths' >> ~/.config/fish/config.fish
 export PATH="$HOME/.cargo/bin:$PATH"
 
 info "Updating Rust..."
