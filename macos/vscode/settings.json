@@ -129,4 +129,7 @@
       "editor.formatOnSave": true
     },
     "ruby.intellisense": "rubyLocate",
+    "ruby.rubocop.onSave": false,
+    "ruby.format": "rubyfmt",
+    "ruby.useLanguageServer": true,
 }
