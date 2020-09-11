@@ -71,6 +71,7 @@ brew 'restic'
 brew 'ripgrep' # rg, an even faster version of ag
 brew 'rs-git-fsmonitor' # Run `git config core.fsmonitor rs-git-fsmonitor` in large repos you want this magic in
 brew 'rsync'
+# brew 'rubyfmt' # Often outdated. Use precompile bin from https://github.com/penelopezone/rubyfmt/releases instead
 brew 's3cmd'
 brew 'shellcheck'
 brew 'tldr'
