@@ -50,6 +50,7 @@ user_pref("ui.use_standins_for_native_colors", true); // 4615
 
 /*** ANO non-ghacks settings ***/
 user_pref("security.enterprise_roots.enabled", true); // Trust keychain company certs - might work one day - https://www.jamf.com/jamf-nation/discussions/25166/how-to-firefox-trusting-company-certificates
+user_pref("security.osclientcerts.autoload", true);
 user_pref("accessibility.typeaheadfind.flashBar", 0); // I don't want the toolbar to flash when a find matches
 
 /*** Don't forget to remove and reset deprecated refs in the 9999 section of the default file ***/
