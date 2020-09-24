@@ -112,9 +112,8 @@
     "code-runner.executorMapByFileExtension": {
 
 
+
     },
-    "customizeUI.activityBar": "regular",
-    "customizeUI.titleBar": "inline",
     "window.titleBarStyle": "native",
     "sync-rsync.local": "",
     "ruby.locate": {
@@ -126,10 +125,12 @@
     "jake.autoDetect": "off",
     "npm.autoDetect": "off",
     "[ruby]": {
-      "editor.formatOnSave": true
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "misogi.ruby-rubocop"
     },
-    "ruby.intellisense": "rubyLocate",
     "ruby.rubocop.onSave": false,
     "ruby.format": "rubyfmt",
     "ruby.useLanguageServer": true,
+    "editor.formatOnSaveMode": "modifications",
+    "ruby.intellisense": "rubyLocate",
 }
