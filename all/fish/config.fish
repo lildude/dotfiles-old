@@ -44,20 +44,21 @@ set -xg ICLOUD_DRIVE "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 # Prevent macos tar including hidden ._ files in tarballs
 set -xg COPYFILE_DISABLE 1
 
-# fzf config
-set -xg FZF_CTRL_T_COMMAND "fd --glob '!.git/*' ."
-set -xg FZF_DEFAULT_COMMAND "fd --type d --glob '!.git/*' ."
-set -xg FZF_TMUX 1
-set -U FZF_COMPLETE 0
+# fzf config - requires jethrokuan/fzf fisher pkg
+#set -xg FZF_CTRL_T_COMMAND "fd --glob '!.git/*' ."
+#set -xg FZF_DEFAULT_COMMAND "fd --type d --glob '!.git/*' ."
+#set -xg FZF_TMUX 1
+#set -U FZF_COMPLETE 0
 # Set to avoid `env` output from changing console colour
 set -x LESS_TERMEND (set_color normal)
 # Pull in tokens
 [ -f $HOME/.secrets ] && builtin source $HOME/.secrets
 
-set -xg GPG_TTY (tty)
+set -x GPG_TTY (tty)
 
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
+# TODO: These should probably not be in here cos `set -U` can be a beast and only needs to be set once. I'm not sure how to do this on new installs yet.
 set -U fish_color_autosuggestion    brblack
 set -U fish_color_cancel            -r
 set -U fish_color_command           green
@@ -87,6 +88,7 @@ set -U fish_pager_color_description yellow
 set -U fish_pager_color_prefix      'white' '--bold' '--underline'
 set -U fish_pager_color_progress    'brwhite' '--background=cyan'
 
+# Change this to set -x PATH
 set -g fish_user_paths "$HOME/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
