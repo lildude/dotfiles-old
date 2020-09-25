@@ -89,6 +89,11 @@ set -U fish_pager_color_prefix      'white' '--bold' '--underline'
 set -U fish_pager_color_progress    'brwhite' '--background=cyan'
 
 # Change this to set -x PATH
+[ "$(uname -s)" = "Darwin" ] && OS=macos
+[ "$(uname -s)" = "Linux" ] && OS=linux
+
+set -g fish_user_paths "$HOME/.dotfiles/all/bin" $fish_user_paths
+set -g fish_user_paths "$HOME/.dotfiles/$OS/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/bin" $fish_user_paths
 set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
