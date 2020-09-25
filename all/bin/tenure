@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s -H "Authorization: ${GITHUB_TEAM_TOKEN}" https://team.githubapp.com/api/users | jq -r '.[]|.[] | select(.hired_at != null) | select(.disabled == false) | "\(.hired_at) \(.name) <\(.login)@github.com>"' | sort
