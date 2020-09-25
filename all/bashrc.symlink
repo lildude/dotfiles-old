@@ -72,9 +72,14 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# Add enterprise2 to my path
-[ -d ~/github/enterprise2 ] && export PATH=$PATH:~/github/enterprise2
-[ -d ~/enterprise2 ] && export PATH=$PATH:~/enterprise2
+[ "$(uname -s)" = "Darwin" ] && OS=macos
+[ "$(uname -s)" = "Linux" ] && OS=linux
+
+for p in $HOME/bin $HOME/.dotfiles/all/bin $HOME/.dotfiles/$OS/bin $HOME/github/enterprise2 $HOME/enterprise2; do
+  [ -d "$p" ] && PATH=$PATH:$p
+done
+
+export PATH
 
 # Load rbenv automatically
 which rbenv > /dev/null && eval "$(rbenv init -)"
