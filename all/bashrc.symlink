@@ -91,3 +91,19 @@ which nodenv > /dev/null && eval "$(nodenv init -)"
 function tabname {
   [ -n "$TMUX" ] && tmux rename-window "$@"
 }
+
+purple='\e[0;35m'
+green='\e[0;32m'
+yellow='\e[0;33m'
+red='\e[0;31m'
+blue='\e[0;34m'
+reset='\e[m'
+
+if [ "$(id -u)" -eq 0 ]; then
+  user_clr=${red}
+else
+  user_clr=${blue}
+fi
+
+export PS1="${user_clr}\u${reset}@${yellow}\h ${green}\w${purple} ${user_clr}\$${reset} "
+
