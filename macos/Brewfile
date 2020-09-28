@@ -1,15 +1,16 @@
 cask_args appdir: '/Applications'
+# tap 'shopify/shopify'          # Needed for toxiproxy
 tap 'github/gh'                 # Needed for gh
+tap 'heroku/brew'               # Needed for heroku
 tap 'homebrew/bundle'
-tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'     # Needed for garmin-express
 tap 'homebrew/cask-fonts'       # Needed for fonts
 tap 'homebrew/cask-versions'    # Needed for beta versions
-tap 'homebrew/cask-drivers'     # Needed for garmin-express
-tap 'heroku/brew'               # Needed for heroku
-# tap 'shopify/shopify'          # Needed for toxiproxy
-tap 'yqrashawn/goku'            # Needed for goku
+tap 'homebrew/cask'
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
 tap 'jgavris/rs-git-fsmonitor'
+tap 'muesli/homebrew-tap/duf'
+tap 'yqrashawn/goku'            # Needed for goku
 
 brew 'ansible'
 brew 'awscli'
@@ -21,6 +22,7 @@ brew 'checkbashisms'
 brew 'coreutils'
 brew 'diff-so-fancy'
 brew 'dos2unix'
+brew 'duf'
 brew 'exa'
 brew 'exercism'
 brew 'fd'               # Like find, but faster
