@@ -106,7 +106,6 @@ cask 'exodus'
 cask 'fantastical'
 cask 'firefox'
 cask 'fliqlo'
-cask 'flotato'
 cask 'flux'
 cask 'font-jetbrains-mono'
 cask 'garmin-express'
@@ -127,9 +126,8 @@ cask 'kap'
 cask 'karabiner-elements'
 cask 'keybase'
 cask 'microblog'
-cask 'microsoft-edge'
-cask 'microsoft-teams'
-cask 'monitorcontrol'
+cafsk 'microsoft-edge'
+# cask 'microsoft-teams'
 cask 'muzzle'
 cask 'netnewswire'
 cask 'netspot'
@@ -145,22 +143,22 @@ cask 'skitch'
 cask 'sketch'
 cask 'slack'
 cask 'spotify'
-cask 'teamviewer'
+# cask 'teamviewer'
 cask 'telegram'
 cask 'textexpander'
 cask 'the-unarchiver'
 cask 'transmission'
 cask 'transmit'
 # cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
+# cask 'virtualbox'
+# cask 'virtualbox-extension-pack'
 cask 'viscosity'
 cask 'visual-studio-code'
 # cask 'vlc'
 # cask 'vmware-fusion'
 # cask 'wireshark' # This is having problems installing at the mo - Oct 2019.
 # cask 'yubico-yubikey-manager'
-cask 'zwift'
+# cask 'zwift'
 
 # AppStore Apps that need manual install for the mo.
 mas 'Bear', id: 1_091_189_122
@@ -174,7 +172,3 @@ mas 'pomodorome', id: 1_484_801_884
 mas 'Tot', id: 1_491_071_483
 mas 'WireGuard', id: 1_451_685_025
 
-# Window Focus - https://rink.hockeyapp.net/api/2/apps/10ecea325a98419bb1f3e5eb6c328724?format=zip
-
-# Ano apps
-# logitech camera settings
