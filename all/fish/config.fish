@@ -3,7 +3,8 @@
 #
 # Cool stuffs - https://github.com/jorgebucaran/awesome-fish
 #
-# Tip: debug slowdowns with `fish --profile fish.profile -ic exit` and review the file. `sort -nk 2 fish.profile` will those the slowest parts at the bottom.
+# Tip: debug slowdowns with `time fish --profile fish.profile -ic exit` and review the file. `sort -nk 2 fish.profile` will those the slowest parts at the bottom.
+# Profile prompt (and everything else): `time fish --profile fish.profile -c fish_prompt`
 
 # Put fisher plugin files in their own dir so it doesn't trample all over my own files
 set -g fisher_path ~/.config/fish/fisher_plugins
