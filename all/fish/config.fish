@@ -5,12 +5,10 @@
 #
 # Tip: debug slowdowns with `fish --profile fish.profile -ic exit` and review the file. `sort -nk 2 fish.profile` will those the slowest parts at the bottom.
 
-# Put fisher plugin files in their own dir
+# Put fisher plugin files in their own dir so it doesn't trample all over my own files
 set -g fisher_path ~/.config/fish/fisher_plugins
-
 set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
 set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
-
 for file in $fisher_path/conf.d/*.fish
   builtin source $file 2> /dev/null
 end
