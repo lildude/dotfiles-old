@@ -2,6 +2,8 @@
 # `fish_config` provides a really cool web-based UI for this too.
 #
 # Cool stuffs - https://github.com/jorgebucaran/awesome-fish
+#
+# Tip: debug slowdowns with `fish --profile fish.profile -ic exit` and review the file. `sort -nk 2 fish.profile` will those the slowest parts at the bottom.
 
 # Put fisher plugin files in their own dir
 set -g fisher_path ~/.config/fish/fisher_plugins
@@ -14,15 +16,23 @@ for file in $fisher_path/conf.d/*.fish
 end
 
 # Exported variables
-# Start with the path. We use the universal thingy and not this file. Run this only _once_ at first config and then append as needed
-# This is actually stored in the fish_variables file
-# TODO: Remove dups and only add those that exist - might need to use `set -x PATH` here instead
-#set -U fish_user_paths ./bin ~/bin ~/.cargo/bin ~/go/bin ~/.yarn/bin ~/.config/yarn/global/node_modules/.bin /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin ~/github/enterprise2 ~/github/awesume
-
-if test "(uname -s)" = "Darwin";
+if test (uname -s) = "Darwin";
   set -xg BROWSER "open"
   set -xg HOMEBREW_EDITOR 'code -n'
+  set -xg OS "macos"
 end
+
+if test (uname -s) = "Linux";
+  set -xg OS "linux"
+end
+
+# Add to my $PATH
+# Note: the system-configured $PATH is pulled in from files in /etc/paths, /etc/paths.d/* and added after $fish_user_paths
+set -g fish_user_paths \
+          "$HOME/.dotfiles/all/bin" \
+          "$HOME/.dotfiles/$OS/bin" \
+          "$HOME/bin" "$HOME/.cargo/bin" \
+          "/usr/local/sbin" $fish_user_paths
 
 set -xg EDITOR "nvim"
 set -xg VISUAL "nvim"
@@ -54,46 +64,38 @@ set -x LESS_TERMEND (set_color normal)
 # Pull in tokens
 [ -f $HOME/.secrets ] && builtin source $HOME/.secrets
 
-set -x GPG_TTY (tty)
+set -xg GPG_TTY (tty)
 
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
-# TODO: These should probably not be in here cos `set -U` can be a beast and only needs to be set once. I'm not sure how to do this on new installs yet.
-set -U fish_color_autosuggestion    brblack
-set -U fish_color_cancel            -r
-set -U fish_color_command           green
-set -U fish_color_comment           brblack
-set -U fish_color_cwd               green
-set -U fish_color_cwd_root          red
-set -U fish_color_end               normal
-set -U fish_color_error             red
-set -U fish_color_escape            cyan
-set -U fish_color_history_current   --bold
-set -U fish_color_host              normal
-set -U fish_color_match             --background=brblue
-set -U fish_color_normal            normal
-set -U fish_color_operator          cyan
-set -U fish_color_param             efefef
-set -U fish_color_quote             yellow
-set -U fish_color_redirection       normal
-set -U fish_color_search_match      'bryellow' '--background=brblack'
-set -U fish_color_selection         'white' '--bold' '--background=brblack'
-set -U fish_color_status            red
-set -U fish_color_user              green
-set -U fish_color_valid_path        --underline
-set -U fish_greeting                # I don't want a greeting
-set -U fish_key_bindings            fish_default_key_bindings
-set -U fish_pager_color_completion  normal
-set -U fish_pager_color_description yellow
-set -U fish_pager_color_prefix      'white' '--bold' '--underline'
-set -U fish_pager_color_progress    'brwhite' '--background=cyan'
-
-# Change this to set -x PATH
-[ "(uname -s)" = "Darwin" ] && set OS macos
-[ "(uname -s)" = "Linux" ] && set OS linux
-
-set -g fish_user_paths "$HOME/.dotfiles/all/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/.dotfiles/$OS/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+# Speed things up by only setting these universal vars if we don't have a ~/.config/fish/fish_variables file
+if test ! -f $HOME/.config/fish/fish_variables
+  set -U fish_color_autosuggestion    brblack
+  set -U fish_color_cancel            -r
+  set -U fish_color_command           green
+  set -U fish_color_comment           brblack
+  set -U fish_color_cwd               green
+  set -U fish_color_cwd_root          red
+  set -U fish_color_end               normal
+  set -U fish_color_error             red
+  set -U fish_color_escape            cyan
+  set -U fish_color_history_current   --bold
+  set -U fish_color_host              normal
+  set -U fish_color_match             --background=brblue
+  set -U fish_color_normal            normal
+  set -U fish_color_operator          cyan
+  set -U fish_color_param             efefef
+  set -U fish_color_quote             yellow
+  set -U fish_color_redirection       normal
+  set -U fish_color_search_match      'bryellow' '--background=brblack'
+  set -U fish_color_selection         'white' '--bold' '--background=brblack'
+  set -U fish_color_status            red
+  set -U fish_color_user              green
+  set -U fish_color_valid_path        --underline
+  set -U fish_greeting                # I don't want a greeting
+  set -U fish_key_bindings            fish_default_key_bindings
+  set -U fish_pager_color_completion  normal
+  set -U fish_pager_color_description yellow
+  set -U fish_pager_color_prefix      'white' '--bold' '--underline'
+  set -U fish_pager_color_progress    'brwhite' '--background=cyan'
+end
