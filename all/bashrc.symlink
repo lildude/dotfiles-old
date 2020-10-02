@@ -92,12 +92,12 @@ function tabname {
   [ -n "$TMUX" ] && tmux rename-window "$@"
 }
 
-purple='\e[0;35m'
-green='\e[0;32m'
-yellow='\e[0;33m'
-red='\e[0;31m'
-blue='\e[0;34m'
-reset='\e[m'
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+purple=$(tput setaf 5)
+reset=$(tput sgr0)
 
 if [ "$(id -u)" -eq 0 ]; then
   user_clr=${red}
