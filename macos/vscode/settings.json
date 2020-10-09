@@ -70,24 +70,6 @@
     "git.showPushSuccessNotification": true,
     "git.confirmSync": false,
     "diffEditor.renderSideBySide": false,
-    "sync-rsync.onSaveIndividual": true,
-    "sync-rsync.sites": [
-
-      {
-        "localPath": "/Users/lildude/github/backup-utils",
-        "remotePath": "lildude@enterprise2-dev-798a0ea.cp1-iad.github.net:/home/lildude/github/backup-utils",
-      },
-      {
-        "localPath": "/Users/lildude/github/enterprise2",
-        "remotePath": "lildude@enterprise2-dev-ca70a38.va3-iad.github.net:/home/lildude/enterprise2",
-      },
-    ],
-    "sync-rsync.notification": false,
-    "sync-rsync.exclude": [
-        ".git",
-        ".vscode"
-    ],
-    "sync-rsync.flags": "avzpur",
     "explorer.confirmDragAndDrop": false,
     "shellcheck.customArgs": ["-x"],
     "shellcheck.useWorkspaceRootAsCwd": true,
@@ -111,11 +93,8 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "code-runner.executorMapByFileExtension": {
 
-
-
     },
     "window.titleBarStyle": "native",
-    "sync-rsync.local": "",
     "ruby.locate": {
 
     },
@@ -128,9 +107,11 @@
       "editor.formatOnSave": false,
       "editor.defaultFormatter": "misogi.ruby-rubocop"
     },
-    "ruby.rubocop.onSave": false,
     "ruby.format": "rubyfmt",
     "ruby.useLanguageServer": true,
     "editor.formatOnSaveMode": "modifications",
     "ruby.intellisense": "rubyLocate",
+    "[gemfile]": {
+      "editor.defaultFormatter": "misogi.ruby-rubocop"
+    },
 }
