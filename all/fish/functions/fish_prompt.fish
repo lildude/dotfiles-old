@@ -28,7 +28,7 @@ set __fish_git_prompt_color magenta
 # which is:
 # - [ (purple)
 # - <abbreviated path> (green)
-# - <  > if in git repo (purple) : TODO: change this to icons for tag or sha
+# - <  > if in git repo (purple)
 # - <truncated branch> if in git repo (yellow)
 # - <●> shown and yellow if changes but unstaged
 # - <●> shown and green if staged changes
