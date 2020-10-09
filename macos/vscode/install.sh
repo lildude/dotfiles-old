@@ -16,6 +16,7 @@ fi
 info "Installing VSCode settings"
 ln -Ff -s "$DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 ln -Ff -s "$DIR/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+ln -Ff -s "$DIR/vscode/snippets" "$HOME/Library/Application Support/Code/User/snippets"
 
 EXTENSIONS="$(code --list-extensions)"
 
