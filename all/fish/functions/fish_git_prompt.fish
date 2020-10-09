@@ -1,5 +1,14 @@
 # @lildude: copied from https://github.com/fish-shell/fish-shell/blob/5f3070220af6f9410c9b83279cd86a7db76a26b7/share/functions/fish_git_prompt.fish
-# and modified to make the dirty check faster by excluding submodules with the `--ignore-submodules=dirty` arg like ZSH does.
+# and modified to:
+# - make the dirty check faster by excluding submodules with the `--ignore-submodules=dirty` arg like ZSH does.
+# - truncate the branch from the beginning as I prefix my branches with my handle
+# - comment out git commands that I don't use that only slow things down and are there for compatibility with
+#   https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh, specifically calls to check per-repo
+#   configs for:
+#   - `bash.showUntrackedFiles`
+#   - `bash.showDirtyState`
+#   - `bash.showInformativeStatus`
+# - comment out the checking of svn remotes as I don't use svn with git... ever!
 #
 #
 # based off of the git-prompt script that ships with git
@@ -196,27 +205,28 @@ function __fish_git_prompt_show_upstream --description "Helper function for fish
 
     set -l svn_remote
     # get some config options from git-config
-    command git config -z --get-regexp '^(svn-remote\..*\.url|bash\.showupstream)$' 2>/dev/null | while read -lz key value
-        switch $key
-            case bash.showupstream
-                set show_upstream $value
-                test -n "$show_upstream"
-                or return
-            case svn-remote.'*'.url
-                set svn_remote $svn_remote $value
-                # Avoid adding \| to the beginning to avoid needing #?? later
-                if test -n "$svn_url_pattern"
-                    set svn_url_pattern $svn_url_pattern"|$value"
-                else
-                    set svn_url_pattern $value
-                end
-                set upstream svn+git # default upstream is SVN if available, else git
-
-                # Save the config key (without .url) for later use
-                set -l remote_prefix (string replace -r '\.url$' '' -- $key)
-                set svn_prefix $svn_prefix $remote_prefix
-        end
-    end
+    # @lildude: I don't use SVN with git so commenting out
+    #command git config -z --get-regexp '^(svn-remote\..*\.url|bash\.showupstream)$' 2>/dev/null | while read -lz key value
+    #    switch $key
+    #        case bash.showupstream
+    #            set show_upstream $value
+    #            test -n "$show_upstream"
+    #            or return
+    #        case svn-remote.'*'.url
+    #            set svn_remote $svn_remote $value
+    #            # Avoid adding \| to the beginning to avoid needing #?? later
+    #            if test -n "$svn_url_pattern"
+    #                set svn_url_pattern $svn_url_pattern"|$value"
+    #            else
+    #                set svn_url_pattern $value
+    #            end
+    #            set upstream svn+git # default upstream is SVN if available, else git
+    #
+    #            # Save the config key (without .url) for later use
+    #            set -l remote_prefix (string replace -r '\.url$' '' -- $key)
+    #            set svn_prefix $svn_prefix $remote_prefix
+    #    end
+    #end
 
     # parse configuration variables
     # and clear informative default when needed
@@ -382,15 +392,18 @@ function fish_git_prompt --description "Prompt function for Git"
     # That means if neither is set, this stays empty.
     #
     # So "!= true" or "!= false" are useful tests if you want to do something by default.
-    set -l informative (command git config --bool bash.showInformativeStatus)
+    # @lildude: I've never and probably never will override this on a per-repo basis, so commenting out
+    #set -l informative (command git config --bool bash.showInformativeStatus)
 
-    set -l dirty (command git config --bool bash.showDirtyState)
+    # @lildude: I've never and probably never will override this on a per-repo basis, so commenting out
+    #set -l dirty (command git config --bool bash.showDirtyState)
     if not set -q dirty[1]
         set -q __fish_git_prompt_showdirtystate
         and set dirty true
     end
 
-    set -l untracked (command git config --bool bash.showUntrackedFiles)
+    # @lildude: I've never and probably never will override this on a per-repo basis, so commenting out
+    #set -l untracked (command git config --bool bash.showUntrackedFiles)
     if not set -q untracked[1]
         set -q __fish_git_prompt_showuntrackedfiles
         and set untracked true
@@ -463,7 +476,6 @@ function fish_git_prompt --description "Prompt function for Git"
     if string match -qr '^\d+$' "$__fish_git_prompt_shorten_branch_len"; and test (string length "$b") -gt $__fish_git_prompt_shorten_branch_len
         # @lildude: truncate from the beginning of the branch name as I prefix all my branches with my handle
         set b "$__fish_git_prompt_shorten_branch_char_suffix"(string sub -s -"$__fish_git_prompt_shorten_branch_len" "$b")
-        #set b (string sub -l "$__fish_git_prompt_shorten_branch_len" "$b")"$__fish_git_prompt_shorten_branch_char_suffix"
     end
     if test -n "$b"
         set b "$branch_color$b$branch_done"
@@ -495,11 +507,6 @@ end
 ### helper functions
 
 function __fish_git_prompt_staged --description "fish_git_prompt helper, tells whether or not the current branch has staged files"
-    # @lildude: Return early if first arg == HEAD as it means the repo is brand new
-    if [ "$argv[1]" = "HEAD" ]
-        return 0
-    end
-
     # The "diff" functions all return > 0 if there _is_ a diff,
     # but we want to return 0 if there are staged changes.
     # So we invert the status.
