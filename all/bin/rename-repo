@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+set -e
+
+if [ ! -d ".git" ]; then
+  echo "Run me from within a git repo."
+  exit 1
+fi
+
+green=$(tput setaf 2)
+blue=$(tput setaf 4)
+reset=$(tput sgr0)
+
+echo "=> Renaming master -> main..."
+git branch -m master main
+echo "=> Pushing origin to GitHub..."
+git push -u origin main
+echo "=> Updating HEAD ref..."
+git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
+echo "${blue}=> Opening repo so you can change your default branch to 'main'. Come back and press any key...${reset}"
+gh repo view --web
+read -rp "=> Press any key:"
+echo "=> Deleting old upstream 'master'..."
+git push origin --delete master
+echo
+echo "=> ${green}DONE! 🎉${reset}"
