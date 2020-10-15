@@ -70,7 +70,7 @@
   cob = checkout -b
   b = branch --sort=-committerdate --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
   # Get default branch
-  db = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+  db = !git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'
   # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
   # Remove all local branches that were tracking remote branches that have been deleted.
   up = !git checkout $(git db) && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v 'not found' | head -1) -r git branch -D
