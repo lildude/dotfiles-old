@@ -1,8 +1,9 @@
 ; Source and inspiration - https://medium.com/@nikitavoloboev/karabiner-god-mode-7407a5ddc8f6
+; https://github.com/kchen0x/k-goku has some good mappings to borrow
 ; run `goku` to confirm all ok
 {:simlayers {:caps_lock-mode {:key :caps_lock}},
  :main [
-   {:des "capskey",
+   {:des "Hyper Mode",
          :rules [:caps_lock-mode
                  [:open_bracket :!TOopen_bracket]
                  [:close_bracket :!TOclose_bracket]
@@ -19,10 +20,10 @@
                  [:f :!TOf]
                  [:g :!TOg]
                  [:h :!TOh]
-                 [:i :!TOi]
-                 [:j :!TOj]
-                 [:k :!TOk]
-                 [:l :!TOl]
+                 [:i :up_arrow]
+                 [:j :left_arrow]
+                 [:k :down_arrow]
+                 [:l :right_arrow]
                  [:m :!TOm]
                  [:n :!TOn]
                  [:o :!TOo]
