@@ -114,4 +114,5 @@
     "[gemfile]": {
       "editor.defaultFormatter": "misogi.ruby-rubocop"
     },
+    "ruby.rubocop.executePath": "/Users/lildude/.rbenv/shims/",
 }
