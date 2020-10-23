@@ -23,12 +23,13 @@ set __fish_git_prompt_color magenta
 #
 # I want my prompt to look like this:
 #
-# [~/g/enterprise2  enterprise-2.17-backport-… ●●●]$
+# [~/g/enterprise2   enterprise-2.17-backport-… ●●●]$
 #
 # which is:
 # - [ (purple)
 # - <abbreviated path> (green)
-# - <  > if in git repo (purple)
+# - <  | > if in git repo depending on email (blue)
+# - < || > if in git repo (purple)
 # - <truncated branch> if in git repo (yellow)
 # - <●> shown and yellow if changes but unstaged
 # - <●> shown and green if staged changes
@@ -57,9 +58,9 @@ function git_icon
   if [ -d .git ]  # Naïve and not as accurate as `git rev-parse --git-dir` but def quicker and good enough
     set_color blue
     if string match '*@github.com' (git config user.email) > /dev/null 2>&1
-      printf "\\uf113 "
+      printf "\\uf113 " #   from Nerd Font patched font
     else
-      printf "\\uf415 "
+      printf "\\uf415 " #  from Nerd Font patched font
     end
     set_color magenta
     if command git symbolic-ref --short HEAD >/dev/null 2>&1  # Are we on a branch
