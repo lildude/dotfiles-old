@@ -55,6 +55,13 @@ end
 
 function git_icon
   if [ -d .git ]  # Naïve and not as accurate as `git rev-parse --git-dir` but def quicker and good enough
+    set_color blue
+    if string match '*@github.com' (git config user.email) > /dev/null 2>&1
+      printf "\\uf113 "
+    else
+      printf "\\uf415 "
+    end
+    set_color magenta
     if command git symbolic-ref --short HEAD >/dev/null 2>&1  # Are we on a branch
       printf "\\uF126" #  from Nerd Font patched font
     else if git_is_tag
@@ -66,6 +73,7 @@ function git_icon
 end
 
 function fish_right_prompt
+  return
   if [ -d .git ] || git rev-parse --is-inside-work-tree >/dev/null 2>&1
     # Set the git config stuff for my prompt
     set -l email (git config user.email)
