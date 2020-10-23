@@ -9,6 +9,10 @@ git clone git@github.com:lildude/dotfiles.git .dotfiles
 .dotfiles/script/bootstrap
 ```
 
+## My Prompt
+
+![My Prompt](script/prompt.png)
+
 ## Slack Theme
 
 Cos I need somewhere to store it
