@@ -115,4 +115,12 @@
       "editor.defaultFormatter": "misogi.ruby-rubocop"
     },
     "ruby.rubocop.executePath": "/Users/lildude/.rbenv/shims/",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/*.olean": true
+    },
 }

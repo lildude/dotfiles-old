@@ -5,7 +5,6 @@ Development/
 Documents/
 Downloads/
 exercism/
-github/backup-utils/
 github/enterprise-chatops/
 github/enterprise2/
 github/linguist/
