@@ -12,6 +12,7 @@ tap 'jgavris/rs-git-fsmonitor'
 tap 'muesli/homebrew-tap/duf'
 tap 'yqrashawn/goku'            # Needed for goku
 
+brew 'act'              # Run GitHub Actions locally
 brew 'ansible'
 brew 'awscli'
 brew 'azure-cli'
