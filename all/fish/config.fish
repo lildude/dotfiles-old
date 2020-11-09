@@ -25,19 +25,21 @@ if test (uname -s) = "Linux";
   set -xg OS "linux"
 end
 
+test -d $HOME/go && set -xg GOPATH $HOME/go
+
 # Add to my $PATH
 # Note: the system-configured $PATH is pulled in from files in /etc/paths, /etc/paths.d/* and added after $fish_user_paths
 set -g fish_user_paths \
           "$HOME/.dotfiles/all/bin" \
           "$HOME/.dotfiles/$OS/bin" \
           "$HOME/bin" "$HOME/.cargo/bin" \
+          "$GOPATH/bin" \
           "/usr/local/sbin" $fish_user_paths
 
 set -xg EDITOR "nvim"
 set -xg VISUAL "nvim"
 set -xg PAGER "less"
 set -xg LANG "en_GB.UTF-8"
-test -d $HOME/go && set -xg GOPATH $HOME/go
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
