@@ -25,6 +25,16 @@ Host github.com *.github.com localhost
   User git
   ForwardAgent yes
 
+# Local dev
+Host localhost
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/github_2018_ed25519
+  AddKeysToAgent yes
+  User git
+  ForwardAgent yes
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+
 Host *.githubapp.com
   IdentitiesOnly yes
   IdentityFile ~/.ssh/github_2018_ed25519
@@ -82,16 +92,6 @@ Host *.bpdev-us-east-1.github.net
   AddKeysToAgent yes
   RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
 
-Host dev
-  Hostname enterprise2-dev-ca70a38.va3-iad.github.net
-  IdentitiesOnly yes
-  IdentityFile ~/.ssh/github_2018_ed25519
-  ProxyJump %r@bastion.githubapp.com
-  DynamicForward 8888
-  ForwardAgent yes
-  AddKeysToAgent yes
-  User lildude
-
 # Heroku
 Host heroku.com
   User git
@@ -122,19 +122,6 @@ Host *.compute.amazonaws.com
   IdentitiesOnly yes
   IdentityFile ~/.ssh/aws-lildude.pem
   LogLevel quiet
-
-Host default
-  HostName 127.0.0.1
-  User vagrant
-  Port 2299
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile ~/github/enterprise2/.vagrant/machines/default/virtualbox/private_key
-  AddKeysToAgent yes
-  IdentitiesOnly yes
-  LogLevel FATAL
-  ForwardAgent yes
 
 Host raspberrypi rpi hassio.local
   Hostname 192.168.1.85
