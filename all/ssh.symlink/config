@@ -74,7 +74,7 @@ Host vault-bastion
   AddKeysToAgent yes
   User lildude
 
-Host enterprise2-dev-*.github.net *.cp1-prd.iad.github.net *.private-us-east-1.github.net *.ghe.io
+Host *.cp1-prd.iad.github.net *.private-us-east-1.github.net *.ghe.io
   IdentitiesOnly yes
   IdentityFile ~/.ssh/github_2018_ed25519
   ProxyJump %r@bastion.githubapp.com
@@ -91,6 +91,8 @@ Host *.bpdev-us-east-1.github.net
   ForwardAgent yes
   AddKeysToAgent yes
   RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
 
 # Heroku
 Host heroku.com
