@@ -40,6 +40,7 @@ set -xg EDITOR "nvim"
 set -xg VISUAL "nvim"
 set -xg PAGER "less"
 set -xg LANG "en_GB.UTF-8"
+set -xg GIT_MERGE_AUTOEDIT "no"  # Accept the default merge commit msg without opening the editor
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
