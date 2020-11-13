@@ -9,7 +9,7 @@ tap 'homebrew/cask-versions'    # Needed for beta versions
 tap 'homebrew/cask'
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
 tap 'jgavris/rs-git-fsmonitor'
-tap 'muesli/homebrew-tap/duf'
+tap 'muesli/tap'
 tap 'yqrashawn/goku'            # Needed for goku
 
 brew 'act'              # Run GitHub Actions locally
