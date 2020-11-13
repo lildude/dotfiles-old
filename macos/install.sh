@@ -14,5 +14,5 @@ source "$DIR/script/lib.sh"
 if [ $MACOS ] && [ -z "${CI:-}" ]; then
   info "sudo softwareupdate -i -a"
   sudo softwareupdate -i -a 2>&1
-  "$DIR/set-defaults.sh"
+  "$DIR/macos/set-defaults.sh"
 fi
