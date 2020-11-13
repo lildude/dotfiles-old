@@ -31,9 +31,9 @@ Temporary Items
 Brewfile.lock.json
 
 # All directories under rbenv
-macos/rbenv.symlink/*/
-macos/rbenv.symlink/version
-!macos/rbenv.symlink/default-gems
+macos/rbenv/*/
+macos/rbenv/version
+!macos/rbenv/default-gems
 
 # Maid log file
 maid.symlink/maid.log

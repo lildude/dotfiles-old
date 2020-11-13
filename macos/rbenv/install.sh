@@ -6,7 +6,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
 source "$DIR/../script/lib.sh"
 
-VERSION=2.6.5
+VERSION=2.7.1
 
 if [ -n "${CI:-}" ]; then
   exit 0
