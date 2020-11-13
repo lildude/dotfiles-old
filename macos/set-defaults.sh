@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Exit early on CI
-[ -n "$CI" ] && exit 0
+[ -n "${CI:-}" ] && exit 0
 
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
