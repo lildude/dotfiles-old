@@ -11,7 +11,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 source "$DIR/script/lib.sh"
 
 # Don't run on Linux or under GitHub Actions (aka CI)
-if [ $MACOS ] && [ -z "$CI" ]; then
+if [ $MACOS ] && [ -z "${CI:-}" ]; then
   info "sudo softwareupdate -i -a"
   sudo softwareupdate -i -a 2>&1
   "$DIR/set-defaults.sh"
