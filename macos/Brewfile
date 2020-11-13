@@ -89,7 +89,7 @@ cask 'alfred'
 # cask 'amazon-drive'
 # cask 'amazon-music'
 # cask 'apache-directory-studio'
-cask 'android-file-transfer' # Used as a backup to transfer files from my Garmin
+# cask 'android-file-transfer' # Used as a backup to transfer files from my Garmin
 cask 'appcleaner'
 # cask 'arq'
 # cask 'atom-beta'
@@ -162,7 +162,7 @@ cask 'visual-studio-code'
 # cask 'yubico-yubikey-manager'
 # cask 'zwift'
 
-# AppStore Apps that need manual install for the mo.
+# AppStore Apps
 mas 'Bear', id: 1_091_189_122
 mas 'Magnet', id: 441_258_766
 mas 'Microsoft OneNote', id: 784_801_555
@@ -171,6 +171,6 @@ mas 'Monit', id: 1_014_850_245
 mas 'Monosnap', id: 540_348_655
 mas 'Pixelmator', id: 407_963_104
 mas 'pomodorome', id: 1_484_801_884
-mas 'Tot', id: 1_491_071_483
+# mas 'Tot', id: 1_491_071_483
 mas 'WireGuard', id: 1_451_685_025
 
