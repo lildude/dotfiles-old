@@ -146,7 +146,8 @@ for dest in $DESTS; do
   printf "\n===================================================================\n\n\n"
 
   if [ "$dest" == "LOCAL" ]; then
-    "$HOME/bin/umount-backups" > /dev/null 2>&1 || echo "ERROR: failed to umount backup volume"
+    echo "Umounting drives..."
+    "$HOME/bin/umount-backups" 2>&1 || echo "ERROR: failed to umount backup volume"
   fi
 
   } | ts >> "$RESTIC_LOG_FILE"

@@ -140,6 +140,14 @@ Host hassioroot hassiodebug
   Port 22222
   AddKeysToAgent yes
 
+Host haroot
+  Hostname 192.168.1.220
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/rpi_ed25519
+  User root
+  Port 22222
+  AddKeysToAgent yes
+
 # Personal Azure VMs
 Host cluckwp
   Hostname 168.61.34.129
