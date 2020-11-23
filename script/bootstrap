@@ -67,6 +67,9 @@ while IFS= read -r -d '' src; do
   fi
   if [ ! -L "$dst" ]; then
     info "🔗 Linking $src → $dst"
+    if [ -f "$dst" ]; then
+      mv "$dst" "$dst.bak"
+    fi
     ln -Ff -s "$src" "$dst"
   fi
 done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -print0)
