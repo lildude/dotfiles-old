@@ -46,6 +46,7 @@ brew 'htop'
 brew 'httpie'
 brew 'hub'
 brew 'hugo'
+brew 'hyperfine'        # Great cli benchmarking tool
 brew 'icdiff'
 brew 'icu4c'
 brew 'jq'
