@@ -5,6 +5,8 @@
 #
 # Tip: debug slowdowns with `time fish --profile fish.profile -ic exit` and review the file. `sort -nk 2 fish.profile` will those the slowest parts at the bottom.
 # Profile prompt (and everything else): `time fish --profile fish.profile -c fish_prompt`
+#
+# Use a custom command in iTerm for the shell: `/usr/local/bin/fish -l` to ensure we don't hit the slow down caused by the ASL logs: https://apple.stackexchange.com/questions/41743/how-do-i-speed-up-new-terminal-tab-loading-time
 
 # Put fisher plugin files in their own dir so it doesn't trample all over my own files
 set -g fisher_path ~/.config/fish/fisher_plugins
