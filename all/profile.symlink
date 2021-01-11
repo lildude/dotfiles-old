@@ -2,12 +2,12 @@
 # shellcheck shell=bash
 #
 # Automatically start tmux if interactively connecting to this host over SSH and tmux is available.
-if [ -z "$TMUX" ] && [ "$SSH_CONNECTION" != "" ] && type tmux >/dev/null 2>&1; then
-    #tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
-    # iTerm2 integration
-    tmux -CC attach || tmux -CC
-    exit
-fi
+# if [ -z "$TMUX" ] && [ "$SSH_CONNECTION" != "" ] && type tmux >/dev/null 2>&1; then
+#     #tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+#     # iTerm2 integration
+#     tmux -CC attach || tmux -CC
+#     exit
+# fi
 
 # Only source .bashrc if we're using bash
 if [ -n "$BASH_VERSION" ]; then
@@ -22,3 +22,6 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# shellcheck disable=SC1090
+[ -f "$HOME/.profile.bak" ] && source "$HOME/.profile.bak"
