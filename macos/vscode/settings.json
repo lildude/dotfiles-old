@@ -123,4 +123,6 @@
       "**/.DS_Store": true,
       "**/*.olean": true
     },
+    "go.formatTool": "gofumports",
+    "javascript.updateImportsOnFileMove.enabled": "always",
 }
