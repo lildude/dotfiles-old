@@ -90,7 +90,7 @@ Host *.bpdev-us-east-1.github.net
   DynamicForward 8888
   ForwardAgent yes
   AddKeysToAgent yes
-  RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
+  #RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
   UserKnownHostsFile /dev/null
   StrictHostKeyChecking no
 
@@ -129,21 +129,13 @@ Host raspberrypi rpi hassio.local
   Hostname 192.168.1.85
   IdentitiesOnly yes
   IdentityFile ~/.ssh/rpi_ed25519
-  User admin
+  User hassio
   AddKeysToAgent yes
 
 Host hassioroot hassiodebug
   Hostname 192.168.1.85
   IdentitiesOnly yes
   IdentityFile ~/.ssh/id_rsa
-  User root
-  Port 22222
-  AddKeysToAgent yes
-
-Host haroot
-  Hostname 192.168.1.220
-  IdentitiesOnly yes
-  IdentityFile ~/.ssh/rpi_ed25519
   User root
   Port 22222
   AddKeysToAgent yes
@@ -155,13 +147,3 @@ Host cluckwp
   IdentityFile ~/.ssh/azure_vm_2018_rsa
   User lildude
   AddKeysToAgent yes
-
-# .deploy AWS instances
-Host bastionfwd 75.101.216.92 52.87.167.110
-  Hostname bastion.githubapp.com
-  IdentityFile ~/.ssh/github_2018_ed25519
-  ProxyJump %r@bastion.githubapp.com
-  DynamicForward 8888
-  #ForwardAgent yes
-  AddKeysToAgent yes
-  User lildude
