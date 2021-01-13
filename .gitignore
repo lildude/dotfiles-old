@@ -54,3 +54,5 @@ all/fish/fish_variables
 
 # Sssssh
 .secrets
+
+all/config.symlink/karabiner/automatic_backups/
