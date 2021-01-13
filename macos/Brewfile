@@ -11,6 +11,7 @@ tap 'jesseduffield/lazydocker'  # Needed for lazydocker
 tap 'jgavris/rs-git-fsmonitor'
 tap 'muesli/tap'
 tap 'yqrashawn/goku'            # Needed for goku
+tap 'goreleaser/tap/goreleaser'
 
 brew 'act'              # Run GitHub Actions locally
 brew 'ansible'
@@ -40,6 +41,7 @@ brew 'gnu-sed'
 brew 'gnupg'
 brew 'go'
 brew 'goku'
+brew 'goreleaser'
 brew 'grc'              # General colorizer
 brew 'heroku'
 brew 'htop'
@@ -100,6 +102,8 @@ cask 'balenaetcher'
 cask 'bartender'
 cask 'calibre'
 cask 'chatmate-for-whatsapp'
+cask 'cleanmymac'
+cask 'cleanshot'
 cask 'concept2-utility'
 cask 'dash'
 cask 'divvy'
@@ -114,7 +118,7 @@ cask 'flux'
 cask 'font-jetbrains-mono'
 cask 'font-jetbrains-mono-nerd-font'
 cask 'garmin-express'
-cask 'google-chrome'
+# cask 'google-chrome'        # Think about the amount of data Google already has. Also https://chromeisbad.com/
 # cask 'google-cloud-sdk'
 # cask 'google-backup-and-sync'
 # cask 'gpg-suite-no-mail'
@@ -143,6 +147,7 @@ cask 'qbserve'
 cask 'qlmarkdown'   # QuickLook support for markdown
 cask 'qlimagesize'  # QuickLook support for webp and showing image dimensions
 # cask 'rocket'
+cask 'signal'
 # cask 'skype'
 cask 'skitch'
 cask 'sketch'
@@ -176,4 +181,3 @@ mas 'Pixelmator', id: 407_963_104
 mas 'pomodorome', id: 1_484_801_884
 # mas 'Tot', id: 1_491_071_483
 mas 'WireGuard', id: 1_451_685_025
-
