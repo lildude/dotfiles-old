@@ -125,4 +125,5 @@
     },
     "go.formatTool": "gofumports",
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "python.showStartPage": false,
 }
