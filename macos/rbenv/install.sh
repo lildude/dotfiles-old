@@ -12,5 +12,8 @@ if [ -n "${CI:-}" ]; then
   exit 0
 fi
 
+info "I've been replaced by asdf. Doing nothing."
+exit 0
+
 rbenv install $VERSION
 rbenv global $VERSION
