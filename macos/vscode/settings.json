@@ -93,6 +93,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "code-runner.executorMapByFileExtension": {
 
+
     },
     "window.titleBarStyle": "native",
     "ruby.locate": {
@@ -114,7 +115,7 @@
     "[gemfile]": {
       "editor.defaultFormatter": "misogi.ruby-rubocop"
     },
-    "ruby.rubocop.executePath": "/Users/lildude/.rbenv/shims/",
+    "ruby.rubocop.executePath": "/Users/lildude/.asdf/shims/",
     "files.exclude": {
       "**/.git": true,
       "**/.svn": true,
