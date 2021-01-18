@@ -15,6 +15,7 @@ tap 'goreleaser/tap/goreleaser'
 
 brew 'act'              # Run GitHub Actions locally
 brew 'ansible'
+brew 'asdf'              # Replaces rbenv, pyenv, nodeenv etc
 brew 'awscli'
 brew 'azure-cli'
 brew 'base64'
@@ -67,9 +68,6 @@ brew 'pinentry-mac'
 brew 'p7zip'
 brew 'prettyping'
 brew 'pstree'
-brew 'ruby-build'
-brew 'rbenv'
-brew 'rbenv-default-gems'
 brew 'rclone'
 brew 'restic'
 brew 'ripgrep' # rg, an even faster version of ag

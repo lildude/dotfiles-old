@@ -50,7 +50,7 @@ set -xg GIT_MERGE_AUTOEDIT "no"  # Accept the default merge commit msg without o
 set -xg LESS '-F -g -i -M -R -w -X -z-4'
 
 # Set Ruby options.  Initially only disable warnings
-set -xg RUBYOPT '-W0'
+#set -xg RUBYOPT '-W0'
 
 # Conveniently locate cloud drive :-P
 set -xg ICLOUD_DRIVE "$HOME/Library/Mobile Documents/com~apple~CloudDocs"
@@ -69,6 +69,9 @@ set -x LESS_TERMEND (set_color normal)
 [ -f $HOME/.secrets ] && builtin source $HOME/.secrets
 
 set -xg GPG_TTY (tty)
+
+# TODO: If this slows things down, move to a function like the rbenv funcs this is replacing
+test -f /usr/local/opt/asdf/asdf.fish && source /usr/local/opt/asdf/asdf.fish
 
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
