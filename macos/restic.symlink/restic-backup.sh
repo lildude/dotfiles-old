@@ -96,21 +96,25 @@ for dest in $DESTS; do
 
   if [ "$dest" == "LOCAL" ]; then
     # Mount backup volume
-    if ! "$HOME/bin/mount-backups" > /dev/null 2>&1; then
-    echo "ERROR: failed to mount backup volume"
-    exit 1
+    echo "=> Mounting backup volume..."
+    if ! "$HOME/bin/mount-backups" 2>&1; then
+      echo "ERROR: failed to mount backup volume"
+      notify "🚨 FAILED 🚨"
+      exit 1
     fi
   fi
 
   # unlock, in case there's a lock
+  echo "=> Unlocking restic..."
   restic unlock
 
   # --quiet - should speed up backup process see: https://github.com/restic/restic/pull/1676
+  echo "=> Starting restic backup..."
   nice -n 19 restic backup \
     --verbose \
     --exclude-caches \
     --files-from "$HOME/.restic/restic-include.txt" \
-    --exclude-file "$HOME/.restic/restic-exclude.txt" || notify "🚨 FAILED 🚨"
+    --exclude-file "$HOME/.restic/restic-exclude.txt" || ( notify "🚨 FAILED 🚨" && exit 1 )
 
   printf "\n\n*** Running restic forget with prune....\n"
   # remove outdated snapshots
@@ -143,12 +147,12 @@ for dest in $DESTS; do
 
   printf "\n*** RESTIC BACKUP SCRIPT FINISHED\n"
 
-  printf "\n===================================================================\n\n\n"
-
   if [ "$dest" == "LOCAL" ]; then
-    echo "Umounting drives..."
+    echo "=> Umounting drives..."
     "$HOME/bin/umount-backups" 2>&1 || echo "ERROR: failed to umount backup volume"
   fi
+
+  printf "\n===================================================================\n\n\n"
 
   } | ts >> "$RESTIC_LOG_FILE"
 
