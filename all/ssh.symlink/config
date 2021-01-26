@@ -142,6 +142,8 @@ Host hassioroot hassiodebug
 
 # Work Azure VMs
 Host *.ghaedev.com
+  User lildude
+  Port 122
   IdentitiesOnly yes
   IdentityFile ~/.ssh/azure_vm_2018_rsa
   AddKeysToAgent yes
