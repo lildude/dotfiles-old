@@ -52,6 +52,13 @@ notify() {
   fi
 }
 
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+purple=$(tput setaf 5)
+reset=$(tput sgr0)
+
 # List snapshots of env passed as first arg
 if [ "$1" ]; then
   dest=${1^^} # uppercase dest
@@ -89,14 +96,14 @@ for dest in $DESTS; do
   export RESTIC_LOG_FILE=${!log}
 
   { # Group all the subsequent commands so they all output into the same log file
-  echo "*** RESTIC BACKUP SCRIPT STARTED"
+  echo "${blue}*** RESTIC BACKUP SCRIPT STARTED${reset}"
 
   # change to home dir as all backups are currently relative to $HOME
   cd "$HOME" || exit
 
   if [ "$dest" == "LOCAL" ]; then
     # Mount backup volume
-    echo "=> Mounting backup volume..."
+    echo "${yellow}=> Mounting backup volume...${reset}"
     if ! "$HOME/bin/mount-backups" 2>&1; then
       echo "ERROR: failed to mount backup volume"
       notify "🚨 FAILED 🚨"
@@ -105,18 +112,18 @@ for dest in $DESTS; do
   fi
 
   # unlock, in case there's a lock
-  echo "=> Unlocking restic..."
+  echo "${yellow}=> Unlocking restic...${reset}"
   restic unlock
 
   # --quiet - should speed up backup process see: https://github.com/restic/restic/pull/1676
-  echo "=> Starting restic backup..."
+  echo "${yellow}=> Starting restic backup...${reset}"
   nice -n 19 restic backup \
-    --verbose \
+    --quiet \
     --exclude-caches \
     --files-from "$HOME/.restic/restic-include.txt" \
     --exclude-file "$HOME/.restic/restic-exclude.txt" || ( notify "🚨 FAILED 🚨" && exit 1 )
 
-  printf "\n\n*** Running restic forget with prune....\n"
+  printf "\n\n*** Running restic forget with prune....n"
   # remove outdated snapshots
   nice -n 19 restic forget --keep-last 10 \
     --keep-daily 7 \
@@ -148,7 +155,7 @@ for dest in $DESTS; do
   printf "\n*** RESTIC BACKUP SCRIPT FINISHED\n"
 
   if [ "$dest" == "LOCAL" ]; then
-    echo "=> Umounting drives..."
+    echo "${yellow}=> Umounting drives...${reset}"
     "$HOME/bin/umount-backups" 2>&1 || echo "ERROR: failed to umount backup volume"
   fi
 
@@ -156,16 +163,18 @@ for dest in $DESTS; do
 
   } | ts >> "$RESTIC_LOG_FILE"
 
-  # Delete the log file on success - we're only really interested in the log if things go wrong
-  if [ -n "$DELETE_LOG_ON_SUCCESS" ]; then
-    rm "$RESTIC_LOG_FILE"
-  fi
 ) &
 
 done
 
 # Wait for all background jobs to finish
-wait
+for pid in $(jobs -p); do
+  wait "$pid"
+  # Delete the log files on success - we're only really interested in the log if things go wrong
+  if [ -n "$DELETE_LOG_ON_SUCCESS" ]; then
+    rm "*.log"
+  fi
+done
 
 #notify "🌈 Finished Successfully 🎉"
 
