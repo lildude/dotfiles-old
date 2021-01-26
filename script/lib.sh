@@ -7,6 +7,7 @@
 [ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
 # bpdev hostnames start with ip- so default to minimal install on these
 [[ "$(hostname)" =~ ^ip- ]] && MIN=1
+[[ "$(hostname)" =~ ghaedev ]] && MIN=1
 
 export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}

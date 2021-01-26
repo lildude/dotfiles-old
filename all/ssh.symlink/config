@@ -140,6 +140,12 @@ Host hassioroot hassiodebug
   Port 22222
   AddKeysToAgent yes
 
+# Work Azure VMs
+Host *.ghaedev.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/azure_vm_2018_rsa
+  AddKeysToAgent yes
+
 # Personal Azure VMs
 Host cluckwp
   Hostname 168.61.34.129
