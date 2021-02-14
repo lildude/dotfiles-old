@@ -148,6 +148,21 @@ Host *.ghaedev.com
   IdentityFile ~/.ssh/azure_vm_2018_rsa
   AddKeysToAgent yes
 
+Host msazure.visualstudio.com
+  User coseymou@microsoft.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/azure_vm_2018_rsa
+  AddKeysToAgent yes
+  ServerAliveInterval 30
+
+Host win10
+  Hostname 127.0.0.1
+  User colin
+  Port 2522
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/azure_vm_2018_rsa
+  AddKeysToAgent yes
+
 # Personal Azure VMs
 Host cluckwp
   Hostname 168.61.34.129
