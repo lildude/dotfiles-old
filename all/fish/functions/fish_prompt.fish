@@ -18,12 +18,12 @@ set __fish_git_prompt_color_untrackedfiles red
 # Sets the colour of the () around the branch
 set __fish_git_prompt_color magenta
 
-# fish_git_prompt is faaar too slow as it gathers some much other crap I don't need resulting in a painfully slow prompt when entering a large repo like github/linguist
-# This is my attempt around it by gathering just the info I want directly from git.
-#
+# Options for my own __lildude_fish_git_prompt_icon() function in fish_git_prompt
+set __lildude_fish_git_prompt_icon_work_email '*@github.com'
+
 # I want my prompt to look like this:
 #
-# [~/g/enterprise2   enterprise-2.17-backport-… ●●●]$
+# [~/g/enterprise2   …enterprise-2.17-backport ●●●]$
 #
 # which is:
 # - [ (purple)
@@ -36,17 +36,20 @@ set __fish_git_prompt_color magenta
 # - <●> shown and red if untracked files
 # - ] (purple)
 # - $ (blue)
-#
-# Uses methods copied from https://github.com/fishpkg/fish-git-util and modified to suit my needs
 
 function fish_prompt --description 'lildudes prompt'
   set_color magenta
   printf '['
-  set_color green
+  # Last status code if not successful
+  set --local last_status $status
+  if [ $last_status -gt 0 ]
+    set_color red
+  else
+    set_color green
+  end
   printf '%s' (prompt_pwd)
   set_color normal
-  set -l icon (git_icon)
-  printf '%s' (fish_git_prompt " $icon %s")
+  printf '%s' (fish_git_prompt " %s") # The argument is the formatting for the git info part of the prompt
   set_color magenta
   printf ']'
   set_color blue
@@ -54,7 +57,9 @@ function fish_prompt --description 'lildudes prompt'
   set_color normal
 end
 
+# Moved to fish_git_prompt
 function git_icon
+  return
   if [ -d .git ]  # Naïve and not as accurate as `git rev-parse --git-dir` but def quicker and good enough
     set_color blue
     if string match '*@github.com' (git config user.email) > /dev/null 2>&1
@@ -74,7 +79,7 @@ function git_icon
 end
 
 function fish_right_prompt
-  return
+  return # Unused
   if [ -d .git ] || git rev-parse --is-inside-work-tree >/dev/null 2>&1
     # Set the git config stuff for my prompt
     set -l email (git config user.email)

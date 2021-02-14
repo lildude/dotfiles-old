@@ -9,6 +9,7 @@
 #   - `bash.showDirtyState`
 #   - `bash.showInformativeStatus`
 # - comment out the checking of svn remotes as I don't use svn with git... ever!
+# - added a helper function to show icons before the branch info
 #
 #
 # based off of the git-prompt script that ships with git
@@ -478,7 +479,8 @@ function fish_git_prompt --description "Prompt function for Git"
         set b "$__fish_git_prompt_shorten_branch_char_suffix"(string sub -s -"$__fish_git_prompt_shorten_branch_len" "$b")
     end
     if test -n "$b"
-        set b "$branch_color$b$branch_done"
+        set bi (__lildude_fish_git_prompt_icon $b)
+        set b "$bi $branch_color$b$branch_done"
     end
 
     if test -n "$c"
@@ -838,5 +840,23 @@ function __fish_git_prompt_repaint_char $varargs --description "Event handler, r
         set -e ___fish_git_prompt_init
         set -e _$argv[3]
         commandline -f repaint 2>/dev/null
+    end
+end
+
+## @lildude - moving this here removes a call for getting the branch which can be slow on big repos
+function __lildude_fish_git_prompt_icon $branch --description "Prepend an icon for the user and branch, tag, commit to the git info"
+    set_color blue
+    if string match $__lildude_fish_git_prompt_icon_work_email (command git config user.email) > /dev/null 2>&1
+      printf "\\uf113 " #   from Nerd Font patched font
+    else
+      printf "\\uf415 " #  from Nerd Font patched font
+    end
+    set_color magenta
+    if set -q $branch  # Are we on a branch
+      printf "\\uF126" #  from Nerd Font patched font
+    else if git_is_tag
+      printf "\\uF02B" #  from Nerd Font patched font
+    else
+      printf "\\uE729" #  from Nerd Font patched font
     end
 end
