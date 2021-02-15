@@ -14,6 +14,7 @@ tap 'yqrashawn/goku'            # Needed for goku
 tap 'goreleaser/tap/goreleaser'
 
 brew 'act'              # Run GitHub Actions locally
+brew 'adr-tools'
 brew 'ansible'
 brew 'asdf'              # Replaces rbenv, pyenv, nodeenv etc
 brew 'awscli'
