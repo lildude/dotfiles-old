@@ -23,7 +23,7 @@
 
 # Override default when working in work repos
 [includeIf "gitdir:~/github/"]
-  path = ~/.dotfiles/git/gitconfig-github
+  path = ~/.dotfiles/all/git/gitconfig-github
 
 [github]
   user = lildude
@@ -147,3 +147,6 @@
 
 [pull]
 	rebase = false
+
+[advice]
+  detachedHead = false
