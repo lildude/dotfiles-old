@@ -132,4 +132,13 @@
     "python.testing.pytestPath": "/Users/lildude/.asdf/shims/pytest",
     "python.formatting.blackPath": "/Users/lildude/.asdf/shims/black",
     "git.ignoreSubmodules": true,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "remote.SSH.connectTimeout": 600,
+    "sshfs.configpaths": [
+      {
+        "algorithms": {
+          "hmac": ["hmac-sha2-512-etm"]
+        }
+      }
+    ],
 }
