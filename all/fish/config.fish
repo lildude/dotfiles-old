@@ -102,4 +102,5 @@ if test ! -f $HOME/.config/fish/fish_variables
   set -U fish_pager_color_description yellow
   set -U fish_pager_color_prefix      'white' '--bold' '--underline'
   set -U fish_pager_color_progress    'brwhite' '--background=cyan'
+  set -U fish_escape_delay_ms         300
 end
