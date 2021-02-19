@@ -70,9 +70,6 @@ set -x LESS_TERMEND (set_color normal)
 
 set -xg GPG_TTY (tty)
 
-# TODO: If this slows things down, move to a function like the rbenv funcs this is replacing
-test -f /usr/local/opt/asdf/asdf.fish && source /usr/local/opt/asdf/asdf.fish
-
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
 # Speed things up by only setting these universal vars if we don't have a ~/.config/fish/fish_variables file
