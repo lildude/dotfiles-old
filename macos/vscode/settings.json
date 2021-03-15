@@ -133,7 +133,7 @@
     "python.formatting.blackPath": "/Users/lildude/.asdf/shims/black",
     "git.ignoreSubmodules": true,
     "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-    "remote.SSH.connectTimeout": 600,
+    "remote.SSH.connectTimeout": 1200,
     "sshfs.configpaths": [
       {
         "algorithms": {
@@ -141,4 +141,8 @@
         }
       }
     ],
+    "extensions.ignoreRecommendations": true, // Stop recommending extensions.
+    "keyboard.touchbar.enabled": false,
+    "workbench.enableExperiments": false,
+    "update.showReleaseNotes": false
 }
