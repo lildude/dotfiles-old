@@ -13,7 +13,7 @@ export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}
 export MIN=${MIN:-}
 export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}  # This is only set on CI
-export DEFAULT_SHELL=${DEFAULT_SHELL:-fish}
+export DEFAULT_SHELL=${DEFAULT_SHELL:-zsh}
 export BREWFILE="$DIR/$OS/Brewfile"
 
 info () {
