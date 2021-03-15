@@ -12,6 +12,7 @@ tap 'jgavris/rs-git-fsmonitor'
 tap 'muesli/tap'
 tap 'yqrashawn/goku'            # Needed for goku
 tap 'goreleaser/tap/goreleaser'
+tap 'romkatv/gitstatus/gitstatus'
 
 brew 'act'              # Run GitHub Actions locally
 brew 'adr-tools'
@@ -39,6 +40,7 @@ brew 'gh'
 brew 'git'
 brew 'git-delta'
 brew 'git-lfs'
+brew 'gitstatus'        # Without the tap: brew install romkatv/gitstatus/gitstatus
 brew 'gnu-sed'
 brew 'gnupg'
 brew 'go'
@@ -82,8 +84,8 @@ brew 'tmux'
 # brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
 brew 'watch'
 brew 'xz'
-# brew 'zsh'
-# brew 'zsh-completions'
+brew 'zsh'
+brew 'zsh-completions'
 
 cask '1password'
 cask '1password-cli'
@@ -146,7 +148,7 @@ cask 'postman'
 cask 'qbserve'
 cask 'qlmarkdown'   # QuickLook support for markdown
 cask 'qlimagesize'  # QuickLook support for webp and showing image dimensions
-# cask 'rocket'
+cask 'rocket'
 cask 'signal'
 # cask 'skype'
 cask 'skitch'
