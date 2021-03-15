@@ -45,7 +45,6 @@ user_pref("media.webspeech.synth.enabled", false); // 4608
 user_pref("media.video_stats.enabled", false); // 4610
 user_pref("media.ondevicechange.enabled", false); // 4612
 user_pref("webgl.enable-debug-renderer-info", false); // 4613
-user_pref("dom.w3c_pointer_events.enabled", false); // 4614
 user_pref("ui.use_standins_for_native_colors", true); // 4615
 
 /*** ANO non-ghacks settings ***/
