@@ -1,3 +1,3 @@
-function gco --description 'Shortcut for `git checkout`'
-	git checkout $argv;
+function gco --description 'Shortcut for `git switch`'
+	git sw $argv;
 end
