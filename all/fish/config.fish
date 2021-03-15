@@ -70,6 +70,9 @@ set -x LESS_TERMEND (set_color normal)
 
 set -xg GPG_TTY (tty)
 
+# Speed up homebrew
+set -xg HOMEBREW_BOOTSNAP 1
+
 # Terminal Colours - trying to keep things using the terminal colours rather than values unique to Fish
 # See these in action with print_fish_colors
 # Speed things up by only setting these universal vars if we don't have a ~/.config/fish/fish_variables file
