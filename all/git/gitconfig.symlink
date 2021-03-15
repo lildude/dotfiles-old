@@ -63,26 +63,28 @@
 [alias]
   branch-name = "!git rev-parse --abbrev-ref HEAD"  # Get branch. Used by other aliases.
   st = "status --short --branch --no-ahead-behind"
+  sw = switch
   rem = remote -v
-  co = checkout
+  co = switch
+  pu = push -u
+  cp = cherry-pick
+  cherry = cherry-pick
   #lg = log --graph --pretty=oneline --abbrev-commit --decorate
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
-  cob = checkout -b
+  cob = switch -c
   b = branch --sort=-committerdate --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
-  # Get default branch
+  # Get default branch - run `git remote set-head origin -a` if still returns master after a rename on github
   db = !git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'
   # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
   # Remove all local branches that were tracking remote branches that have been deleted.
-  up = !git checkout $(git db) && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v 'not found' | head -1) -r git branch -D
-  com = !git checkout $(git db)
-  # Open the current branch on janky to see our build results
-  janky = "!open https://janky.githubapp.com/r/github/$(basename $(pwd))/$(git branch-name)"
+  up = !git switch $(git db) && git pull --rebase --prune && git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}' | $(command -v gxargs xargs | grep -v 'not found' | head -1) -r git branch -D
+  com = !git switch $(git db)
   # Create a pull request on GitHub using the `hub` command.
   pr = !hub pull-request -o
   # Grab someone else's PR changes without using hub
   # Source: https://davidwalsh.name/pull-down-pr
-  prco = !f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f
-  pr-clean = !git checkout $(git db) ; git for-each-ref refs/heads/pr/* --format="%(refname)" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done
+  prco = !f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git switch pr/$1; }; f
+  pr-clean = !git switch $(git db) ; git for-each-ref refs/heads/pr/* --format="%(refname)" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done
   tagcommit = rev-list -n 1
   br = !git switch $(git branch --no-color | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git show --color=always {}')
   cof = !git switch $(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads | fzf)
