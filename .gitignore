@@ -56,3 +56,6 @@ all/fish/fish_variables
 .secrets
 
 all/config.symlink/karabiner/automatic_backups/
+
+# rake-test cache file
+.rake_tasks
