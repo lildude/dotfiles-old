@@ -8,17 +8,17 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
       build-essential \
       coreutils \
-      fish \
       gnupg2 \
       jq \
       unzip \
+      zsh \
       neovim && \
     locale-gen "en_GB.UTF-8" "en_US.UTF-8" && \
     apt-get clean
 
 ENV LANG en_GB.UTF-8 LANGUAGE en_GB:en LC_ALL en_GB.UTF-8
 
-RUN useradd -m -s /bin/fish -G linuxbrew tester
+RUN useradd -m -s /bin/zsh -G linuxbrew tester
 COPY . /home/tester/.dotfiles
 RUN chown -R tester:tester /home/tester && \
     echo 'tester ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/tester && \
