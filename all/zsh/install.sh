@@ -35,7 +35,7 @@ if [ "$MACOS" ]; then
     if ! grep -q /usr/local/bin/zsh /etc/shells; then
       echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
     fi
-    chsh -s /usr/local/bin/zsh
+    [ -z "${CI:-}" ] && chsh -s /usr/local/bin/zsh
   fi
 else
   sudo chsh -s /bin/zsh "$USER"
