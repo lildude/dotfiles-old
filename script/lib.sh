@@ -15,6 +15,7 @@ export MIN=${MIN:-}
 export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}  # This is only set on CI
 export DEFAULT_SHELL=${DEFAULT_SHELL:-zsh}
 export BREWFILE="$DIR/$OS/Brewfile"
+export USER=${USER:-$(whoami)}
 
 info () {
   printf "\\033[01;34m%s\\033[0m\\n" "$1"
