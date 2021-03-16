@@ -52,11 +52,11 @@ notify() {
   fi
 }
 
-red=$(tput setaf 1)
-green=$(tput setaf 2)
+#red=$(tput setaf 1)
+#green=$(tput setaf 2)
 yellow=$(tput setaf 3)
 blue=$(tput setaf 4)
-purple=$(tput setaf 5)
+#purple=$(tput setaf 5)
 reset=$(tput sgr0)
 
 # List snapshots of env passed as first arg
