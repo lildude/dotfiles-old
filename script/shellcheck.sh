@@ -22,6 +22,6 @@ while IFS= read -r file; do
     if file --brief --mime "$file" | grep -q "x-shellscript"; then
       files+=( "$file" )
     fi
-done < <( git ls-files )
+done < <( git ls-files | grep -v "\.zsh$" )
 
 shellcheck -x "${files[@]}"
