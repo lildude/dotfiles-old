@@ -10,27 +10,28 @@ source "$DIR/../script/lib.sh"
 [ "$DEFAULT_SHELL" != "zsh" ] && exit 0
 
 if [ ! -d "${HOME}/.zprezto" ]; then
-  info "Downloading prezto"
-  git clone -q --recursive https://github.com/lildude/prezto.git "$HOME/.zprezto"
+  info "   Downloading prezto"
+  git clone -q --recursive https://github.com/lildude/prezto.git "$HOME/.zprezto" > /dev/null 2>&1
 else
-  info "Updating .zpreto from fork on GitHub (previously updated using 'zprezto-update')"
+  info "   Updating .zpreto from fork on GitHub (previously updated using 'zprezto-update')"
   cd "${HOME}/.zprezto"
   git pull -q
   cd "${HOME}"
 fi
 
-info "Installing ZSH rc files"
-setopt EXTENDED_GLOB
+info "   Installing ZSH rc files"
+shopt -s extglob
 while IFS= read -r -d '' src; do
   [ "$src" == "README" ] || [ "$src" == "zlogout" ] && continue
-  if [ ! -L "$HOME/.${src:t}" ]; then
-    ln -Ffs "$src" "$HOME/.${src:t}"
+  filename=$(basename "$src")
+  if [ ! -L "$HOME/.$filename" ]; then
+    ln -Ffs "$src" "$HOME/.$filename"
   fi
 done
 
 if [ "$MACOS" ]; then
   if [ "$(dscl . -read "/Users/$USER" UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
-    info "Changing default shell to zsh"
+    info "   Changing default shell to zsh"
     if ! grep -q /usr/local/bin/zsh /etc/shells; then
       echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
     fi
