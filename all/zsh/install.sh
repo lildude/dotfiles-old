@@ -29,13 +29,13 @@ while IFS= read -r -d '' src; do
   fi
 done
 
-if [ "$MACOS" ]; then
+if [ "$MACOS" ] || [ -z "${CI:-}" ]; then
   if [ "$(dscl . -read "/Users/$USER" UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then
     info "   Changing default shell to zsh"
     if ! grep -q /usr/local/bin/zsh /etc/shells; then
       echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
     fi
-    [ -z "${CI:-}" ] && chsh -s /usr/local/bin/zsh
+    chsh -s /usr/local/bin/zsh
   fi
 else
   sudo chsh -s /bin/zsh "$USER"

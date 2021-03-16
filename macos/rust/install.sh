@@ -6,8 +6,8 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
 source "$DIR/../script/lib.sh"
 
-# Exit early on Linux for the mo
-[ $LINUX ] && exit 0
+# Exit early on Linux and CI for the mo
+[ $LINUX ] || [ -n "$CI" ] && exit 0
 
 # Install rustup if it's not already installed.
 if ! command -v rustup > /dev/null 2>&1; then
