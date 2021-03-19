@@ -96,7 +96,7 @@ rm -f "$local_cfg"
 git config --file "$local_cfg" url."git@github.com:".insteadof "https://github.com/"
 
 if [ "$MACOS" ]; then
-  git config --file "$local_cfg" trustctime false # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+  git config --file "$local_cfg" core.trustctime false # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
   git config --file "$local_cfg" credential.helper osxkeychain
 fi
 
