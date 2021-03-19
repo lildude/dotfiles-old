@@ -20,12 +20,12 @@ export DEFAULT_SHELL=${DEFAULT_SHELL:-zsh}
 export BREWFILE="$DIR/$OS/Brewfile"
 export USER=${USER:-$(whoami)}
 
-red=$(tput -T"${TERM:-xterm}" setaf 1)
-green=$(tput -T"${TERM:-xterm}" setaf 2)
-yellow=$(tput -T"${TERM:-xterm}" setaf 3)
-blue=$(tput -T"${TERM:-xterm}" setaf 4)
-purple=$(tput -T"${TERM:-xterm}" setaf 5)
-reset=$(tput -T"${TERM:-xterm}" sgr0)
+red="\\033[31m"
+green="\\033[32m"
+yellow="\\033[33m"
+blue="\\033[34m"
+purple="\\033[35m"
+reset="\\033[0m"
 export red green yellow blue purple reset
 
 info () {
