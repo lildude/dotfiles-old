@@ -88,6 +88,26 @@ while IFS= read -r -d '' installer; do
   $installer
 done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 
+info "🛠 Tweaking .gitconfig for ${OS}…"
+local_cfg="$HOME/.gitconfig.local"
+rm -f "$local_cfg"
+
+# Always use SSH
+git config --file "$local_cfg" url."git@github.com:".insteadof "https://github.com/"
+
+if [ "$MACOS" ]; then
+  git config --file "$local_cfg" trustctime false # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+  git config --file "$local_cfg" credential.helper osxkeychain
+fi
+
+if [ "$LINUX" ]; then
+  # Don't communicate with GitHub over SSH on Codespaces
+  if [ "$CODESPACES" = "true" ]; then
+    git config --file "$local_cfg" --unset-all url."git@github.com:".insteadof
+    git config --file "$local_cfg" url."https://github.com/".insteadOf "git@github.com:"
+  fi
+fi
+
 # This needs to be separate as it requires interaction
 "$DIR/script/extract-onepassword-secrets"
 
