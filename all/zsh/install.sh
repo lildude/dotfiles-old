@@ -12,22 +12,21 @@ source "$DIR/../script/lib.sh"
 if [ ! -d "${HOME}/.zprezto" ]; then
   info "   Downloading prezto"
   git clone -q --recursive https://github.com/lildude/prezto.git "$HOME/.zprezto" > /dev/null 2>&1
-else
-  info "   Updating .zpreto from fork on GitHub (previously updated using 'zprezto-update')"
-  cd "${HOME}/.zprezto"
-  git pull -q
-  cd "${HOME}"
-fi
 
-info "   Installing ZSH rc files"
-shopt -s extglob
-while IFS= read -r -d '' src; do
-  [ "$src" == "README" ] || [ "$src" == "zlogout" ] && continue
-  filename=$(basename "$src")
-  if [ ! -L "$HOME/.$filename" ]; then
-    ln -Ffs "$src" "$HOME/.$filename"
-  fi
-done
+  info "   Installing ZSH rc files"
+  while IFS= read -r -d '' src; do
+    dst="$HOME/.$(basename "${src}")"
+    display_dst="${dst/$HOME/\~}"
+    display_src="${src/$DIR/.zprezto}"
+    if [ ! -L "$dst" ]; then
+      info "🔗 $(printf "%-30s → %s" "$display_src" "$display_dst")"
+      ln -Ffs "$src" "$dst"
+    fi
+  done <  <(find -H "${HOME}/.zprezto/runcoms/" -maxdepth 1 -type f -not -path '*/zlogout' -not -path '*/README.md' -print0)
+else
+  info "   Already installed. Updating .zpreto from fork on GitHub"
+  git -C "${HOME}/.zprezto" pull -q
+fi
 
 if [ "$MACOS" ] && [ -z "${CI:-}" ]; then
   if [ "$(dscl . -read "/Users/$USER" UserShell)" != "UserShell: /usr/local/bin/zsh" ]; then

@@ -5,24 +5,35 @@
 #### Default config opts ####
 [ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
 [ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
-# bpdev hostnames start with ip- so default to minimal install on these
+# Use a minimal installation in these locations:
 [[ "$(hostname)" =~ ^ip- ]] && MIN=1
 [[ "$(hostname)" =~ ghaedev ]] && MIN=1
+[ "${CODESPACES:-}" = "true" ] && MIN=1
+[ -n "${GITHUB_WORKSPACE:-}" ] && MIN=1
+[ -n "${CI:-}" ] && MIN=1
 
 export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}
-export MIN=${MIN:-}
-export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}  # This is only set on CI
+export MIN=${MIN:-1}
+export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
 export DEFAULT_SHELL=${DEFAULT_SHELL:-zsh}
 export BREWFILE="$DIR/$OS/Brewfile"
 export USER=${USER:-$(whoami)}
 
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+purple=$(tput setaf 5)
+reset=$(tput sgr0)
+export red green yellow blue purple reset
+
 info () {
-  printf "\\033[01;34m%s\\033[0m\\n" "$1"
+  printf "${blue}%s${reset}\\n" "$1"
 }
 
 fail () {
-  printf "\\033[0;31m%s\\033[0m\\n" "$1"
+  printf "${red}%s${reset}\\n" "$1"
   echo ''
   exit 1
 }

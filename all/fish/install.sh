@@ -7,7 +7,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 source "$DIR/../script/lib.sh"
 
 # Exit early if Fish isn't my default shell or we're doing a minimal install
-if [ "$DEFAULT_SHELL" != "fish" ] || [ -n "${MIN:-}" ] || [ -n "${CI:-}" ]; then
+if [ "$DEFAULT_SHELL" != "fish" ] || [ -n "${MIN:-}" ]; then
   exit 0
 fi
 

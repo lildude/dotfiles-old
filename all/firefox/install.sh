@@ -5,7 +5,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
 source "$DIR/../script/lib.sh"
 
-[ -n "${MIN:-}" ] || [ -n "${CI:-}" ] && exit 0
+[ -n "${MIN:-}" ] && exit 0
 
 info "🛑 Deliverately disabled for now to see if we really need the inconvenience this brings"
 exit 0
