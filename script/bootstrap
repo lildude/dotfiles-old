@@ -60,6 +60,7 @@ if [ -s "$HOME/.Brewfile" ]; then
 fi
 
 # Link all linkable files
+info "🔗 Linking files…"
 while IFS= read -r -d '' src; do
   # Skip over OS-specific links that aren't this OS
   if [[ $src =~ $DIR/(linux|macos)/ ]] && [[ ! $src =~ $DIR/$OS/ ]]; then
@@ -69,7 +70,7 @@ while IFS= read -r -d '' src; do
   display_dst="${dst/$HOME/\~}"
   display_src="${src/$DIR/.dotfiles}"
   if [ ! -L "$dst" ]; then
-    info "🔗 $(printf "%-30s → %s" "$display_src" "$display_dst")"
+    info "   … $(printf "%-40s → %s" "$display_src" "$display_dst")"
     if [ -e "$dst" ]; then
       mv "$dst" "$dst.bak"
     fi
