@@ -14,7 +14,7 @@
 
 export MACOS=${MACOS:-}
 export LINUX=${LINUX:-}
-export MIN=${MIN:-1}
+export MIN=${MIN:-}
 export GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-}
 export DEFAULT_SHELL=${DEFAULT_SHELL:-zsh}
 export BREWFILE="$DIR/$OS/Brewfile"
