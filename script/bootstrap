@@ -88,7 +88,7 @@ while IFS= read -r -d '' installer; do
   $installer
 done < <(find "$DIR" -maxdepth 3 -name install.sh -print0)
 
-info "🛠 Tweaking .gitconfig for ${OS}…"
+info "🛠  Tweaking .gitconfig for ${OS}…"
 local_cfg="$HOME/.gitconfig.local"
 rm -f "$local_cfg"
 
@@ -101,8 +101,9 @@ if [ "$MACOS" ]; then
 fi
 
 if [ "$LINUX" ]; then
+  echo "pinentry-program /bin/pinentry" >> ${HOME}/.gnupg/gpg-agent.conf
   # Don't communicate with GitHub over SSH on Codespaces
-  if [ "$CODESPACES" = "true" ]; then
+  if [ "${CODESPACES:-}" = "true" ]; then
     git config --file "$local_cfg" --unset-all url."git@github.com:".insteadof
     git config --file "$local_cfg" url."https://github.com/".insteadOf "git@github.com:"
   fi
