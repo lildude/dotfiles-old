@@ -1,24 +1,15 @@
 # vim: set filetype=ini
-[credential]
-  helper = osxkeychain
-
 [core]
-  editor = nvim         # Change to 'atom --wait' if feeling bold.
-  trustctime = false    # Make `git rebase` safer on OS X - http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
-  excludesfile = ~/.gitignore  # Exclude everything in this file. Used for general exclusions.
-  attributesfile = ~/.gitattributes  # Set attributes on files. Used for general diff improvements.
-  # Use the diff-highlighter, if it's available.
-  pager = "[ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ] &&  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -rFX || less -rFX"
-  # Use delta if it's available
-  # pager = "[ -f /usr/local/bin/delta ] && /usr/local/bin/delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' || less -rFX"
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
   # Don't prompt for commit messages for merge commits.
   mergeoptions = --no-edit
 
 [user]
   # Never use the system info if the user info isn't set; error instead.
-	useConfigOnly = true
-	name = Colin Seymour
-	email = colin@symr.io
+  useConfigOnly = true
+  name = Colin Seymour
+  email = colin@symr.io
   signingkey = 88109C73073E7080
 
 # Override default when working in work repos
@@ -29,7 +20,7 @@
   user = lildude
 
 [color]
-  ui = always   # Cos everyone loves colours
+  ui = always
 
 # Supported colors: normal, black, red, green, yellow, blue, magenta, cyan, or white
 # Supported effects: bold, dim, ul (underline), blink, and reverse (swap foreground and background)
@@ -40,22 +31,11 @@
 
 [color "diff"]
   commit = green
-  meta = yellow # Default: unset
-  frag = magenta bold # Default: unset - Appears as purple on my current customised Solarized iTerm2 theme.
-  old = red # Default: red
-  new = green # Default: green
-  whitespace = red reverse # Default: unset - Protects me from committin ws changes
+  meta = yellow
+  whitespace = red reverse # Make sure I really want to commit whitespace changes
 
 [color "status"]
-  added = green # Default: green
-  changed = red # Default: red
-  untracked = magenta bold  # Default: red - Appears as purple on my current customised Solarized iTerm2 theme.
-
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
+  untracked = magenta  # Default: red
 
 [help]
   autocorrect = 1   # Autocorrect mistyped commands.
@@ -108,16 +88,16 @@
 
 [diff]
   renames = copies  # Detect copies as well as renames
-	noprefix = true   # Don't show the a/ and b/ at the beginning of file paths in diffs
+  noprefix = true   # Don't show the a/ and b/ at the beginning of file paths in diffs
 
 [http]
   sslVerify = true
 
 [filter "lfs"]
   required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 
 [archive]
   restrictRemote = false
@@ -125,30 +105,30 @@
 [commit]
   gpgSign = true
 
-#[branch]
-#  autosetupmerge = always
-
 [gpg]
   program = gpg
 
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
 
 [pager]
   diff = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [protocol]
-	version = 2
+  version = 2
 
 [feature]
-	manyFiles = true
+  manyFiles = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [pull]
-	rebase = false
+  rebase = false
 
 [advice]
   detachedHead = false
+
+[include]
+  path = ~/.gitconfig.local
