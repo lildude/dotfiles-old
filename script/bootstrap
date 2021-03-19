@@ -101,7 +101,7 @@ if [ "$MACOS" ]; then
 fi
 
 if [ "$LINUX" ]; then
-  echo "pinentry-program /bin/pinentry" >> ${HOME}/.gnupg/gpg-agent.conf
+  echo "pinentry-program /bin/pinentry" >> "${HOME}/.gnupg/gpg-agent.conf"
   # Don't communicate with GitHub over SSH on Codespaces
   if [ "${CODESPACES:-}" = "true" ]; then
     git config --file "$local_cfg" --unset-all url."git@github.com:".insteadof
