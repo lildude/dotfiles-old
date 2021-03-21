@@ -78,6 +78,20 @@ while IFS= read -r -d '' src; do
   fi
 done <  <(find -H "$DIR" -maxdepth 3 -name '*.symlink' -not -path '*.git*' -print0)
 
+# Link everything in all/bin to $HOME/bin
+while IFS= read -r -d '' src; do
+  dst="$HOME/bin/$(basename "${src}")"
+  display_dst="${dst/$HOME/\~}"
+  display_src="${src/$DIR/.dotfiles}"
+  if [ ! -L "$dst" ]; then
+    info "   … $(printf "%-40s → %s" "$display_src" "$display_dst")"
+    if [ -e "$dst" ]; then
+      mv "$dst" "$dst.bak"
+    fi
+    ln -Ffs "$src" "$dst"
+  fi
+done <  <(find -H "$DIR/all/bin" -type f -print0)
+
 # Run all install.sh scripts
 while IFS= read -r -d '' installer; do
   # Skip over OS-specific links that aren't this OS
