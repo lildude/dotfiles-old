@@ -107,13 +107,17 @@ if [ "$MACOS" ]; then
 fi
 
 if [ "$LINUX" ]; then
-  echo "pinentry-program /bin/pinentry" >> "${HOME}/.gnupg/gpg-agent.conf"
   # Don't communicate with GitHub over SSH on Codespaces
   if [ "${CODESPACES:-}" = "true" ]; then
     git config --file "$local_cfg" --unset-all url."git@github.com:".insteadof
     git config --file "$local_cfg" url."https://github.com/".insteadOf "git@github.com:"
   fi
 fi
+
+# gpg-agent doesn't play nice with ~ or $HOME in gpg-agent.conf so we need to test it manually
+# Debug: echo "test" | gpg --clearsign
+# Reload: gpg-connect-agent reloadagent /bye
+echo "pinentry-program $HOME/bin/pinentry-auto" >> "$HOME/.gnupg/gpg-agent.conf"
 
 # This needs to be separate as it requires interaction
 "$DIR/script/extract-onepassword-secrets"
