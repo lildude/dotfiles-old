@@ -3,6 +3,7 @@ brew "exa"
 brew "fd"       # Like find, but faster
 brew "fzf"
 brew "fzy"
+brew "git-delta"
 brew "hub"
 brew "jq"
 brew "neovim"
