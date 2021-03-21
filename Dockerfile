@@ -27,7 +27,7 @@ USER tester
 
 ENV HOME /home/tester
 ENV GIT_AUTHOR_NAME Colin Seymour
-ENV GIT_AUTHOR_EMAIL lildood@gmail.com
+ENV GIT_AUTHOR_EMAIL colin@symr.io
 
 WORKDIR /home/tester
 ENTRYPOINT [ ".dotfiles/script/bootstrap" ]
