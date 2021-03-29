@@ -130,7 +130,7 @@ cask 'hammerspoon'
 cask 'hey'
 cask 'imagealpha'
 cask 'imageoptim'
-# cask 'insomnia' # Alternative to Postman
+cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
 # cask 'little-snitch' # Temp disable for Big Sur
 cask 'kap'
