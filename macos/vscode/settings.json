@@ -144,5 +144,6 @@
     "extensions.ignoreRecommendations": true, // Stop recommending extensions.
     "keyboard.touchbar.enabled": false,
     "workbench.enableExperiments": false,
-    "update.showReleaseNotes": false
+    "update.showReleaseNotes": false,
+    "go.toolsManagement.autoUpdate": true
 }
