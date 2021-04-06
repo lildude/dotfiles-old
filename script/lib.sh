@@ -4,7 +4,7 @@
 
 #### Default config opts ####
 [ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
-[ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
+[ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux && MIN=1
 # Use a minimal installation in these locations:
 [[ "$(hostname)" =~ ^ip- ]] && MIN=1
 [[ "$(hostname)" =~ ghaedev ]] && MIN=1
