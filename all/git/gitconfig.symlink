@@ -67,7 +67,8 @@
   pr-clean = !git switch $(git db) ; git for-each-ref refs/heads/pr/* --format="%(refname)" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done
   tagcommit = rev-list -n 1
   br = !git switch $(git branch --no-color | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git show --color=always {}')
-  cof = !git switch $(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads | fzf)
+  swf = br
+  bdf = !git branch --delete --force $(git branch --no-color | grep --invert-match '*' | cut -c 3- | awk '{print $1}' | fzf --multi --preview 'git log --color=always {}')
   # Usage: git change-commits GIT_AUTHOR_NAME "old name" "new name"
   # Usage: git change-commits GIT_AUTHOR_EMAIL "old@email.com" "new@email.com" HEAD~10..HEAD
   change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "

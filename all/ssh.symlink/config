@@ -42,13 +42,6 @@ Host *.githubapp.com
   User lildude
   ForwardAgent yes
 
-Host *.github-staging-lab.com
-  IdentitiesOnly yes
-  IdentityFile ~/.ssh/github_2018_ed25519
-  AddKeysToAgent yes
-  User monalisa
-  ForwardAgent yes
-
 Host prodshell shell
   Hostname shell.service.cp1-iad.github.net
   IdentitiesOnly yes
