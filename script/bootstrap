@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #
-exit 0
 set -euo pipefail
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # shellcheck source=script/lib.sh
@@ -67,8 +66,10 @@ while IFS= read -r -d '' src; do
   if [[ $src =~ $DIR/(linux|macos)/ ]] && [[ ! $src =~ $DIR/$OS/ ]]; then
     continue
   fi
-  # If min, skip ssh
-  [[ $src =~ ssh.symlink ]] && continue
+  # Skip over ssh if min
+  if [ "$MIN" ] && [[ $src =~ $DIR/all/ssh ]]; then
+    continue
+  fi
 
   dst="$HOME/.$(basename "${src%.*}")"
   display_dst="${dst/$HOME/\~}"
