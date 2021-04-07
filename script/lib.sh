@@ -6,7 +6,7 @@
 [ "$(uname -s)" = "Darwin" ] && MACOS=1 && OS=macos
 [ "$(uname -s)" = "Linux" ] && LINUX=1 && OS=linux
 # Use a minimal installation in these locations:
-[[ "$(hostname)" =~ ^ip- ]] && MIN=1
+[[ "$(hostname)" =~ ^ip- ]] && MIN=1 && DEFAULT_SHELL=bash    # dev nodes don't have zsh
 [[ "$(hostname)" =~ ghaedev ]] && MIN=1
 [ "${CODESPACES:-}" = "true" ] && MIN=1
 [ -n "${GITHUB_WORKSPACE:-}" ] && MIN=1
