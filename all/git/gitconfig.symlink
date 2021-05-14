@@ -52,7 +52,7 @@
   #lg = log --graph --pretty=oneline --abbrev-commit --decorate
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
   cob = switch -c
-  b = branch --sort=-committerdate --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
+  b = branch --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:green)%(end) %(refname:short) %(color:reset) (%(color:blue)%(committerdate:relative)%(color:reset))'
   # Get default branch - run `git remote set-head origin -a` if still returns master after a rename on github
   db = !git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'
   # OSX's xargs doesn't need `-r` to prevent exec if no input but GNU xargs does. We install GNU xargs from `findutils` with homebrew to cover both and use `-r`.
