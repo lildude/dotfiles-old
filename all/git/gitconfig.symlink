@@ -127,5 +127,11 @@
 [advice]
   detachedHead = false
 
+[maintenance]
+  repo = /Users/lildude/github/github
+
+[submodule]
+  fetchJobs = 8
+
 [include]
   path = ~/.gitconfig.local
