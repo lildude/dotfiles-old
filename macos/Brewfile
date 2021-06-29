@@ -7,6 +7,7 @@ tap 'homebrew/cask-drivers'     # Needed for garmin-express
 tap 'homebrew/cask-fonts'       # Needed for fonts
 tap 'homebrew/cask-versions'    # Needed for beta versions
 tap 'homebrew/cask'
+tap 'homebrew/command-not-found'
 tap 'jesseduffield/lazydocker'  # Needed for lazydocker
 tap 'jgavris/rs-git-fsmonitor'
 tap 'muesli/tap'
@@ -14,6 +15,7 @@ tap 'yqrashawn/goku'            # Needed for goku
 tap 'goreleaser/tap/goreleaser'
 tap 'romkatv/gitstatus/gitstatus'
 tap 'grdl/tap/git-get'
+tap 'kopia/kopia'
 
 brew 'act'              # Run GitHub Actions locally
 brew 'adr-tools'
@@ -26,12 +28,14 @@ brew 'bash'             # Only needed for my Bash scripts now macOS isn't shippi
 brew 'bat'              # Like cat, but prettier
 brew 'checkbashisms'
 brew 'coreutils'
+brew 'croc'            # A tool for sending large files directly to someone on the CLI
 brew 'diff-so-fancy'
 brew 'dos2unix'
 brew 'duf'
 brew 'exa'
 brew 'exercism'
 brew 'fd'               # Like find, but faster
+brew 'ffmpeg'
 brew 'findutils'
 brew 'fish'
 brew 'fswatch'
@@ -58,6 +62,7 @@ brew 'hyperfine'        # Great cli benchmarking tool
 brew 'icdiff'
 brew 'icu4c'
 brew 'jq'
+brew 'kopia'            # UI downloadable from GitHub releases - https://github.com/kopia/kopia/releases/latest
 brew 'lazydocker'
 brew 'lazygit'
 brew 'lcov'
@@ -67,7 +72,6 @@ brew 'mas' # CLI tool for installing Mac App Store apps at the end of this file.
 brew 'moreutils'
 brew 'mosh'
 brew 'neovim'
-brew 'nodenv'
 brew 'openssl'
 brew 'pinentry-mac'
 brew 'p7zip'
@@ -86,6 +90,7 @@ brew 'tmux'
 # brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
 brew 'watch'
 brew 'xz'
+brew 'youtube-dl'
 brew 'zsh'
 brew 'zsh-completions'
 
@@ -99,7 +104,6 @@ cask 'alfred'
 # cask 'android-file-transfer' # Used as a backup to transfer files from my Garmin
 cask 'appcleaner'
 # cask 'arq'
-# cask 'atom-beta'
 cask 'balenaetcher'
 # cask 'banktivity'
 cask 'bartender'
@@ -133,7 +137,6 @@ cask 'imageoptim'
 cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
 # cask 'little-snitch' # Temp disable for Big Sur
-cask 'kap'
 cask 'karabiner-elements'
 cask 'keybase'
 cask 'mailtrackerblocker'
@@ -144,11 +147,11 @@ cask 'multipass'    # Run Ubuntu Server easily locally
 cask 'muzzle'
 cask 'netnewswire'
 cask 'netspot'
+cask 'ngrok'
 # cask 'numi'
 cask 'obsidian'
 # cask 'pallotron-yubiswitch'
 cask 'postman'
-cask 'qbserve'
 cask 'qlmarkdown'   # QuickLook support for markdown
 cask 'qlimagesize'  # QuickLook support for webp and showing image dimensions
 cask 'rocket'
