@@ -29,6 +29,7 @@ user_pref("webgl.min_capability_mode", false); // 2012 - Strava and Mapbox playg
 user_pref("webgl.disable-fail-if-major-performance-caveat", false); // 2012 - Strava and Mapbox playground needs WebGL
 user_pref("dom.serviceWorkers.enabled", true); // 2302 - It breaks websites
 user_pref("dom.allow_cut_copy", true); // 2404 - I need this for GitHub's copy permalink func
+user_pref("beacon.enabled", true); // 2602 - github.rewatch.com used for work vids needs this
 user_pref("browser.download.folderList", 1); // 2650 - Always download to downloads
 user_pref("browser.download.useDownloadDir", true); // 2651 - I'm explicit in my setup so am happy to always go to downloads
 user_pref("privacy.sanitize.sanitizeOnShutdown", false); // 2802 - Don't clear things everytime I shutdown
@@ -51,5 +52,16 @@ user_pref("ui.use_standins_for_native_colors", true); // 4615
 user_pref("security.enterprise_roots.enabled", true); // Trust keychain company certs - might work one day - https://www.jamf.com/jamf-nation/discussions/25166/how-to-firefox-trusting-company-certificates
 user_pref("security.osclientcerts.autoload", true);
 user_pref("accessibility.typeaheadfind.flashBar", 0); // I don't want the toolbar to flash when a find matches
+
+/*** Firefox 89 and later appearance improvements - https://github.com/black7375/Firefox-UI-Fix ***/
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // userchrome.css usercontent.css activate
+user_pref("svg.context-properties.content.enabled", true); // Fill SVG Color
+user_pref("layout.css.backdrop-filter.enabled", true); // CSS Blur Filter - 88 Above
+user_pref("browser.compactmode.show", true); // Restore Compact Mode - 89 Above
+// about:home Search Bar
+// user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+// ** Useful Options ***********************************************************
+
+user_pref("browser.urlbar.suggest.calculator", true); // Integrated calculator at urlbar
 
 /*** Don't forget to remove and reset deprecated refs in the 9999 section of the default file ***/
