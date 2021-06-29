@@ -59,10 +59,8 @@
     "window.newWindowDimensions": "inherit",
     "window.clickThroughInactive": false,
     "terminal.integrated.copyOnSelection": true,
-    "telemetry.enableTelemetry": false,
     "git.enableCommitSigning": true,
     "workbench.startupEditor": "newUntitledFile",
-    "go.coverageOptions": "showUncoveredCodeOnly",
     "go.coverageDecorator": {
         "uncoveredHighlightColor": "rgba(209, 59, 46, 0.2)",
         },
@@ -145,5 +143,38 @@
     "keyboard.touchbar.enabled": false,
     "workbench.enableExperiments": false,
     "update.showReleaseNotes": false,
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "coverage-gutters.coverageFileNames": [
+      "lcov.info",
+      "cov.xml",
+      "coverage.xml",
+      "jacoco.xml"
+    ],
+    "redhat.telemetry.enabled": false,
+    "copilot.enabled": {
+      "*": true,
+      "yaml": false,
+      "plaintext": false,
+      "markdown": false
+    },
+    "git.pruneOnFetch": true,
+    "scm.repositories.visible": 0,
+    "git.detectSubmodules": false,
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "zsh"
+      }
+    },
+    "terminal.integrated.profiles.osx": {
+      "zsh": {
+        "path": "zsh"
+      }
+    },
+    "terminal.integrated.shell.linux": "zsh",
+    "terminal.integrated.shell.osx": "zsh",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.autocomplete.enable": true
 }
