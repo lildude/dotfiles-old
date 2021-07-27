@@ -8,4 +8,4 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 source "$DIR/script/lib.sh"
 
 info "Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+git clone --quiet --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --bin
