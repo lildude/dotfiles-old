@@ -11,7 +11,7 @@ source "$DIR/../script/lib.sh"
 
 if [ ! -d "${HOME}/.zprezto" ]; then
   info "   … Downloading prezto"
-  git clone -q --recursive https://github.com/lildude/prezto.git "$HOME/.zprezto" > /dev/null 2>&1
+  git clone --quiet --recursive https://github.com/lildude/prezto.git "$HOME/.zprezto" > /dev/null 2>&1
 
   info "   … Installing ZSH rc files"
   while IFS= read -r -d '' src; do
@@ -22,7 +22,7 @@ if [ ! -d "${HOME}/.zprezto" ]; then
       info "   …… $(printf "%-40s → %s" "$display_src" "$display_dst")"
       ln -Ffs "$src" "$dst"
     fi
-  done <  <(find -H "${HOME}/.zprezto/runcoms/" -maxdepth 1 -type f -not -path '*/zlogout' -not -path '*/README.md' -print0)
+  done <  <(find -H "${HOME}/.zprezto/runcoms/" -maxdepth 1 -type f -o -type l -not -path '*/zlogout' -not -path '*/README.md' -print0)
 else
   info "   … Already installed. Updating .zpreto from fork on GitHub"
   git -C "${HOME}/.zprezto" pull -q
