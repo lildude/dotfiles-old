@@ -154,12 +154,6 @@
       "jacoco.xml"
     ],
     "redhat.telemetry.enabled": false,
-    "copilot.enabled": {
-      "*": true,
-      "yaml": false,
-      "plaintext": false,
-      "markdown": false
-    },
     "git.pruneOnFetch": true,
     "scm.repositories.visible": 0,
     "git.detectSubmodules": false,
@@ -176,5 +170,13 @@
     "terminal.integrated.shell.linux": "zsh",
     "terminal.integrated.shell.osx": "zsh",
     "editor.inlineSuggest.enabled": true,
-    "github.copilot.autocomplete.enable": true
+    "terminal.integrated.tabs.focusMode": "singleClick",
+    "github.copilot.autocomplete.enable": true,
+    "github.copilot.enable": {
+      "*": true,
+      "yaml": false,
+      "plaintext": true,
+      "markdown": false
+    },
+
 }
