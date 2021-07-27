@@ -134,5 +134,3 @@
 
 [include]
   path = ~/.gitconfig.local
-[credential]
-	helper = "!f() { /home/tester/.vscode-server/bin/c3f126316369cd610563c75b1b1725e0679adfb3/node /tmp/vscode-remote-containers-b7aae83e976fbc2831ce9a4d0f66404a8f959c8f.js $*; }; f"
