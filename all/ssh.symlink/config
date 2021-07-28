@@ -163,3 +163,9 @@ Host cluckwp
   IdentityFile ~/.ssh/azure_vm_2018_rsa
   User lildude
   AddKeysToAgent yes
+
+Host github-codespace ghcs codespace
+  User root
+  Hostname localhost
+  Port 2222
+  NoHostAuthenticationForLocalhost yes
