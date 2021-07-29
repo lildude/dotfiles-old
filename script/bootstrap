@@ -114,6 +114,9 @@ rm -f "$local_cfg"
 # Always use SSH
 git config --file "$local_cfg" url."git@github.com:".insteadof "https://github.com/"
 
+# Set path to gpg
+git config --file "$local_cfg" gpg.program "$(command -v gpg2 || command -v gpg)"
+
 # Use git-delta is available
 if command -v delta > /dev/null; then
   git config --file "$local_cfg" core.pager "delta --diff-so-fancy"
