@@ -15,9 +15,9 @@ function my_git_prompt
   set -l repo_info (command git --no-optional-locks status --porcelain=v2 --branch --ignore-submodules=dirty 2>/dev/null)
   set -l elapsed (math (date +%s)-$start_time)
   # If it took more than a second to get the repo info, we're probably in a massive repo so lets proactively enable the fs-monitor
-  if test $elapsed -gt 1
-    git config core.fsmonitor rs-git-fsmonitor
-  end
+  #if test $elapsed -gt 1
+  #  git config core.fsmonitor rs-git-fsmonitor
+  #end
 
   set -l branch (string sub --start 15 $repo_info[2])
   set -l untracked
