@@ -15,6 +15,9 @@
 # Override default when working in work repos
 [includeIf "gitdir:~/github/"]
   path = ~/.dotfiles/all/git/gitconfig-github
+# Work dirs on Codespaces
+[includeIf "gitdir:/workspaces/"]
+  path = ~/.dotfiles/all/git/gitconfig-github
 
 [github]
   user = lildude
