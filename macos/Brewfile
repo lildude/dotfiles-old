@@ -43,7 +43,7 @@ brew 'fswatch'
 brew 'fzf'
 brew 'fzy'
 brew 'gh'
-brew 'ghcs'
+brew 'ghcs'             # Without the tap: brew install github/packages/ghcs
 brew 'git'
 brew 'git-delta'
 brew 'git-lfs'
