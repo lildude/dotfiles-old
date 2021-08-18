@@ -16,6 +16,7 @@ tap 'goreleaser/tap/goreleaser'
 tap 'romkatv/gitstatus/gitstatus'
 tap 'grdl/tap/git-get'
 tap 'kopia/kopia'
+tap 'github/packages'           # Needed for ghcs - run `gh extensions install github/gh-cs` to add as extension to gh
 
 brew 'act'              # Run GitHub Actions locally
 brew 'adr-tools'
@@ -42,6 +43,7 @@ brew 'fswatch'
 brew 'fzf'
 brew 'fzy'
 brew 'gh'
+brew 'ghcs'
 brew 'git'
 brew 'git-delta'
 brew 'git-lfs'
