@@ -7,7 +7,7 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 source "$DIR/../script/lib.sh"
 
 # Exit early on Linux for the mo
-[ $LINUX ] || [ -n "$CI" ] && exit 0
+[ $LINUX ] || [ -n "${CI:-}" ] && exit 0
 
 if ! command -v code > /dev/null 2>&1; then
   fail "VS Code shell commands not installed."
