@@ -156,6 +156,7 @@ cask 'obsidian'
 cask 'postman'
 cask 'qlmarkdown'   # QuickLook support for markdown
 cask 'qlimagesize'  # QuickLook support for webp and showing image dimensions
+cask 'raycast'      # Alfred alternative
 cask 'rocket'
 cask 'signal'
 # cask 'skype'
