@@ -130,7 +130,6 @@
     "python.testing.pytestPath": "/Users/lildude/.asdf/shims/pytest",
     "python.formatting.blackPath": "/Users/lildude/.asdf/shims/black",
     "git.ignoreSubmodules": true,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
     "remote.SSH.connectTimeout": 1200,
     "sshfs.configpaths": [
       {
@@ -144,6 +143,10 @@
     "workbench.enableExperiments": false,
     "update.showReleaseNotes": false,
     "go.toolsManagement.autoUpdate": true,
+    "go.toolsEnvVars": {
+      "GOPRIVATE": "*github.com/github/*",
+      "GO111MODULE": "on"
+    },
     "workbench.editorAssociations": {
       "*.ipynb": "jupyter.notebook.ipynb"
     },
@@ -157,18 +160,13 @@
     "git.pruneOnFetch": true,
     "scm.repositories.visible": 0,
     "git.detectSubmodules": false,
-    "terminal.integrated.profiles.linux": {
-      "zsh": {
-        "path": "zsh"
+    "terminal.integrated.profiles.windows": {
+      "pwsh": {
+        "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
       }
     },
-    "terminal.integrated.profiles.osx": {
-      "zsh": {
-        "path": "zsh"
-      }
-    },
-    "terminal.integrated.shell.linux": "zsh",
-    "terminal.integrated.shell.osx": "zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.linux": "zsh",
     "editor.inlineSuggest.enabled": true,
     "terminal.integrated.tabs.focusMode": "singleClick",
     "github.copilot.autocomplete.enable": true,
@@ -177,6 +175,5 @@
       "yaml": false,
       "plaintext": true,
       "markdown": false
-    },
-
+    }
 }
