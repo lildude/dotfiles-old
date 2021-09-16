@@ -175,5 +175,7 @@
       "yaml": false,
       "plaintext": true,
       "markdown": false
-    }
+    },
+    "dotfiles.repository": "lildude/dotfiles",
+    "dotfiles.installCommand": "~/dotfiles/install.sh"
 }
