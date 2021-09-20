@@ -59,7 +59,9 @@
   # Get default branch - run `git remote set-head origin -a` if still returns master after a rename on github
   db = !git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'
   # Remove all local branches that were tracking remote branches that have been deleted.
-  up = "!git switch $(git db) && git pull --rebase --prune && for b in $(git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}'); do git branch -D $b; done"
+  #up = "!git switch $(git db) && git pull --rebase --prune && for b in $(git branch -vv --color=never | grep --color=never ': gone]' | awk '{print $1}'); do git branch -D $b; done"
+  # Safer version of above without the grep and for loop
+  up = "!git switch $(git db) && git pull --rebase --prune && git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' | xargs git branch -D"
   com = "!git switch $(git db)"
   # Create a pull request on GitHub using the `hub` command.
   pr = !hub pull-request -o
