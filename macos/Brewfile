@@ -153,6 +153,7 @@ cask 'ngrok'
 # cask 'numi'
 cask 'obsidian'
 # cask 'pallotron-yubiswitch'
+cask 'portfolioperformance'
 cask 'postman'
 cask 'qlmarkdown'   # QuickLook support for markdown
 cask 'qlimagesize'  # QuickLook support for webp and showing image dimensions
@@ -170,6 +171,7 @@ cask 'textexpander'
 cask 'the-unarchiver'
 cask 'transmission'
 cask 'transmit'
+cask 'trainerroad'
 # cask 'vagrant'
 # cask 'virtualbox'
 # cask 'virtualbox-extension-pack'
@@ -179,7 +181,7 @@ cask 'visual-studio-code'
 # cask 'vmware-fusion'
 # cask 'wireshark' # This is having problems installing at the mo - Oct 2019.
 # cask 'yubico-yubikey-manager'
-# cask 'zwift'
+cask 'zwift'
 
 # AppStore Apps
 mas 'Bear', id: 1_091_189_122
