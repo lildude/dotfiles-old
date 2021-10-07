@@ -177,5 +177,6 @@
       "markdown": false
     },
     "dotfiles.repository": "lildude/dotfiles",
-    "dotfiles.installCommand": "~/dotfiles/install.sh"
+    "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "editor.bracketPairColorization.enabled": true
 }
