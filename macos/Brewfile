@@ -21,15 +21,16 @@ tap 'github/packages'           # Needed for ghcs - run `gh extensions install g
 brew 'act'              # Run GitHub Actions locally
 brew 'adr-tools'
 brew 'ansible'
-brew 'asdf'              # Replaces rbenv, pyenv, nodeenv etc
+brew 'asdf'             # Replaces rbenv, pyenv, nodeenv etc
 brew 'awscli'
 brew 'azure-cli'
 brew 'base64'
 brew 'bash'             # Only needed for my Bash scripts now macOS isn't shipping updates etc
 brew 'bat'              # Like cat, but prettier
 brew 'checkbashisms'
+brew 'chezmoi'          # dotfile manager
 brew 'coreutils'
-brew 'croc'            # A tool for sending large files directly to someone on the CLI
+brew 'croc'             # A tool for sending large files directly to someone on the CLI
 brew 'diff-so-fancy'
 brew 'dos2unix'
 brew 'duf'
@@ -70,7 +71,7 @@ brew 'lazygit'
 brew 'lcov'
 brew 'lesspipe'
 brew 'lockrun'
-brew 'mas' # CLI tool for installing Mac App Store apps at the end of this file.
+brew 'mas'              # CLI tool for installing Mac App Store apps at the end of this file.
 brew 'moreutils'
 brew 'mosh'
 brew 'neovim'
@@ -81,15 +82,15 @@ brew 'prettyping'
 brew 'pstree'
 brew 'rclone'
 brew 'restic'
-brew 'ripgrep' # rg, an even faster version of ag
+brew 'ripgrep'          # rg, an even faster version of ag
 brew 'rs-git-fsmonitor' # Run `git config core.fsmonitor rs-git-fsmonitor` in large repos you want this magic in
 brew 'rsync'
-# brew 'rubyfmt' # Often outdated. Use precompile bin from https://github.com/penelopezone/rubyfmt/releases instead
+# brew 'rubyfmt'        # Often outdated. Use precompile bin from https://github.com/penelopezone/rubyfmt/releases instead
 brew 's3cmd'
 brew 'shellcheck'
 brew 'tldr'
 brew 'tmux'
-# brew 'toxiproxy'  # Requires "tap 'shopify/shopify'" above.
+# brew 'toxiproxy'      # Requires "tap 'shopify/shopify'" above.
 brew 'watch'
 brew 'xz'
 brew 'youtube-dl'
@@ -98,7 +99,7 @@ brew 'zsh-completions'
 
 cask '1password'
 cask '1password-cli'
-# cask 'aerial' # Aerial screensaver
+# cask 'aerial'         # Aerial screensaver
 cask 'alfred'
 # cask 'amazon-drive'
 # cask 'amazon-music'
@@ -138,14 +139,14 @@ cask 'imagealpha'
 cask 'imageoptim'
 cask 'insomnia' # Alternative to Postman
 cask 'iterm2'
-# cask 'little-snitch' # Temp disable for Big Sur
+# cask 'little-snitch'        # Temp disable for Big Sur
 cask 'karabiner-elements'
 cask 'keybase'
 cask 'mailtrackerblocker'
 cask 'microblog'
 # cask 'microsoft-edge'
 # cask 'microsoft-teams'
-cask 'multipass'    # Run Ubuntu Server easily locally
+cask 'multipass'              # Run Ubuntu Server easily locally
 cask 'muzzle'
 cask 'netnewswire'
 cask 'netspot'
@@ -155,9 +156,9 @@ cask 'obsidian'
 # cask 'pallotron-yubiswitch'
 cask 'portfolioperformance'
 cask 'postman'
-cask 'qlmarkdown'   # QuickLook support for markdown
-cask 'qlimagesize'  # QuickLook support for webp and showing image dimensions
-cask 'raycast'      # Alfred alternative
+cask 'qlmarkdown'             # QuickLook support for markdown
+cask 'qlimagesize'            # QuickLook support for webp and showing image dimensions
+cask 'raycast'                # Alfred alternative
 cask 'rocket'
 cask 'signal'
 # cask 'skype'
@@ -192,5 +193,4 @@ mas 'Monit', id: 1_014_850_245
 mas 'Monosnap', id: 540_348_655
 mas 'Pixelmator', id: 407_963_104
 mas 'pomodorome', id: 1_484_801_884
-# mas 'Tot', id: 1_491_071_483
 mas 'WireGuard', id: 1_451_685_025
