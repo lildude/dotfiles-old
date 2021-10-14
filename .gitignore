@@ -56,6 +56,8 @@ all/fish/fish_variables
 .secrets
 
 all/config.symlink/karabiner/automatic_backups/
+all/config.symlink/iterm2/
+all/config.symlink/op/
 
 # rake-test cache file
 .rake_tasks
