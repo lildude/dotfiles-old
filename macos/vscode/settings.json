@@ -178,5 +178,20 @@
     },
     "dotfiles.repository": "lildude/dotfiles",
     "dotfiles.installCommand": "~/dotfiles/install.sh",
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "remote.containers.defaultExtensions": [
+      "EditorConfig.EditorConfig",
+      "GitHub.copilot",
+      "eamodio.gitlens",
+      "chrislajoie.vscode-modelines"
+    ],
+    "github.codespaces.createCodespaceInNewWindow": true,
+    "github.codespaces.defaultExtensions": [
+      "GitHub.codespaces",
+      "EditorConfig.EditorConfig",
+      "GitHub.copilot",
+      "eamodio.gitlens",
+      "chrislajoie.vscode-modelines"
+    ]
 }
