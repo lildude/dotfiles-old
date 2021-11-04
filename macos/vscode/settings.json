@@ -12,8 +12,8 @@
     "editor.cursorWidth": 3,
     "editor.scrollBeyondLastLine": false,
     "editor.fontLigatures": true,
-    "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": false,
+    "files.autoSave": "onFocusChange",
     "terminal.external.osxExec": "iTerm2.app",
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
@@ -194,5 +194,17 @@
       "golang.go",
       "chrislajoie.vscode-modelines"
     ],
-    "go.lintTool": "golangci-lint",
+    "window.nativeTabs": true,
+    "spellright.language": [
+      "en_GB",
+      "en_US"
+    ],
+    "spellright.groupDictionaries": false,
+    "spellright.addToSystemDictionary": true,
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "git-commit"
+    ],
 }
