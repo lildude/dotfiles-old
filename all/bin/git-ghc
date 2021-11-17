@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Easily clone repos using :owner/:repo 
-function die {
+die() {
  echo "$@"
  exit 1
 }
 [ $# -ne 1 ] && die "Wrong number of arguments."
 nwo=$1
 
-git clone git@github.com:$nwo $nwo
+git clone "git@github.com:$nwo" "$nwo"
