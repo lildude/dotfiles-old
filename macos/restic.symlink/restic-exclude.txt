@@ -8,4 +8,5 @@ github/enterprise2/chroot-base-*
 github/enterprise2/chroot-*-dev-packages/
 github/enterprise2/img-*/
 github/enterprise2/reprepro-jessie/
+node_modules
 
