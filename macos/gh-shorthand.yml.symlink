@@ -1,8 +1,0 @@
-default_repo: "lildude/dotfiles"
-repos:
-  df: "lildude/dotfiles"
-  gg: "github/github"
-  gl: "github/linguist"
-  ge: "github/enterprise2"
-users:
-  z: "lildude"
