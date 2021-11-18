@@ -1,5 +1,7 @@
 
-/*** My ghacks user.js overrides - see https://github.com/ghacksuserjs/ghacks-user.js/wiki/3.3-Updater-Scripts ***/
+/*** My arkenfox user.js overrides - see https://github.com/arkenfox/user.js/wiki/3.3-Updater-Scripts ***/
+user_pref("lildude.canary.in.a.coalmine", "overrides: started"); // canary for if I've made a mistake below 
+
 user_pref("browser.startup.page", 3); // 0102 - I want my previous session restored cos crashes
 user_pref("browser.startup.homepage", "moz-extension://2e261119-0837-c54f-8aa1-c96aa41ee1f4/dashboard.html"); // 0103 - I use the Momentum extension
 user_pref("browser.search.region", "GB"); // 0201b - [HIDDEN PREF] I like my language proper
