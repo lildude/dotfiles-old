@@ -89,6 +89,7 @@ brew 'tldr'
 brew 'tmux'
 # brew 'toxiproxy'      # Requires "tap 'shopify/shopify'" above.
 brew 'watch'
+brew 'webp'             # For converting images to webp
 brew 'xz'
 #brew 'youtube-dl'
 brew 'zsh'
