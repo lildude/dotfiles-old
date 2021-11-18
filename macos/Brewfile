@@ -13,7 +13,6 @@ tap 'jgavris/rs-git-fsmonitor'
 tap 'muesli/tap'
 tap 'yqrashawn/goku'            # Needed for goku
 tap 'goreleaser/tap/goreleaser'
-tap 'romkatv/gitstatus/gitstatus'
 tap 'grdl/tap/git-get'
 tap 'kopia/kopia'
 
@@ -46,7 +45,6 @@ brew 'gh'
 brew 'git'
 brew 'git-delta'
 brew 'git-lfs'
-brew 'gitstatus'        # Without the tap: brew install romkatv/gitstatus/gitstatus
 brew 'git-get'          # Without the tap: brew install grdl/tap/git-get
 brew 'gnu-sed'
 brew 'gnupg'
@@ -68,6 +66,7 @@ brew 'lazydocker'
 brew 'lazygit'
 brew 'lcov'
 brew 'lesspipe'
+brew 'lipvips'          # Used by jekyll plugin to resize images
 brew 'lockrun'
 brew 'mas'              # CLI tool for installing Mac App Store apps at the end of this file.
 brew 'moreutils'
