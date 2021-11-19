@@ -16,6 +16,7 @@ tap 'goreleaser/tap/goreleaser'
 tap 'romkatv/gitstatus/gitstatus'
 tap 'grdl/tap/git-get'
 tap 'kopia/kopia'
+tap 'tavianator/tap/bfs'      # Needed for bfs
 
 brew 'act'              # Run GitHub Actions locally
 brew 'adr-tools'
@@ -26,6 +27,7 @@ brew 'asdf'             # Replaces rbenv, pyenv, nodeenv etc
 brew 'base64'
 brew 'bash'             # Only needed for my Bash scripts now macOS isn't shipping updates etc
 brew 'bat'              # Like cat, but prettier
+brew 'bfs'              # Bread-first version of find - much quicker and used by my fzf config.
 # brew 'checkbashisms'
 brew 'chezmoi'          # dotfile manager
 brew 'coreutils'
