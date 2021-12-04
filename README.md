@@ -1,6 +1,6 @@
 # lildude's dotfiles
 
-These are my dotfiles. I've borrowed many ideas from many different locations to create my ideal setup.
+**These are my old dotfiles. My new ones are now managed using chezmoi [here](https://github.com/lildude/dotfiles).**
 
 ## Instructions
 
